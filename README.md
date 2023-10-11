@@ -25,8 +25,6 @@ Marino Štura | mstura21@student.foi.hr | 0016153181 | dskudar20 | G02
 
 ## Opis domene
 Domena aplikacije za prodaju knjiga Scriptify obuhvaća stvaranje digitalne platforme koja omogućuje korisnicima kupovinu knjiga, kao i knjižarama mogućnost na prodaju svojih knjiga. Ova aplikacija treba biti korisniku prijateljska, sigurna i pouzdana, istovremeno pružajući autenticiranu i raznovrsnu kolekciju knjiga. Glavni problem koji se rješava ovom aplikacijom je olakšavanje procesa pronalaženja, kupovine knjiga za kupca, a za knjižare prodaje knjiga. 
-![Rampaprojeekt drawio](https://github.com/foivz/rampu23-scriptify/assets/126589951/f89971ee-9ea0-461c-9c18-40b62638dd14) Slika.1.2 
-Slika prikazuje ugrubo kako izgleda cijeli proces i obuhvaća domenu aplikacije.
 
 ## Specifikacija projekta
 
