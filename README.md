@@ -34,8 +34,9 @@ Na slici se prikazuje domena i sami ciklus aplikacije u cijelosti.
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
+F01 | Registracija | Odvajamo dva registracijska ekrana, jedan za korisnika i drugi za knjižare. Korisnici bi trebali dati svoje privatne podatke kao što su Korisničko ime, prezime, email i adresa. Dok knjižare bi trebale dati email, naziv, adresa, porezni broj, oib vlasnika, kontakt vlasnika. Svi podaci se pišu u bazi podataka gdje su sigurno čuvani. Po tipu korisnika on dobiva prava.  | Zlatko Stapić
+F02 | Login | Nakon registracije, korisnik ili knjižara sljedeći put se mogu logirati, njihovi podaci su upisani u sustav. Oboje moraju kliknuti na gumb korisnika ili knjižare. Ovisno o tome korisnik se može ulogirati i koristiti aplikaciju. U slučaju da Korisnik pokuša logirati kao knjižara sustav mu to ne bi omogućio.  | ...
+F03 | Login |   | ...
 
 ## Tehnologije i oprema
 Implementaciju naše aplikacije radit ćemo u programskom jeziku Kotlin te koristiti Android Studio razvojno okruženje. Za verzioniranje programskog koda koristit ćemo Git i GitHub. Kako bi pratili razvoj naše aplikacije pisat ćemo jednostavnu dokumentaciju u Github Wiki, a projektne zadatke ćemo planirati i pratiti u alatu GitHub projects.
