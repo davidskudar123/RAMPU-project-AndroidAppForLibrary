@@ -43,6 +43,7 @@ F06 | Upravljanje kupnja knjižare | Knjižare mogu vidjeti korisnike koji su na
 F07 | Kupnja knjiga | Omogućuje korisnicima da kupuju knjigu nakon što korisnik klikne na gumb kupi otvara se opis knjige koje kupuje i način plaćanja. Svaka kupnja je odvojena i svaku knjigu korisnik može platiti ili gotovinom pouzećem ili Scriptify Wallet-om|
 F08 | Primitak knjige knjiga | Korisnik u narudžbama ima knjigu koju je naručio i status je pending, sve dok korisnik ne dobije knjigu. Kada služba za dostavljanje dostavi korisniku knjigu, korisnik je dužan obavijestiti da je knjigu prihvatio. Pritiskom na gumb obavljeno, narudžba će biti obavljena.|
 F09 |Recenzije i Ocjene  | Omogućuje korisnicima da ocjenjuju i recenziraju knjige. Agregiranje ocjena i recenzija kako bi korisnicima pomoglo u donošenju informiranih odluka. |
+F10 |Scriptify Aproved program  | Korisnici koji imaju Scriptify wallet, mogu platiti one-time cijenu za posebne ponude knjiga, knjige koje tek dolaze ili koje su tek najavljane. Knjižare imaju opciju za svaku knjigu staviti Scriptify Aprooved tag gdje u tom slučaju samo korisnici iz ovog programa mogu čitati knjigu. Za druge korisnike koji nisu platili knjiga se neće pojaviti. |
 
 ## Tehnologije i oprema
 Implementaciju naše aplikacije radit ćemo u programskom jeziku Kotlin te koristiti Android Studio razvojno okruženje. Za verzioniranje programskog koda koristit ćemo Git i GitHub. Kako bi pratili razvoj naše aplikacije pisat ćemo jednostavnu dokumentaciju u Github Wiki, a projektne zadatke ćemo planirati i pratiti u alatu GitHub projects.
