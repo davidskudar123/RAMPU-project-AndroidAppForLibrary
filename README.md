@@ -39,6 +39,9 @@ F02 | Login | Nakon registracije, korisnik ili knjižara sljedeći put se mogu l
 F03 | Menadžment knjiga  | Knjižare koje su se uspješno registrirale i logirale imaju opciju na svoj market dodavati, mijenjati, brisati knjige. Prilikom dodavanja otvara se ekran gdje knjižara stavlja sliku knjige, ime, kratki opis, žanr, prosječno vrijeme čitanja, Oznaka Scriptify Aproved i cijenu knjige. Nakon dodavanja knjige korisnik može opet ući u knjigu da promjeni bilo koju postavku. Sva ažuriranja i brisanja se također dešavaju i na bazi podataka.  | ...
 F04 | Korisnički novčanik | Korisnik može dodavati novac svom Scriptify Wallet-u. Nakon što je dodao novce ne može ih vratiti natrag. Korisnik može dodati novac u izborniku gdje specificira koliko novaca želi staviti na račun a vanjski servisi se pobrinu da taj novac sigurno stigne u njegov Scriptify Wallet. Korisnik novčanikom može kupovati knjige. Plaćati posebne subskripcije aplikaciji.  | ...
 F05 | Kupovanje knjiga | Nakon što je korisnik se ulogirao, vidi popis svih knjižara u sustavu  | ...
+F06 | Upravljanje Inventarom za Knjižare | Praćenje inventara za knjižare, uključujući stanje zalihe i obavijesti o ponovnim narudžbama.
+Mogućnost masovnog učitavanja i upravljanja knjigama za knjižare.
+F07 | Recenzije i Ocjene | Omogućuje korisnicima da ocjenjuju i recenziraju knjige. Agregiranje ocjena i recenzija kako bi korisnicima pomoglo u donošenju informiranih odluka.
 
 ## Tehnologije i oprema
 Implementaciju naše aplikacije radit ćemo u programskom jeziku Kotlin te koristiti Android Studio razvojno okruženje. Za verzioniranje programskog koda koristit ćemo Git i GitHub. Kako bi pratili razvoj naše aplikacije pisat ćemo jednostavnu dokumentaciju u Github Wiki, a projektne zadatke ćemo planirati i pratiti u alatu GitHub projects.
