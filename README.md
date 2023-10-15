@@ -41,7 +41,7 @@ F04 | Korisnički novčanik | Korisnik može dodavati novac svom Scriptify Walle
 F05 | Pregled knjiga | Nakon što je korisnik se ulogirao, vidi popis svih knjižara u sustavu, na knjižare može kliknuti i vidjeti koje sve knjige prodaju. Klikom na knjigu korisnik treba vidjeti sve informacije o knjizi koju kupuje.  | ...
 F06 | Upravljanje kupnja knjižare | Knjižare mogu vidjeti korisnike koji su naručili knjige i njihove adrese kako bi mogli slati korisnicima naručene knjige. Knjižare u opciji narudžbe mogu vidjeti sve knjige koje su naručene od određenih korisnika. |
 F07 | Kupnja knjiga | Omogućuje korisnicima da kupuju knjigu nakon što korisnik klikne na gumb kupi otvara se opis knjige koje kupuje i način plaćanja. Svaka kupnja je odvojena i svaku knjigu korisnik može platiti ili gotovinom pouzećem ili Scriptify Wallet-om|
-F08 |Recenzije i Ocjene | | Omogućuje korisnicima da ocjenjuju i recenziraju knjige. Agregiranje ocjena i recenzija kako bi korisnicima pomoglo u donošenju informiranih odluka. |
+F08 |Recenzije i Ocjene  | Omogućuje korisnicima da ocjenjuju i recenziraju knjige. Agregiranje ocjena i recenzija kako bi korisnicima pomoglo u donošenju informiranih odluka. |
 
 ## Tehnologije i oprema
 Implementaciju naše aplikacije radit ćemo u programskom jeziku Kotlin te koristiti Android Studio razvojno okruženje. Za verzioniranje programskog koda koristit ćemo Git i GitHub. Kako bi pratili razvoj naše aplikacije pisat ćemo jednostavnu dokumentaciju u Github Wiki, a projektne zadatke ćemo planirati i pratiti u alatu GitHub projects.
