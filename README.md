@@ -37,7 +37,7 @@ F10 |Scriptify Aproved program  | Korisnici koji imaju Scriptify wallet, mogu pl
 Implementaciju naše aplikacije radit ćemo u programskom jeziku Kotlin te koristiti Android Studio razvojno okruženje. Za verzioniranje programskog koda koristit ćemo Git i GitHub. Kako bi pratili razvoj naše aplikacije pisat ćemo jednostavnu dokumentaciju u Github Wiki, a projektne zadatke ćemo planirati i pratiti u alatu GitHub projects.
 
 ## Baza podataka i web server
-Trebamo bazu podataka i pristup serveru za PHP skripte.
+Prema prijedlogu, koristit ćemo lokalno podignut server (express.js).
 
 ## .gitignore
 Uzmite u obzir da je u mapi Software .gitignore konfiguriran za nekoliko tehnologija, ali samo ako će projekti biti smješteni direktno u mapu Software ali ne i u neku pod mapu. Nakon odabira konačne tehnologije i projekta obavezno dopunite/premjestite gitignore kako bi vaš projekt zadovoljavao kriterije koji su opisani u ReadMe.md dokumentu dostupnom u mapi Software.
