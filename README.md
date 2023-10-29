@@ -12,11 +12,7 @@ David Škudar | dskudar20@foi.hr | 0016147892 | dskudar20 | G02
 Marino Štura | mstura21@student.foi.hr | 0016153181 | mstura21-FOI | G02
 
 ## Opis domene
-Domena aplikacije za prodaju knjiga Scriptify obuhvaća stvaranje digitalne platforme koja omogućuje korisnicima kupovinu knjiga, kao i knjižarama mogućnost na prodaju svojih knjiga. Ova aplikacija treba biti korisniku prijateljska, sigurna i pouzdana, istovremeno pružajući autenticiranu i raznovrsnu kolekciju knjiga. Glavni problem koji se rješava ovom aplikacijom je olakšavanje procesa pronalaženja, kupovine knjiga za kupca, a za knjižare prodaje knjiga. 
-![ramp drawio](https://github.com/foivz/rampu23-scriptify/assets/126589951/a57ec2cb-54c7-4574-ae7b-2be8824575ce)
-
-Slika.1.1 Na slici se prikazuje domena i sami ciklus aplikacije u cijelosti.
-
+Domena aplikacije za posudbu i razmjenu knjiga Scriptify obuhvaća stvaranje digitalne platforme koja omogućuje korisnicima razmjenu knjiga i posudba knjiga od knjižnica. Ova aplikacija treba biti korisniku prijateljska, sigurna i pouzdana, istovremeno pružajući autenticiranu i raznovrsnu kolekciju knjiga. Glavni problem koji se rješava ovom aplikacijom je olakšavanje procesa pronalaženja, razmjene ili posudbe knjiga za kupca. 
 
 ## Specifikacija projekta
 
