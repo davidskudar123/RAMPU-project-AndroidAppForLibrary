@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Prvi commit, kreiranje projekta.">
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +64,19 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="302f7f97-00ed-417d-a10c-6a0a8da8ae8d" />
+        <option name="url" value="https://github.com/foivz/rampu23-scriptify.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -249,6 +264,13 @@
       <option name="presentableId" value="Default" />
       <updated>1699094950500</updated>
     </task>
+    <task id="LOCAL−00001" summary="Prvi commit, kreiranje projekta.">
+      <created>1699097742493</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1699097742493</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -273,5 +295,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Prvi commit, kreiranje projekta." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prvi commit, kreiranje projekta." />
   </component>
 </project>
