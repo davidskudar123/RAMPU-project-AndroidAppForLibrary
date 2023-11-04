@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Drugi commit, testiranje kreiranog projekta">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/menu/bottom_navigation_menu.xml" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Napravljeni bottom navigation bar">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/FragmentManager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,10 +67,17 @@
       <list>
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="mstura-FOI &lt;mstura21@student.foi.hr&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="Development-Marino" />
@@ -93,7 +102,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Xhx8B3714iptnFyzE5chxvWvR1" />
   <component name="ProjectViewState">
@@ -108,6 +117,7 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cidr.known.project.marker": "true",
+    "last_directory_selection": "C:/Projects/rampu23-scriptify/Software/Scriptify/app/src/main/java",
     "last_opened_file_path": "C:/Projects",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
@@ -289,7 +299,25 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1699098423611</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Napravljeni bottom navigation bar">
+      <created>1699109802260</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1699109802260</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Napravljeni bottom navigation bar">
+      <created>1699109878904</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1699109878904</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Napravljeni bottom navigation bar">
+      <created>1699109929525</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1699109929525</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,6 +346,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prvi commit, kreiranje projekta." />
     <MESSAGE value="Drugi commit, testiranje kreiranog projekta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Drugi commit, testiranje kreiranog projekta" />
+    <MESSAGE value="Napravljeni bottom navigation bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Napravljeni bottom navigation bar" />
   </component>
 </project>
