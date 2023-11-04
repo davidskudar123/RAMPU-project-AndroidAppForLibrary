@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var bottomAppBar: BottomNavigationView
     @SuppressLint("MissingInflatedId")
+    //Bottom app bar je napravljen ovaj file ne dirati
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
