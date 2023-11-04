@@ -13,6 +13,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         textTest = findViewById(R.id.text_Test)
 
-        textTest.text = "Ovo je test"
+        textTest.text = "Test"
     }
 }
