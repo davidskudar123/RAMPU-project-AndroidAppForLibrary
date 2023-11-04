@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
     }
     private fun setCurrentFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()

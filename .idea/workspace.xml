@@ -9,21 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Napravljeni bottom navigation bar">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookExchangeFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/anim/slide_in_left.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/anim/slide_out_right.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/drawable/baseline_add_circle_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_exchange_fragment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_loan_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/FragmentManager.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/profile_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/profile_activity.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +79,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
+
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -301,55 +283,7 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1699097742493</updated>
     </task>
-    <task id="LOCAL−00002" summary="Drugi commit, testiranje kreiranog projekta">
-      <created>1699098423610</created>
-      <option name="number" value="LOCAL−00002" />
-      <option name="presentableId" value="LOCAL−00002" />
-      <updated>1699098423611</updated>
-    </task>
-    <task id="LOCAL−00003" summary="Napravljeni bottom navigation bar">
-      <created>1699109802260</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1699109802260</updated>
-    </task>
-    <task id="LOCAL−00004" summary="Napravljeni bottom navigation bar">
-      <created>1699109878904</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1699109878904</updated>
-    </task>
-    <task id="LOCAL−00005" summary="Napravljeni bottom navigation bar">
-      <created>1699109929525</created>
-      <option name="number" value="LOCAL−00005" />
-      <option name="presentableId" value="LOCAL−00005" />
-      <updated>1699109929525</updated>
-    </task>
-    <task id="LOCAL−00006" summary="Napravljeni bottom navigation bar">
-      <created>1699111288404</created>
-      <option name="number" value="LOCAL−00006" />
-      <option name="presentableId" value="LOCAL−00006" />
-      <updated>1699111288404</updated>
-    </task>
-    <task id="LOCAL−00007" summary="Napravljeni bottom navigation bar">
-      <created>1699113605795</created>
-      <option name="number" value="LOCAL−00007" />
-      <option name="presentableId" value="LOCAL−00007" />
-      <updated>1699113605795</updated>
-    </task>
-    <task id="LOCAL−00008" summary="Napravljeni bottom navigation bar">
-      <created>1699113879699</created>
-      <option name="number" value="LOCAL−00008" />
-      <option name="presentableId" value="LOCAL−00008" />
-      <updated>1699113879699</updated>
-    </task>
-    <task id="LOCAL−00009" summary="Napravljeni bottom navigation bar">
-      <created>1699119366132</created>
-      <option name="number" value="LOCAL−00009" />
-      <option name="presentableId" value="LOCAL−00009" />
-      <updated>1699119366132</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,8 +311,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prvi commit, kreiranje projekta." />
-    <MESSAGE value="Drugi commit, testiranje kreiranog projekta" />
-    <MESSAGE value="Napravljeni bottom navigation bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Napravljeni bottom navigation bar" />
+
   </component>
 </project>
