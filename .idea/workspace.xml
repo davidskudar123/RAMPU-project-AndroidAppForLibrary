@@ -322,7 +322,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1699111288404</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Napravljeni bottom navigation bar">
+      <created>1699113605795</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1699113605795</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
