@@ -31,32 +31,11 @@ class MyBooksFragment : Fragment(R.layout.my_books_fragment) {
         fab = view.findViewById(R.id.floatingActionButton)
 
         fab.setOnClickListener {
-           getUserData()
+
         }
 
         return view
     }
-    public fun getUserData(){
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default){
-            try {
-                val jsonConverter = JsonConverter()
-                val httpRequestManager = HttpRequestManager()
-                val data = httpRequestManager.getUserData()
 
-                launch(Dispatchers.Main) {
-                    val userlist: List<User> = jsonConverter.JsonToUserListConverter(data)
-                    var FirstName = "john_doe"
-                    for (user in userlist.indices){
-                        if(userlist[user].username == FirstName){
-                            Toast.makeText(requireContext(),userlist[user].username,Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            } catch (e: IOException) {
-                e.printStackTrace()
-                // Handle the exception, show an error message, etc.
-            }
-        }
-    }
 }
 

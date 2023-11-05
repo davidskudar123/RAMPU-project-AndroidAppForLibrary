@@ -1,9 +1,9 @@
 package blueprints
 
 data class User(
-    val id: Int,
+    val id_user: String,
     val username: String,
     val email: String,
-    val age: Int,
-    val createdAt: String
+    val password: String,
+    val create_time: String
 )
