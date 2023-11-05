@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
+import kotlinx.coroutines.*
 
 class HttpRequestManager {
     private val url: String = "http://192.168.1.113:4000/"
@@ -18,6 +19,7 @@ class HttpRequestManager {
         var res: String = ""
 
         try {
+
             val response = client.newCall(request).execute()
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
