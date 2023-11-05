@@ -13,33 +13,38 @@ import connectors.HttpRequestManager
 import java.io.IOException
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.*
-class MyBooksFragment(): Fragment(R.layout.my_books_fragment) {
+
+class MyBooksFragment : Fragment(R.layout.my_books_fragment) {
 
     lateinit var fab: FloatingActionButton
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.my_books_fragment,container,false)
+        var view = inflater.inflate(R.layout.my_books_fragment, container, false)
         fab = view.findViewById(R.id.floatingActionButton)
 
-        fab.setOnClickListener{
-
+        fab.setOnClickListener {
+            // Use lifecycleScope to launch a coroutine within the fragment's lifecycle
+            viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
                 try {
                     val httpRequestManager = HttpRequestManager()
-                    val data =  httpRequestManager.getData()
-                    Toast.makeText(requireContext(), data, Toast.LENGTH_LONG).show()
+                    val data = httpRequestManager.getUserData()
+
+                    launch(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), data, Toast.LENGTH_LONG).show()
+                    }
                 } catch (e: IOException) {
                     e.printStackTrace()
                     // Handle the exception, show an error message, etc.
                 }
-
             }
+        }
 
         return view
     }
 }
+
