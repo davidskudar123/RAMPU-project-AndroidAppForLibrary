@@ -48,9 +48,8 @@ class LoginActivity : AppCompatActivity() {
                     for (user in userlist.indices){
                         if(userlist[user].username == username && userlist[user].password == Password){
                             Toast.makeText(this@LoginActivity,"Welcome ${userlist[user].username}", Toast.LENGTH_LONG).show()
-                            startActivity(intent).apply {
-
-                            }
+                            intent.putExtra("id",userlist[user].id_user)
+                            startActivity(intent)
                         }else{
 
                         }
