@@ -35,6 +35,10 @@ android {
 }
 
 dependencies {
+    implementation ("com.android.volley:volley:1.2.1")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
