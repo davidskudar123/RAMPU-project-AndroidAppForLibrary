@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val id: Int = intent.getStringExtra("id")!!.toInt()
 
-        val profileFragment : ProfileFragment = ProfileFragment()
+        val profileFragment : ProfileFragment = ProfileFragment(id)
         val myBooksFragment: MyBooksFragment = MyBooksFragment()
         val bookExchangeFragment : BookExchangeFragment = BookExchangeFragment()
         val bookLoanFramgent: BooksLoan = BooksLoan()

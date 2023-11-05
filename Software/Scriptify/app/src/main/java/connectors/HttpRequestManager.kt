@@ -10,6 +10,8 @@ import okhttp3.Response
 import java.io.IOException
 import kotlinx.coroutines.*
 
+//Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
+
 class HttpRequestManager {
     private val url: String = "http://192.168.1.113:4000/"
     private var urlSpecific: String ="http://192.168.1.113:4000/loginuser"
@@ -36,7 +38,7 @@ class HttpRequestManager {
         return res
     }
     fun getSpecificUserData(id:Int): String  {
-        val request = Request.Builder().url("${urlSpecific}/:${id}").build()
+        val request = Request.Builder().url("${urlSpecific}/${id}").build()
         var res: String = ""
 
         try {
