@@ -51,9 +51,12 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 val data = httpRequestManager.getSpecificUserData(Id)
 
                 launch(Dispatchers.Main) {
-                    val user: List<User> = jsonConverter.JsonToUserConverter(data)
-                    mail.setText(user[0].email)
-                    username.setText(user[0].username)
+                    val user: List<User>? = jsonConverter.JsonToUserConverter(data)
+                    if(user != null){
+                        mail.setText(user[0].email)
+                        username.setText(user[0].username)
+                    }
+
                 }
             } catch (e: IOException) {
                 e.printStackTrace()

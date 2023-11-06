@@ -43,22 +43,35 @@ class LoginActivity : AppCompatActivity() {
                 val data = httpRequestManager.getUserData()
 
                 launch(Dispatchers.Main) {
-                    val userlist: List<User> = jsonConverter.JsonToUserListConverter(data)
+                    try{
+                        val userlist: List<User>? = jsonConverter.JsonToUserListConverter(data)
+                        if(userlist != null){
+                        for (user in userlist.indices) {
+                            if (userlist[user].username == username && userlist[user].password == Password) {
 
-                    for (user in userlist.indices){
-                        if(userlist[user].username == username && userlist[user].password == Password){
+                                intent.putExtra("id", userlist[user].id_user)
+                                Toast.makeText(
+                                    this@LoginActivity,
+                                    "Welcome ${userlist[user].username}",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                startActivity(intent)
+                            } else {
 
-                            intent.putExtra("id",userlist[user].id_user)
-                            Toast.makeText(this@LoginActivity,"Welcome ${userlist[user].username}", Toast.LENGTH_LONG).show()
-                            startActivity(intent)
-                        }else{
-
+                            }
                         }
+                    }else{
+                            Toast.makeText(this@LoginActivity,"Something went wrong",Toast.LENGTH_LONG).show()
+                        }
+
+                    }catch (e:IOException){
+                        e.printStackTrace()
+                        Toast.makeText(this@LoginActivity,"Something went wrong",Toast.LENGTH_LONG).show()
                     }
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
-                // Handle the exception, show an error message, etc.
+                Toast.makeText(this@LoginActivity,"Something went wrong",Toast.LENGTH_LONG).show()
             }
         }
     }

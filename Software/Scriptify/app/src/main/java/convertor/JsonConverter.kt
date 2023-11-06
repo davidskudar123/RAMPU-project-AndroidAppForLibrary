@@ -7,12 +7,21 @@ import com.google.gson.Gson
 
 class JsonConverter {
 
-    public fun JsonToUserListConverter(json:String):List<User>{
-        val gson = Gson()
-        return gson.fromJson(json,Array<User>::class.java).toList()
+    public fun JsonToUserListConverter(json:String):List<User>?{
+        if(json == "null"){
+            return null
+        }else{
+            val gson = Gson()
+            return gson.fromJson(json,Array<User>::class.java).toList()
+        }
+
     }
-    public fun JsonToUserConverter(json:String):List<User>{
-        val gson = Gson()
-        return gson.fromJson(json,Array<User>::class.java).toList()
+    public fun JsonToUserConverter(json:String):List<User>?{
+        if(json == "null"){
+            return null
+        }else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<User>::class.java).toList()
+        }
     }
 }
