@@ -13,8 +13,8 @@ import kotlinx.coroutines.*
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
-    private val url: String = "http://172.20.10.2:4000/"
-    private var urlSpecific: String ="http://172.20.10.2:4000/loginuser"
+    private val url: String = "http://192.168.1.3:4000/"
+    private var urlSpecific: String ="http://192.168.1.3:4000/loginuser"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
