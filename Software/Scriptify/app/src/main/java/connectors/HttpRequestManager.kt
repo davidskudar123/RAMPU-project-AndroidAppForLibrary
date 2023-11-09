@@ -1,5 +1,6 @@
 package connectors
 
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Call
@@ -9,12 +10,15 @@ import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 import kotlinx.coroutines.*
+import java.util.Properties
 
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
-    private val url: String = "http://172.20.10.2:4000/"
-    private var urlSpecific: String ="http://172.20.10.2:4000/loginuser"
+    val properties = Properties()
+    private val address:String ="http://192.168.1.113"
+    private val url: String = "${address}:4000/"
+    private var urlSpecific: String ="${address}:4000/loginuser"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
