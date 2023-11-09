@@ -28,6 +28,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
     lateinit var username: EditText
     lateinit var mail: EditText
     lateinit var profile_button: Button
+    lateinit var adress_profile:EditText
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +39,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         username = view.findViewById(R.id.username_profile)
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
+        adress_profile = view.findViewById(R.id.adress_profile)
         loadData(mail,username)
         return view
     }
@@ -55,6 +57,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                     if(user != null){
                         mail.setText(user[0].email)
                         username.setText(user[0].username)
+                        adress_profile.setText(user[0].address)
                     }
 
                 }
