@@ -18,6 +18,7 @@ import connectors.HttpRequestManager
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import java.io.IOException
 
 // Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview
@@ -41,6 +42,10 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         profile_button = view.findViewById(R.id.profileUpdate)
         adress_profile = view.findViewById(R.id.adress_profile)
         loadData(mail,username)
+
+        profile_button.setOnClickListener{
+            saveUserData(username, mail);
+        }
         return view
     }
 
@@ -64,6 +69,37 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
             } catch (e: IOException) {
                 e.printStackTrace()
                 // Handle the exception, show an error message, etc.
+            }
+        }
+    }
+    private fun saveUserData(username : EditText, mail : EditText) {
+        val updatedUsername = username.text.toString()
+        val updatedMail = mail.text.toString()
+        //val updatedAddress = adress_profile.text.toString()
+        val jsonObject = JSONObject()
+        jsonObject.put("id_user", Id) // Pretpostavimo da trebate poslati i ID korisnika
+        jsonObject.put("username", updatedUsername)
+        jsonObject.put("email", updatedMail)
+        val jsonBody = jsonObject.toString()
+
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
+            try {
+                val jsonConverter = JsonConverter()
+                val httpRequestManager = HttpRequestManager()
+
+                // Ovdje biste trebali pozvati funkciju koja šalje ažurirane podatke na server, primjerice:
+                val success = httpRequestManager.updateUserData(jsonBody, Id)
+
+                launch(Dispatchers.Main) {
+                    if (success) {
+                        Toast.makeText(requireContext(), "Podaci ažurirani", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(requireContext(), "Greška pri ažuriranju podataka", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: IOException) {
+                e.printStackTrace()
+                // Ovdje biste obradili iznimku, pokazali poruku o grešci itd.
             }
         }
     }

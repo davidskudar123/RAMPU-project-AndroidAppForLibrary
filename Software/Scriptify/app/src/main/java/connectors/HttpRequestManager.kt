@@ -9,12 +9,17 @@ import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 import kotlinx.coroutines.*
+import okhttp3.FormBody
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
 
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
-    private val url: String = "http://172.20.10.2:4000/"
-    private var urlSpecific: String ="http://172.20.10.2:4000/loginuser"
+    private val url: String = "http://192.168.1.3:4000/"
+    private var urlSpecific: String = "http://192.168.1.3:4000/loginuser"
+    private val urlUpdate : String = "http://192.168.1.3:4000/updateUserData"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
@@ -56,5 +61,17 @@ class HttpRequestManager {
         }
 
         return res.toString()
+    }
+
+    fun updateUserData(jsonBody : String, id:Int): Boolean {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${urlUpdate}/${id}")
+            .post(RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonBody))
+            .build()
+
+        val response = client.newCall(request).execute()
+
+        return response.isSuccessful
     }
 }
