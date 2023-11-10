@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Profile"
+        android:icon="@drawable/baseline_person_24"
+        android:enabled="true"
+        android:iconTint="@color/dark_theme"
+        />
+    <item
+        android:id="@+id/book_exchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Book Exchange"
+        android:enabled="true"
+        android:iconTint="@color/dark_theme"
+        android:icon="@drawable/baseline_library_books_24"
+        />
+    <item
+        android:id="@+id/book_loan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:icon="@drawable/baseline_add_business_24"
+        android:title="Book Loan"
+        android:iconTint="@color/dark_theme"/>
+    <item
+        android:id="@+id/my_books"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:icon="@drawable/baseline_menu_book_24"
+        android:title="My Books"
+        android:iconTint="@color/dark_theme"
+        android:iconTintMode="add"
+        />
+
+</menu>
