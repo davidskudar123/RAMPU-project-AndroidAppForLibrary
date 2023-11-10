@@ -91,6 +91,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="imagePath" value="C:\Projects\rampu23-scriptify\Software\Scriptify\app\src\main\res\drawable\baseline_menu_book_24.xml" />
+                                                <entry key="scalingPercent" value="42" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -130,7 +132,8 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="5c5c5c" />
-                                      <entry key="foregroundAssetType" value="TEXT" />
+                                      <entry key="generatePlayStoreIcon" value="false" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>
