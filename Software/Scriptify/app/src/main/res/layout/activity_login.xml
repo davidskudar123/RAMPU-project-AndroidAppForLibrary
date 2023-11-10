@@ -41,7 +41,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:text="Don't have an acount?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,17 +49,17 @@
 
     <Button
         android:id="@+id/Register_button"
-        android:layout_width="144dp"
-        android:layout_height="0dp"
+        android:layout_width="171dp"
+        android:layout_height="47dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="48dp"
         android:backgroundTint="@color/mid_light_theme"
         android:elevation="10dp"
         android:stateListAnimator="@null"
-
         android:text="Register now!"
         android:translationZ="24dp"
         app:cornerRadius="12dp"
+        app:icon="@drawable/baseline_person_add_alt_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -101,7 +101,10 @@
             android:hint="User name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:icon="@drawable/baseline_person_24"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Username_login"
@@ -121,7 +124,9 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/baseline_password_24"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Password_login"
