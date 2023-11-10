@@ -17,9 +17,9 @@ import okhttp3.RequestBody
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
-    private val url: String = "http://192.168.1.3:4000/"
-    private var urlSpecific: String = "http://192.168.1.3:4000/loginuser"
-    private val urlUpdate : String = "http://192.168.1.3:4000/updateUserData"
+    private val url: String = "http://192.168.167.145:4000/"
+    private var urlSpecific: String = "http://192.168.167.145:4000/loginuser"
+    private val urlUpdate : String = "http://192.168.167.145:4000/updateUserData"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {

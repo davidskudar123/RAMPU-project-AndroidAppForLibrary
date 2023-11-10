@@ -26,10 +26,13 @@ import java.io.IOException
 class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
 
     private val Id: Int = id
+    lateinit var first_name: EditText
+    lateinit var last_name: EditText
+    lateinit var address:EditText
     lateinit var username: EditText
     lateinit var mail: EditText
     lateinit var profile_button: Button
-    lateinit var adress_profile:EditText
+
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,19 +40,22 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         savedInstanceState: Bundle?
     ): View? {
         var view = inflater.inflate(R.layout.profile_activity, container, false)
+        first_name = view.findViewById(R.id.first_name_profile)
+        last_name = view.findViewById(R.id.last_name_profile)
+        address = view.findViewById(R.id.address_profile)
         username = view.findViewById(R.id.username_profile)
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
-        adress_profile = view.findViewById(R.id.adress_profile)
-        loadData(mail,username)
+
+        loadData(first_name, last_name, address, mail, username)
 
         profile_button.setOnClickListener{
-            saveUserData(username, mail);
+            saveUserData(first_name, last_name, address, username, mail);
         }
         return view
     }
 
-    public fun loadData(mail: EditText,username: EditText){
+    public fun loadData(first_name: EditText, last_name: EditText, address: EditText, mail: EditText,username: EditText){
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default){
             try {
 
@@ -60,9 +66,11 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 launch(Dispatchers.Main) {
                     val user: List<User>? = jsonConverter.JsonToUserConverter(data)
                     if(user != null){
+                        first_name.setText(user[0].first_name)
+                        last_name.setText(user[0].last_name)
+                        address.setText(user[0].address)
                         mail.setText(user[0].email)
                         username.setText(user[0].username)
-                        adress_profile.setText(user[0].address)
                     }
 
                 }
@@ -72,12 +80,19 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
             }
         }
     }
-    private fun saveUserData(username : EditText, mail : EditText) {
+    private fun saveUserData(first_name: EditText, last_name: EditText, address: EditText, username : EditText, mail : EditText) {
+        val updatedFirstName = first_name.text.toString()
+        val updatedLastName = last_name.text.toString()
+        val updatedAddress = address.text.toString()
         val updatedUsername = username.text.toString()
         val updatedMail = mail.text.toString()
+
         //val updatedAddress = adress_profile.text.toString()
         val jsonObject = JSONObject()
-        jsonObject.put("id_user", Id) // Pretpostavimo da trebate poslati i ID korisnika
+        jsonObject.put("id_user", Id) // Pretpostavimo da treba poslati i ID korisnika
+        jsonObject.put("first_name", updatedFirstName)
+        jsonObject.put("last_name", updatedLastName)
+        jsonObject.put("address", updatedAddress)
         jsonObject.put("username", updatedUsername)
         jsonObject.put("email", updatedMail)
         val jsonBody = jsonObject.toString()
@@ -87,7 +102,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 val jsonConverter = JsonConverter()
                 val httpRequestManager = HttpRequestManager()
 
-                // Ovdje biste trebali pozvati funkciju koja šalje ažurirane podatke na server, primjerice:
                 val success = httpRequestManager.updateUserData(jsonBody, Id)
 
                 launch(Dispatchers.Main) {
@@ -99,7 +113,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
-                // Ovdje biste obradili iznimku, pokazali poruku o grešci itd.
             }
         }
     }
