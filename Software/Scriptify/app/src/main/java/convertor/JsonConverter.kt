@@ -1,5 +1,6 @@
 package convertor
 
+import blueprints.Books
 import blueprints.User
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -34,5 +35,14 @@ class JsonConverter {
         jsonObject.put("password", updatedPassword)
         jsonObject.put("email", updatedMail)
         return  jsonObject.toString()
+    }
+
+    public fun JsonToBooksConverter(json:String):List<Books>?{
+        if(json == "null"){
+            return null
+        }else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Books>::class.java).toList()
+        }
     }
 }
