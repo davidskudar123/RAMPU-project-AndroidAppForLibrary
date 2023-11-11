@@ -47,7 +47,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         password = view.findViewById(R.id.password_profile)
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
-        loadData(first_name, last_name, address, mail,password, username)
+        loadData(first_name, last_name, address, mail,username,password)
 
         profile_button.setOnClickListener{
             saveUserData(first_name, last_name, address, username, password, mail);
