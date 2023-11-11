@@ -32,6 +32,7 @@ class MyBooksFragment : Fragment(R.layout.my_books_fragment) {
         var view = inflater.inflate(R.layout.my_books_fragment, container, false)
         fab = view.findViewById(R.id.floatingActionButton)
 
+
         fab.setOnClickListener {
 
         }
