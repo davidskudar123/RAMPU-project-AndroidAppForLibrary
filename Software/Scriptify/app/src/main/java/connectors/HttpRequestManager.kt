@@ -22,7 +22,7 @@ class HttpRequestManager {
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var urlUpdate: String ="${address}:4000/updateUserData"
-    private var urlBooks: String = "${address}:4000"
+    private var urlBooks: String = "${address}:4000/myBooks"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
@@ -66,8 +66,24 @@ class HttpRequestManager {
         return res.toString()
     }
 
-    fun getUserBooks(id:Int){
+    fun getUserBooks(id:Int):String{
+        val request = Request.Builder().url("${urlBooks}/${id}").build()
+        var res: String? = ""
+        try {
 
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return res.toString()
     }
     fun updateUserData(jsonBody : String, id:Int): Boolean {
         val client = OkHttpClient()
