@@ -16,7 +16,7 @@ import java.util.Properties
 
 class HttpRequestManager {
     val properties = Properties()
-    private val address:String ="Vaša ip adresa"
+    private val address:String ="ipadresa"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private val client = OkHttpClient()
