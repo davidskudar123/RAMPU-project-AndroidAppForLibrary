@@ -89,17 +89,10 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         val updatedUsername = username.text.toString()
         val updatedPassword = password.text.toString()
         val updatedMail = mail.text.toString()
-
+        val jsonConverter: JsonConverter = JsonConverter()
         //val updatedAddress = adress_profile.text.toString()
-        val jsonObject = JSONObject()
-        jsonObject.put("id_user", Id) // Pretpostavimo da treba poslati i ID korisnika
-        jsonObject.put("first_name", updatedFirstName)
-        jsonObject.put("last_name", updatedLastName)
-        jsonObject.put("address", updatedAddress)
-        jsonObject.put("username", updatedUsername)
-        jsonObject.put("password", updatedPassword)
-        jsonObject.put("email", updatedMail)
-        val jsonBody = jsonObject.toString()
+
+        val jsonBody = jsonConverter.UserToJsonConverter(Id,updatedFirstName,updatedLastName,updatedAddress,updatedUsername,updatedPassword,updatedMail)
 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
             try {
