@@ -94,7 +94,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
 
         val jsonBody = jsonConverter.UserToJsonConverter(Id,updatedFirstName,updatedLastName,updatedAddress,updatedUsername,updatedPassword,updatedMail)
 
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
+       val courutine =  viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
             try {
                 val jsonConverter = JsonConverter()
                 val httpRequestManager = HttpRequestManager()
@@ -112,6 +112,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 e.printStackTrace()
             }
         }
+        courutine.cancel()
     }
 
 }
