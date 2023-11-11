@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         val id: Int = intent.getStringExtra("id")!!.toInt()
 
         val profileFragment : ProfileFragment = ProfileFragment(id)
-        val myBooksFragment: MyBooksFragment = MyBooksFragment()
-        val bookExchangeFragment : BookExchangeFragment = BookExchangeFragment()
-        val bookLoanFramgent: BooksLoan = BooksLoan()
+        val myBooksFragment: MyBooksFragment = MyBooksFragment(id)
+        val bookExchangeFragment : BookExchangeFragment = BookExchangeFragment(id)
+        val bookLoanFramgent: BooksLoan = BooksLoan(id)
         bottomAppBar = findViewById(R.id.bottom_navigation)
         bottomAppBar.selectedItemId = R.id.book_exchange
         setCurrentFragment(bookExchangeFragment)
