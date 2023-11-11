@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -30,7 +29,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
     lateinit var mail: EditText
     lateinit var profile_button: Button
     lateinit var adress_profile:EditText
-    lateinit var progressBar: ProgressBar
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,9 +40,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
         adress_profile = view.findViewById(R.id.adress_profile)
-        progressBar = view.findViewById(R.id.progressBar_profile)
         loadData(mail,username)
-        progressBar.setVisibility(View.INVISIBLE)
         return view
     }
 
