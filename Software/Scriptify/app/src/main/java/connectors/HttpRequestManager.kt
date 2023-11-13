@@ -12,6 +12,7 @@ import java.io.IOException
 import kotlinx.coroutines.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.Properties
 
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
@@ -22,6 +23,7 @@ class HttpRequestManager {
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var urlUpdate: String ="${address}:4000/updateUserData"
+    private var urlUpdateBook: String ="${address}:4000/updateBook"
     private var urlBooks: String = "${address}:4000/myBooks"
     private val client = OkHttpClient()
 
@@ -89,7 +91,18 @@ class HttpRequestManager {
         val client = OkHttpClient()
         val request = Request.Builder()
             .url("${urlUpdate}/${id}")
-            .post(RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonBody))
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+
+        val response = client.newCall(request).execute()
+
+        return response.isSuccessful
+    }
+    fun updateBookData(jsonBody : String, id:Int): Boolean {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${urlUpdateBook}/${id}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
             .build()
 
         val response = client.newCall(request).execute()

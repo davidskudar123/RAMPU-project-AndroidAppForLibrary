@@ -22,8 +22,10 @@ import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.*
+import kotlinx.coroutines.delay
 // Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview
 //VRLO BITNO- Pošto radimo sa http requestovima potrebno je koristiti courutines, u ostalim fragmentima može se pronaći implementacija koja se može iskopirati i doraditi po potrebi
+
 class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
     lateinit var fab: FloatingActionButton
@@ -38,11 +40,12 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
         fab = view.findViewById(R.id.floatingActionButton)
         recycler = view.findViewById(R.id.my_books_rv)
         recycler.layoutManager = LinearLayoutManager(requireContext())
+
         loadView(Id,recycler)
         fab.setOnClickListener {
 
         }
-
+        refresh()
         return view
     }
 
@@ -56,7 +59,7 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
                     launch(Dispatchers.Main) {
                         val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)
-                        val adapter = MyBookRecyclerAdapter(books!!)
+                        val adapter = MyBookRecyclerAdapter(books!!,Id)
                         recyclerView.adapter = adapter
                     }
                 }catch (err:IOException){
@@ -68,5 +71,15 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
 
     }
+    public fun refresh(){
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
+            for(i in 0..5000){
+                delay(5000)
+                loadView(Id,recycler)
+            }
+
+        }
+    }
+
 }
 

@@ -112,7 +112,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 e.printStackTrace()
             }
         }
-        courutine.cancel()
+
     }
 
 }

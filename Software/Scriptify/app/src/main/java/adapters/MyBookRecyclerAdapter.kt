@@ -15,11 +15,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import fragments.BooksLoan
 import fragments.MyBookDialogFragment
 
-class MyBookRecyclerAdapter(val data:List<Books>) : RecyclerView.Adapter<MyBookRecyclerAdapter.ViewHolder>() {
-
+class MyBookRecyclerAdapter(val data:List<Books>,Id:Int) : RecyclerView.Adapter<MyBookRecyclerAdapter.ViewHolder>() {
+        var Id = Id
     inner class ViewHolder(item: View):RecyclerView.ViewHolder(item){
             var name: TextView = item.findViewById(R.id.book_name_my_books)
             var desc: TextView = item.findViewById(R.id.description_my_books)
+            var autor: TextView = item.findViewById(R.id.Autor_mybooks)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,9 +37,10 @@ class MyBookRecyclerAdapter(val data:List<Books>) : RecyclerView.Adapter<MyBookR
         val items = data[position]
         holder.name.text = items.naziv_knjige
         holder.desc.text = items.Description
+        holder.autor.text = items.autor
         holder.itemView.setOnClickListener {
             val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
-            val myBookDialogFragment = MyBookDialogFragment(items.idKnjige.toInt(),items.naziv_knjige,items.Description)
+            val myBookDialogFragment = MyBookDialogFragment(items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor)
             myBookDialogFragment.show(fragmentManager, "MyBookDialogFragment")
         }
 
