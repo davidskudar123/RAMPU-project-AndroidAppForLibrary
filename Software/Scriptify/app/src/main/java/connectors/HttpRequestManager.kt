@@ -18,7 +18,7 @@ import java.util.Properties
 
 class HttpRequestManager {
     val properties = Properties()
-    private val address:String ="adresa"
+    private val address:String ="http://192.168.1.113"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var urlUpdate: String ="${address}:4000/updateUserData"
