@@ -24,7 +24,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String) : DialogFragment(R.layout.dialog_my_books) {
+class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
     var IdBook = ID
     var Name = Naziv
     var Desc = Desc
@@ -64,7 +64,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String) : Dialo
         }
         update.setOnClickListener {
             saveBookData(IdBook,bookName,bookDesc,autor)
-
+            notifyBookUpdated()
             dismiss()
         }
         delete.setOnClickListener {
@@ -76,12 +76,15 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String) : Dialo
 
         return view
     }
-
+    fun notifyBookUpdated() {
+        updateCallback.invoke()
+    }
     fun saveBookData(bookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText){
         val updatedNaziv = Naziv.text.toString()
         val updatedDesc = Desc.text.toString()
         val updatedAutor = Autor.text.toString()
         val jsonConverter: JsonConverter = JsonConverter()
+        notifyBookUpdated()
         var success: Boolean = false
         val httpRequestManager: HttpRequestManager = HttpRequestManager()
         val jsonBody = jsonConverter.BookToJsonConverter(bookID,updatedNaziv,updatedDesc,updatedAutor)

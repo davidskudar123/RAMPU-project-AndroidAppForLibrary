@@ -3,6 +3,7 @@ package fragments
 import adapters.MyBookRecyclerAdapter
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,7 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
         fab.setOnClickListener {
 
         }
-        refresh()
+
         return view
     }
 
@@ -59,8 +60,12 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
                     launch(Dispatchers.Main) {
                         val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)
-                        val adapter = MyBookRecyclerAdapter(books!!,Id)
+                        val adapter = MyBookRecyclerAdapter(books!!,Id){
+                            Log.d("MyBooksFragment", "Callback triggered. Updating RecyclerView.")
+                            loadView(Id,recycler)
+                        }
                         recyclerView.adapter = adapter
+
                     }
                 }catch (err:IOException){
                     Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_LONG)
@@ -71,15 +76,7 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
 
     }
-    public fun refresh(){
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
-            for(i in 0..5000){
-                delay(5000)
-                loadView(Id,recycler)
-            }
 
-        }
-    }
 
 }
 

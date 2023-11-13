@@ -15,7 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import fragments.BooksLoan
 import fragments.MyBookDialogFragment
 
-class MyBookRecyclerAdapter(val data:List<Books>,Id:Int) : RecyclerView.Adapter<MyBookRecyclerAdapter.ViewHolder>() {
+class MyBookRecyclerAdapter(val data:List<Books>,Id:Int,val updateCallback: () -> Unit) : RecyclerView.Adapter<MyBookRecyclerAdapter.ViewHolder>() {
         var Id = Id
     inner class ViewHolder(item: View):RecyclerView.ViewHolder(item){
             var name: TextView = item.findViewById(R.id.book_name_my_books)
@@ -40,9 +40,10 @@ class MyBookRecyclerAdapter(val data:List<Books>,Id:Int) : RecyclerView.Adapter<
         holder.autor.text = items.autor
         holder.itemView.setOnClickListener {
             val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
-            val myBookDialogFragment = MyBookDialogFragment(items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor)
+            val myBookDialogFragment = MyBookDialogFragment(items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor,updateCallback)
             myBookDialogFragment.show(fragmentManager, "MyBookDialogFragment")
         }
 
     }
+
 }
