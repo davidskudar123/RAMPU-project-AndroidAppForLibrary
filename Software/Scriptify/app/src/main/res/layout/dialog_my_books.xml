@@ -5,7 +5,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:layout_gravity="center|top">
+    android:layout_gravity="center|top"
+    android:layout_margin="10dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -13,87 +15,105 @@
         android:layout_height="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:id="@+id/title_dialog_mybooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Title"
+            android:textSize="24dp"
+
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/my_book_dialog_name"
+
+            android:id="@+id/textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
             android:hint="Name"
             app:icon="@drawable/baseline_person_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:startIconDrawable="@drawable/baseline_menu_book_24">
 
+
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Username_login"
+                android:id="@+id/my_book_dialog_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/my_book_dialog_desc"
+
+            android:id="@+id/textInputLayout2"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:hint="Description"
+            android:layout_marginTop="120dp"
 
+            android:hint="Description"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:startIconDrawable="@drawable/baseline_description_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Password_login"
+                android:id="@+id/my_book_dialog_desc"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:inputType="textPassword"
-                android:textSize="14dp"/>
+
+                android:layout_height="114dp"
+                android:inputType="textMultiLine"
+                android:textSize="14dp" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton3"
+            android:id="@+id/my_book_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="95dp"
+
+            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/mid_light_theme"
             android:text="Update"
             app:cornerRadius="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.937"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_book_dialog_desc"
-            app:layout_constraintVertical_bias="1.0" />
+
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton2"
+            android:id="@+id/mybooks_delete_dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_marginStart="44dp"
             android:layout_marginEnd="26dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:backgroundTint="@color/dark_theme"
             android:text="Delete"
             app:cornerRadius="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/materialButton3"
-            app:layout_constraintHorizontal_bias="0.769"
-            app:layout_constraintStart_toEndOf="@+id/materialButton"
-            app:layout_constraintTop_toBottomOf="@+id/my_book_dialog_desc"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toStartOf="@+id/my_book_update"
+            app:layout_constraintHorizontal_bias="0.578"
+
+            app:layout_constraintStart_toEndOf="@+id/mybooks_close_dialog" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/mybooks_close_dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -105,6 +125,7 @@
             app:cornerRadius="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

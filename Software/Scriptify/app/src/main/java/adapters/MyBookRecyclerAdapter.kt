@@ -37,7 +37,7 @@ class MyBookRecyclerAdapter(val data:List<Books>) : RecyclerView.Adapter<MyBookR
         holder.desc.text = items.Description
         holder.itemView.setOnClickListener {
             val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
-            val myBookDialogFragment = MyBookDialogFragment()
+            val myBookDialogFragment = MyBookDialogFragment(items.idKnjige.toInt(),items.naziv_knjige,items.Description)
             myBookDialogFragment.show(fragmentManager, "MyBookDialogFragment")
         }
 
