@@ -20,12 +20,12 @@
             >
 
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-            </LinearLayout>
+                app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,9 +33,11 @@
                 android:gravity="center"
                 android:textSize="32dp"
                 android:textStyle="bold"
+                android:layout_marginBottom="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/first_name_profile"
                 android:text="Profile" />
 
             <EditText
@@ -96,7 +98,7 @@
                 android:layout_marginBottom="24dp"
                 android:ems="10"
                 android:hint="Password"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:text=""
                 app:layout_constraintBottom_toTopOf="@+id/mail_profile"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -114,19 +116,105 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-
             <Button
                 android:id="@+id/profileUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="20dp"
                 app:cornerRadius="10dp"
                 android:text="Update"
                 android:backgroundTint="@color/dark_theme"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toTopOf="@id/money" />
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_money"
+                android:text="Money" />
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:textSize="24sp"
+                android:text="Money (€): "
+                app:layout_constraintBottom_toTopOf="@id/btn_openMoneyDialog"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/money_profile"/>
+            <TextView
+                android:id="@+id/money_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:hint="Amount"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@id/btn_openMoneyDialog"
+                app:layout_constraintStart_toEndOf="@id/tv_money"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <Button
+                android:id="@+id/btn_openMoneyDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="100dp"
+                app:cornerRadius="10dp"
+                android:text="Add money"
+                android:backgroundTint="@color/dark_theme"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+            <FrameLayout
+                android:id="@+id/dialog_add_money"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="#80000000"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/mid_light_theme"
+                    android:padding="16dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unesite iznos: "
+                        android:textSize="18sp"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/input_money_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:hint="Iznos" />
 
             <ProgressBar
                 android:id="@+id/progressBar_profile"
@@ -138,6 +226,30 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btn_add_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dodaj"
+                            android:layout_marginEnd="16dp" />
+
+                        <Button
+                            android:id="@+id/btn_Close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Zatvori" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </FrameLayout>
+            </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
