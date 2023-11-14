@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.icu.text.CaseMap.Title
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +28,11 @@ import java.io.IOException
 
 class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
 
-    constructor() :this(0,"","","",{})
 
+    constructor(idUser:Int) :this(0,"","","",{}){
+        this.IDUser = idUser
+    }
+    var IDUser:Int = 0
     var IdBook = ID
     var Name = Naziv
     var Desc = Desc
@@ -69,6 +73,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         bookName.setText("${Name}")
         bookDesc.setText("${Desc}")
         autor.setText("${Autor}")
+        Log.d("USEUR","${IDUser}")
         close.setOnClickListener {
             dismiss()
         }
