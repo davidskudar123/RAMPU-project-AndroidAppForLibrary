@@ -96,7 +96,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         }
         delete.setOnClickListener {
 
-            Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
+
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Are you sure")
                 .setMessage("If you delete your book, it cannot be retrieved!")
@@ -106,10 +106,13 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
                 .setPositiveButton("Delete") { dialog, which ->
                     deleteBookData(IdBook)
                     notifyBookUpdated()
+                    if(view != null){
+                        notifyBookUpdated()
+                        dismiss()
+                    }
                 }
                 .show()
-            notifyBookUpdated()
-            dismiss()
+
         }
         add.setOnClickListener {
             Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
@@ -149,8 +152,6 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main){
             if(success){
                 Toast.makeText(requireContext(),"Book has been deleted!",Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(requireContext(),"Error deleting book",Toast.LENGTH_SHORT).show()
             }
         }
     }
