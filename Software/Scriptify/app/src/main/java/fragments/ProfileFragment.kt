@@ -171,6 +171,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                                         "Podaci ažurirani",
                                         Toast.LENGTH_SHORT
                                     ).show()
+                                    loadData(first_name, last_name, address, mail,username,password, money)
                                 } else {
                                     Toast.makeText(
                                         requireContext(),
