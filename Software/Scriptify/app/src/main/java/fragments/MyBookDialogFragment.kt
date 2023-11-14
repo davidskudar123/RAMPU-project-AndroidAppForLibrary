@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import blueprints.Books
 import com.example.scriptify.hr.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import connectors.HttpRequestManager
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
@@ -100,8 +101,18 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         }
         add.setOnClickListener {
             Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Are you sure")
+                .setMessage("If you delete your book, it cannot be retrieved!")
+                .setNegativeButton("Close") { dialog, which ->
+                    dismiss()
+                }
+                .setPositiveButton("Delete") { dialog, which ->
+                    addBook(IDUser,settableBookId,bookName,bookDesc,autor)
+                    notifyBookUpdated()
+                }
+                .show()
 
-            addBook(IDUser,settableBookId,bookName,bookDesc,autor)
             dismiss()
         }
 
@@ -163,10 +174,11 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
             }
         }
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            notifyBookUpdated()
+            Log.d("Successi","${success}")
             if (success) {
-                Toast.makeText(requireContext(), "Books have been updated", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "Error updating books", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Books have been updated", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
