@@ -23,6 +23,7 @@ class HttpRequestManager {
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var urlUpdate: String ="${address}:4000/updateUserData"
+    private var urlUpdateMoney: String ="${address}:4000/updateUserMoney"
     private var urlUpdateBook: String ="${address}:4000/updateBook"
     private var urlBooks: String = "${address}:4000/myBooks"
     private val client = OkHttpClient()
@@ -92,6 +93,17 @@ class HttpRequestManager {
         val request = Request.Builder()
             .url("${urlUpdate}/${id}")
             .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+
+        val response = client.newCall(request).execute()
+
+        return response.isSuccessful
+    }
+    fun updateUserMoney(jsonBody : String, id:Int): Boolean {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${urlUpdateMoney}/${id}")
+            .post(RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonBody))
             .build()
 
         val response = client.newCall(request).execute()
