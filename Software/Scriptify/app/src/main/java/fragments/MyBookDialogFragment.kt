@@ -25,14 +25,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 import java.io.IOException
+import kotlin.random.Random
 
 class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
 
-
+    var IDUser:Int = 0
     constructor(idUser:Int) :this(0,"","","",{}){
         this.IDUser = idUser
     }
-    var IDUser:Int = 0
+
     var IdBook = ID
     var Name = Naziv
     var Desc = Desc
@@ -57,6 +58,8 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
     ): View? {
         val view = inflater.inflate(R.layout.dialog_my_books,container,false)
         val view2 = inflater.inflate(R.layout.my_books_fragment,container,false)
+        var settableBookId = generateBookId()
+
         bookDesc = view.findViewById(R.id.my_book_dialog_desc)
         bookName = view.findViewById(R.id.my_book_dialog_name)
         title = view.findViewById(R.id.title_dialog_mybooks)
@@ -73,7 +76,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         bookName.setText("${Name}")
         bookDesc.setText("${Desc}")
         autor.setText("${Autor}")
-        Log.d("USEUR","${IDUser}")
+
         close.setOnClickListener {
             dismiss()
         }
@@ -97,12 +100,22 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         }
         add.setOnClickListener {
             Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
+
+            addBook(IDUser,settableBookId,bookName,bookDesc,autor)
             dismiss()
         }
 
 
 
         return view
+    }
+    fun addBook(userID:Int,BookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText){
+        Log.i("USEUR","User:${userID}")
+        Log.d("Book","Book:${BookID}")
+    }
+    fun generateBookId():Int{
+        return Random.nextInt(1,523523525)
+
     }
     fun notifyBookUpdated() {
         updateCallback.invoke()
@@ -132,6 +145,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         val updatedDesc = Desc.text.toString()
         val updatedAutor = Autor.text.toString()
         val jsonConverter: JsonConverter = JsonConverter()
+
         notifyBookUpdated()
         var success: Boolean = false
         val httpRequestManager: HttpRequestManager = HttpRequestManager()
