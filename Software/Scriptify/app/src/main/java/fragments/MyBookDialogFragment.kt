@@ -68,7 +68,8 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
             dismiss()
         }
         delete.setOnClickListener {
-            Toast.makeText(requireContext(),"Your book has been deleted!",Toast.LENGTH_SHORT).show()
+            deleteBookData(IdBook)
+            notifyBookUpdated()
             dismiss()
         }
 
@@ -78,6 +79,26 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
     }
     fun notifyBookUpdated() {
         updateCallback.invoke()
+    }
+    fun deleteBookData(bookID: Int){
+        val httpRequestManager = HttpRequestManager()
+        var success: Boolean = false
+        notifyBookUpdated()
+        try {
+            viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default){
+                success = httpRequestManager.deleteBook(bookID)
+            }
+
+        }catch (IO:IOException){
+            IO.printStackTrace()
+        }
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main){
+            if(success){
+                Toast.makeText(requireContext(),"Book has been deleted!",Toast.LENGTH_SHORT)
+            }else{
+                Toast.makeText(requireContext(),"Error deleting book",Toast.LENGTH_SHORT)
+            }
+        }
     }
     fun saveBookData(bookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText){
         val updatedNaziv = Naziv.text.toString()

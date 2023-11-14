@@ -19,12 +19,13 @@ import java.util.Properties
 
 class HttpRequestManager {
     val properties = Properties()
-    private val address:String ="http://192.168.1.113"
+    private val address:String ="http://172.20.10.2"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var urlUpdate: String ="${address}:4000/updateUserData"
     private var urlUpdateBook: String ="${address}:4000/updateBook"
     private var urlBooks: String = "${address}:4000/myBooks"
+    private var urlDeleteBook: String = "${address}:4000/deleteBook"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
@@ -108,5 +109,28 @@ class HttpRequestManager {
         val response = client.newCall(request).execute()
 
         return response.isSuccessful
+    }
+
+    fun deleteBook(IdBook:Int):Boolean{
+        val request = Request.Builder().url("${urlDeleteBook}/${IdBook}").build()
+        var res: String? = ""
+        var succ: Boolean = false
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+                succ = response.isSuccessful
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+                succ = response.isSuccessful
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return succ
     }
 }

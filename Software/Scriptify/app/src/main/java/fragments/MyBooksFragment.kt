@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.scriptify.hr.R
@@ -43,13 +44,15 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
         recycler.layoutManager = LinearLayoutManager(requireContext())
 
         loadView(Id,recycler)
+        val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
+        recycler.startAnimation(animation)
         fab.setOnClickListener {
 
         }
 
         return view
     }
-
+    
 
    public fun loadView(Id:Int,recyclerView: RecyclerView) {
             viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
@@ -60,8 +63,9 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
                     launch(Dispatchers.Main) {
                         val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)
+                        //kreiramo callback funkciju u adapteru koju ćemo proslijediti i u dialog fragment koji će onda invokat ju po potrebi
                         val adapter = MyBookRecyclerAdapter(books!!,Id){
-                            Log.d("MyBooksFragment", "Callback triggered. Updating RecyclerView.")
+
                             loadView(Id,recycler)
                         }
                         recyclerView.adapter = adapter
