@@ -95,11 +95,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
             dismiss()
         }
         delete.setOnClickListener {
-            deleteBookData(IdBook)
-            notifyBookUpdated()
-            dismiss()
-        }
-        add.setOnClickListener {
+
             Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Are you sure")
@@ -108,11 +104,18 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
                     dismiss()
                 }
                 .setPositiveButton("Delete") { dialog, which ->
-                    addBook(IDUser,settableBookId,bookName,bookDesc,autor)
+                    deleteBookData(IdBook)
                     notifyBookUpdated()
                 }
                 .show()
+            notifyBookUpdated()
+            dismiss()
+        }
+        add.setOnClickListener {
+            Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
 
+            addBook(IDUser,settableBookId,bookName,bookDesc,autor)
+            notifyBookUpdated()
             dismiss()
         }
 
