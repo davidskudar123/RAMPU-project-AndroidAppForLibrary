@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.example.scriptify.hr.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import connectors.HttpRequestManager
@@ -47,7 +48,9 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
         val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
         recycler.startAnimation(animation)
         fab.setOnClickListener {
-
+            val fragmentManager = (context as FragmentActivity).supportFragmentManager
+            val myBookDialogFragment = MyBookDialogFragment()
+            myBookDialogFragment.show(fragmentManager,"MyBookDialogFragment")
         }
 
         return view

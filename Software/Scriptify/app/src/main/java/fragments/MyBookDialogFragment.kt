@@ -22,14 +22,18 @@ import connectors.HttpRequestManager
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.w3c.dom.Text
 import java.io.IOException
 
 class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
+
+    constructor() :this(0,"","","",{})
+
     var IdBook = ID
     var Name = Naziv
     var Desc = Desc
     var Autor = autor
-
+    lateinit var add_title: TextView
     lateinit var bookName : EditText
     lateinit var title: TextView
     lateinit var bookDesc : EditText
@@ -37,7 +41,10 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
     lateinit var update: Button
     lateinit var delete: Button
     lateinit var autor :EditText
+    lateinit var add: Button
     lateinit var recyclerView: RecyclerView
+    lateinit var sc_notice : TextView
+    lateinit var sc_sign: TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,13 +61,24 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         delete = view.findViewById(R.id.mybooks_delete_dialog)
         autor = view.findViewById(R.id.my_book_dialog_autor)
         recyclerView = view2.findViewById(R.id.my_books_rv)
-
+        add = view.findViewById(R.id.Add_my_book)
+        add_title = view.findViewById(R.id.title_dialog_mybooks_add)
+        sc_notice = view.findViewById(R.id.sc_notice_add)
+        sc_sign = view.findViewById(R.id.sc_sign_add)
         title.setText("${Name}")
         bookName.setText("${Name}")
         bookDesc.setText("${Desc}")
         autor.setText("${Autor}")
         close.setOnClickListener {
             dismiss()
+        }
+        if(IdBook == 0){
+            update.setVisibility(View.INVISIBLE)
+            delete.setVisibility(View.INVISIBLE)
+            add.setVisibility(View.VISIBLE)
+            add_title.setVisibility(View.VISIBLE)
+            sc_sign.setVisibility(View.VISIBLE)
+            sc_notice.setVisibility(View.VISIBLE)
         }
         update.setOnClickListener {
             saveBookData(IdBook,bookName,bookDesc,autor)
@@ -70,6 +88,10 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         delete.setOnClickListener {
             deleteBookData(IdBook)
             notifyBookUpdated()
+            dismiss()
+        }
+        add.setOnClickListener {
+            Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
             dismiss()
         }
 
@@ -94,9 +116,9 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         }
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main){
             if(success){
-                Toast.makeText(requireContext(),"Book has been deleted!",Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(),"Book has been deleted!",Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(requireContext(),"Error deleting book",Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(),"Error deleting book",Toast.LENGTH_SHORT).show()
             }
         }
     }
