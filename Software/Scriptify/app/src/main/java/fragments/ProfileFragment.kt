@@ -59,7 +59,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
         progress = view.findViewById(R.id.progressBar_profile)
-        loadData(first_name, last_name, address, mail,username,password)
+
         progress.setVisibility(View.INVISIBLE)
         //dodavanje novaca
         money = view.findViewById(R.id.money_profile)
