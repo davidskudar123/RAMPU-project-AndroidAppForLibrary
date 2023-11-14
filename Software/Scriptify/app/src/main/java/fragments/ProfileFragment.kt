@@ -178,7 +178,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                         } catch (e: NumberFormatException) {
                             Toast.makeText(
                                 requireContext(),
-                                "Unos nije ispravan broj",
+                                "Unos nije ispravan, unesite broj!",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -187,6 +187,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 else{
                     Toast.makeText(requireContext(), "Niste unjeli iznos!", Toast.LENGTH_SHORT).show()
                 }
+
             }
 
             else{
