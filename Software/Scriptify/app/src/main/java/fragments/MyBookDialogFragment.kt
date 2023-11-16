@@ -119,10 +119,22 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         }
         add.setOnClickListener {
 
+            if(bookName.text.toString() == ""){
+                Toast.makeText(requireContext(),"You have to insert a book name",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
 
-            addBook(IDUser,settableBookId,bookName,bookDesc,autor)
-            notifyBookAdded()
-            dismiss()
+            }else if(bookDesc.text.toString() == ""){
+                Toast.makeText(requireContext(),"You have to insert a book description",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else if(autor.text.toString() == ""){
+                Toast.makeText(requireContext(),"You have to insert authors name",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else{
+                addBook(IDUser,settableBookId,bookName,bookDesc,autor)
+                notifyBookAdded()
+                dismiss()
+            }
+
         }
 
 
