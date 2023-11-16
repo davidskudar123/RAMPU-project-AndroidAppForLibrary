@@ -127,8 +127,23 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         return view
     }
     fun addBook(userID:Int,BookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText){
-        Log.i("USEUR","User:${userID}")
-        Log.d("Book","Book:${BookID}")
+        var naziv:String = Naziv.text.toString()
+        var desc:String = Desc.text.toString()
+        var autor:String = Autor.text.toString()
+        var jsonConverter: JsonConverter = JsonConverter()
+        var httpRequestManager: HttpRequestManager = HttpRequestManager()
+
+       viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
+            var bookJson: String = jsonConverter.BookToJsonConverter(BookID,naziv,desc,autor)
+            val success:Boolean = httpRequestManager.makeBook(bookJson)
+           launch(Dispatchers.Main){
+               if (success){
+                   Toast.makeText(requireContext(),"Book has been added",Toast.LENGTH_SHORT)
+               }else{
+                   Toast.makeText(requireContext(),"Error adding book",Toast.LENGTH_SHORT)
+               }
+           }
+       }
     }
     fun generateBookId():Int{
         return Random.nextInt(1,523523525)

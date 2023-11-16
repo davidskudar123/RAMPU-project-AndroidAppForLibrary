@@ -27,6 +27,7 @@ class HttpRequestManager {
     private var urlUpdateBook: String ="${address}:4000/updateBook"
     private var urlBooks: String = "${address}:4000/myBooks"
     private var urlDeleteBook: String = "${address}:4000/deleteBook"
+    private var addBook: String = "${address}:4000/makeBook"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
@@ -120,6 +121,18 @@ class HttpRequestManager {
 
         val response = client.newCall(request).execute()
 
+        return response.isSuccessful
+    }
+    fun makeBook(jsonBook:String):Boolean{
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("${addBook}")
+                .post(jsonBook.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+                .build()
+
+
+        val response = client.newCall(request).execute()
         return response.isSuccessful
     }
 
