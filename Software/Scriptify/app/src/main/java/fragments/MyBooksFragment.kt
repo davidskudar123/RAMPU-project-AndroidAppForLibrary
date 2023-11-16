@@ -51,6 +51,7 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
             val fragmentManager = (context as FragmentActivity).supportFragmentManager
             val myBookDialogFragment = MyBookDialogFragment(Id){
                 loadView(Id,recycler)
+                recycler.startAnimation(animation)
             }
             myBookDialogFragment.show(fragmentManager,"MyBookDialogFragment")
         }
@@ -61,6 +62,7 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
    public fun loadView(Id:Int,recyclerView: RecyclerView) {
             viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+                val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
                 try {
                     val jsonConverter: JsonConverter = JsonConverter()
                     val httpRequestManager: HttpRequestManager = HttpRequestManager()
@@ -72,6 +74,8 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
                         val adapter = MyBookRecyclerAdapter(books!!,Id){
 
                             loadView(Id,recycler)
+                            recycler.startAnimation(animation)
+
                         }
                         recyclerView.adapter = adapter
 

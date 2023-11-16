@@ -7,12 +7,14 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import blueprints.User
@@ -21,6 +23,7 @@ import com.example.scriptify.hr.R
 import connectors.HttpRequestManager
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.io.IOException
@@ -44,6 +47,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
     lateinit var add_money: Button
     lateinit var Close: Button
     lateinit var input_money_amount: EditText
+    lateinit var profile_rv: ConstraintLayout
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,8 +63,9 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
         progress = view.findViewById(R.id.progressBar_profile)
-
-        progress.setVisibility(View.INVISIBLE)
+        profile_rv = view.findViewById(R.id.profile_rv)
+        val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
+        profile_rv.startAnimation(animation)
         //dodavanje novaca
         money = view.findViewById(R.id.money_profile)
         openMoneyDialog = view.findViewById(R.id.btn_openMoneyDialog)
@@ -69,7 +74,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         input_money_amount = view.findViewById(R.id.input_money_amount)
 
         loadData(first_name, last_name, address, mail,username,password, money)
-
+        progress.setVisibility(View.INVISIBLE)
         profile_button.setOnClickListener{
             saveUserData(first_name, last_name, address, username, password, mail);
         }
