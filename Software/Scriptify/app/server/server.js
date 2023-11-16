@@ -34,8 +34,6 @@ app.get('/', (req, res) => {
 app.get('/loginuser/:id', (req, res) => {
 
   const userId = req.params.id;
-
-
     console.log('Connected to database');
 
     // Insert user data into the database
@@ -130,7 +128,30 @@ app.get('/deleteBook/:id',(req,res)=>{
       res.json(results)
   })
 })
-
+app.post('/userBookCon',(req,res)=>{
+    const userBook = req.body
+    const sql = "INSERT INTO user_has_Knjige (user_id_user,Knjige_idKnjige) values (?,?)"
+    con.query(sql,[userBook.user_id_user,userBook.Knjige_idKnjige],(err,results,fields)=>{
+      if(err){
+        console.log(err)
+        res.status(500).json({error:"Book adding error"})
+      }
+    })
+    res.json({success:"Book added"})
+})
+app.post('/makeBook',(req,res)=>{
+    const bookData = req.body
+    console.log('Book has been made')
+    const sql = "INSERT INTO KNJIGE (idKnjige, naziv_knjige, autor, Description) values (?,?,?,?);"
+    con.query(sql,[bookData.idKnjige,bookData.naziv_knjige,bookData.autor,bookData.Description],(err,results,fields)=> {
+      if(err){
+        console.log(err)
+        res.status(500).json({error:"Book adding error"})
+        return
+      }
+      res.json({message:"Book has been added"})
+    })
+})
 // Update book details route
 app.post('/updateBook/:id', (req, res) => {
    const userId = req.params.id;

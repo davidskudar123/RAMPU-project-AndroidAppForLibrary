@@ -52,8 +52,11 @@ class JsonConverter {
 
         return  jsonObject.toString()
     }
-    public fun userBooktoJsonConverter(idUser:Int,idBook:Int){
-
+    public fun userBooktoJsonConverter(idUser:Int,idBook:Int): String{
+        val jsonObject = JSONObject()
+        jsonObject.put("user_id_user",idUser)
+        jsonObject.put("Knjige_idKnjige",idBook)
+        return jsonObject.toString()
     }
 
     public fun JsonToBooksConverter(json:String):List<Books>?{

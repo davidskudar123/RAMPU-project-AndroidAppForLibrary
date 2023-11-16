@@ -31,9 +31,11 @@ import kotlin.random.Random
 class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
 
     var IDUser:Int = 0
-    constructor(idUser:Int) :this(0,"","","",{}){
+    constructor(idUser:Int,addedCallback:()->Unit) :this(0,"","","",{}){
         this.IDUser = idUser
+        this.addedCallback = addedCallback
     }
+
 
     var IdBook = ID
     var Name = Naziv
@@ -51,6 +53,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
     lateinit var recyclerView: RecyclerView
     lateinit var sc_notice : TextView
     lateinit var sc_sign: TextView
+    lateinit var addedCallback: ()->Unit
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -115,10 +118,10 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
 
         }
         add.setOnClickListener {
-            Toast.makeText(requireContext(),"You have added a new book!",Toast.LENGTH_SHORT).show()
+
 
             addBook(IDUser,settableBookId,bookName,bookDesc,autor)
-            notifyBookUpdated()
+            notifyBookAdded()
             dismiss()
         }
 
@@ -135,12 +138,16 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
 
        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
             var bookJson: String = jsonConverter.BookToJsonConverter(BookID,naziv,desc,autor)
+            var connection: String = jsonConverter.userBooktoJsonConverter(userID,BookID)
             val success:Boolean = httpRequestManager.makeBook(bookJson)
+           val successConnection: Boolean = httpRequestManager.connectBookUser(connection)
+           notifyBookAdded()
            launch(Dispatchers.Main){
-               if (success){
-                   Toast.makeText(requireContext(),"Book has been added",Toast.LENGTH_SHORT)
+
+               if (success && successConnection){
+                   Toast.makeText(requireContext(),"Book has been added",Toast.LENGTH_SHORT).show()
                }else{
-                   Toast.makeText(requireContext(),"Error adding book",Toast.LENGTH_SHORT)
+                   Toast.makeText(requireContext(),"Error adding book",Toast.LENGTH_SHORT).show()
                }
            }
        }
@@ -148,6 +155,9 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
     fun generateBookId():Int{
         return Random.nextInt(1,523523525)
 
+    }
+    fun notifyBookAdded(){
+        addedCallback.invoke()
     }
     fun notifyBookUpdated() {
         updateCallback.invoke()

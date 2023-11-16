@@ -49,7 +49,9 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
         recycler.startAnimation(animation)
         fab.setOnClickListener {
             val fragmentManager = (context as FragmentActivity).supportFragmentManager
-            val myBookDialogFragment = MyBookDialogFragment(Id)
+            val myBookDialogFragment = MyBookDialogFragment(Id){
+                loadView(Id,recycler)
+            }
             myBookDialogFragment.show(fragmentManager,"MyBookDialogFragment")
         }
 
