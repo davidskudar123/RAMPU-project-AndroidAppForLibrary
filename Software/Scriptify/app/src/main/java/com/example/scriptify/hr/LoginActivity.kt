@@ -35,7 +35,19 @@ class LoginActivity : AppCompatActivity() {
         loginButton = findViewById(R.id.LogIn)
 
         loginButton.setOnClickListener {
-            getUserData(username.text.toString(),password.text.toString())
+            if(username.text.toString() == "" && password.text.toString() ==""){
+                Toast.makeText(applicationContext,"You didn't enter username and password",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else if(username.text.toString() == ""){
+                Toast.makeText(applicationContext,"You didn't enter username",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else if(password.text.toString() == ""){
+                Toast.makeText(applicationContext,"You didn't enter password",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else{
+                getUserData(username.text.toString(),password.text.toString())
+            }
+
         }
     }
     public fun getUserData(username:String, Password: String){
