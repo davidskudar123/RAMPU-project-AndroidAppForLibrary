@@ -9,7 +9,7 @@ import com.example.scriptify.hr.R
 //Fragment za book exchange
 // Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview
 //VRLO BITNO- Pošto radimo sa http requestovima potrebno je koristiti courutines, u ostalim fragmentima može se pronaći implementacija koja se može iskopirati i doraditi po potrebi
-class BookExchangeFragment: Fragment(R.layout.book_exchange_fragment) {
+class BookExchangeFragment(id:Int): Fragment(R.layout.book_exchange_fragment) {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
