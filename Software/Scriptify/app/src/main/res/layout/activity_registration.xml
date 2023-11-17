@@ -17,6 +17,7 @@
                     android:id="@+id/Username_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:hint="Username" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -33,6 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
+                    android:minHeight="48dp"
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -49,6 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
+                    android:minHeight="48dp"
                     android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +67,7 @@
                     android:id="@+id/Address_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:hint="Address" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -79,6 +83,7 @@
                     android:id="@+id/FirstName_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:hint="First Name" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -94,6 +99,7 @@
                     android:id="@+id/LastName_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:hint="Last Name" />
 
             </com.google.android.material.textfield.TextInputLayout>
