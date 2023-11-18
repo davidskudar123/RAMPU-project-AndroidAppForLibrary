@@ -6,7 +6,7 @@ let con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '1234',
-  database: 'scriptify', // ZAMJENI IME PO POTREBI
+  database: 'Scriptify_final', // ZAMJENI IME PO POTREBI
   port: 3306
 });
 
@@ -173,7 +173,8 @@ app.post('/updateBook/:id', (req, res) => {
     // Slanje odgovora o uspješnom ažuriranju
     res.json({ message: 'Data updated successfully' });
   });
-  app.post('/register', (req, res) => {
+});
+ app.post('/register', (req, res) => {
     const userData = req.body;  // User data sent via JSON
 
     console.log('Connected to database');
@@ -205,7 +206,6 @@ app.post('/updateBook/:id', (req, res) => {
             res.json({ message: 'Registration successful' });
         }
     );
-});
 });
 app.listen(4000, () => {
   console.log('Listening on port 4000');

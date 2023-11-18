@@ -81,8 +81,8 @@ class JsonConverter {
         jsonObject.put("password", password)
         jsonObject.put("email", email)
         jsonObject.put("address", address)
-        jsonObject.put("firstName", firstName)
-        jsonObject.put("lastName", lastName)
+        jsonObject.put("first_name", firstName)
+        jsonObject.put("last_name", lastName)
 
         return jsonObject.toString()
     }

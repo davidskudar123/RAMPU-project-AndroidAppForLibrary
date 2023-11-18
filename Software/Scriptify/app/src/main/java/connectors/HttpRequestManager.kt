@@ -25,7 +25,7 @@ class HttpRequestManager {
     private val address:String ="http://192.168.1.113"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
-    private var registrationUrl: String = "$address:4000/register"
+    private var registrationUrl: String = "${address}:4000/register"
     private var urlUpdate: String ="${address}:4000/updateUserData"
     private var urlUpdateMoney: String ="${address}:4000/updateUserMoney"
     private var urlUpdateBook: String ="${address}:4000/updateBook"
@@ -181,10 +181,10 @@ class HttpRequestManager {
         lastName: String
     ): Boolean {
         try {
-            val jsonMediaType = "application/json".toMediaTypeOrNull()
+            val jsonMediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
 
             // Use the updated registration endpoint URL
-            val registrationUrl = "$address:4000/register"
+
 
             // Create JSON request body using the JsonConverter
             val requestBody = JsonConverter().registrationRequestJson(
@@ -194,12 +194,12 @@ class HttpRequestManager {
                 address,
                 firstName,
                 lastName
-            ).toRequestBody(jsonMediaType)
+            )
 
             // Create the request
             val request = Request.Builder()
                 .url(registrationUrl)
-                .post(requestBody)
+                .post(requestBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
                 .build()
 
             // Make the request

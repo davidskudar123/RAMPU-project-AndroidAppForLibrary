@@ -80,9 +80,11 @@ class RegisterActivity : AppCompatActivity() {
         firstName: String,
         lastName: String
     ) {
+        var registrationSuccessful = false
+        var httpRequestManager = HttpRequestManager()
         lifecycleScope.launch(Dispatchers.Default) {
             try {
-                val registrationSuccessful = httpRequestManager.registerUser(
+                registrationSuccessful = httpRequestManager.registerUser(
                     username,
                     password,
                     email,
@@ -91,31 +93,27 @@ class RegisterActivity : AppCompatActivity() {
                     lastName
                 )
 
-                launch(Dispatchers.Main) {
-                    if (registrationSuccessful) {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Registration successful",
-                            Toast.LENGTH_LONG
-                        ).show()
 
-                        // Navigate back to the LoginActivity
-                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish() //Close Register
-                    } else {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Registration failed",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
             } catch (e: Exception) {
                 e.printStackTrace()
+            }
+        }
+            lifecycleScope.launch(Dispatchers.Main) {
+            if (registrationSuccessful) {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Something went wrong",
+                    "Registration successful",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                // Navigate back to the LoginActivity
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish() //Close Register
+            } else {
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Registration failed",
                     Toast.LENGTH_LONG
                 ).show()
             }
