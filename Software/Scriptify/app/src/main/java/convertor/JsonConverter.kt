@@ -67,4 +67,23 @@ class JsonConverter {
             return gson.fromJson(json, Array<Books>::class.java).toList()
         }
     }
+//tijelo zahtjeva za registraciju
+    public fun registrationRequestJson(
+        username: String,
+        password: String,
+        email: String,
+        address: String,
+        firstName: String,
+        lastName: String
+    ): String {
+        val jsonObject = JSONObject()
+        jsonObject.put("username", username)
+        jsonObject.put("password", password)
+        jsonObject.put("email", email)
+        jsonObject.put("address", address)
+        jsonObject.put("first_name", firstName)
+        jsonObject.put("last_name", lastName)
+
+        return jsonObject.toString()
+    }
 }
