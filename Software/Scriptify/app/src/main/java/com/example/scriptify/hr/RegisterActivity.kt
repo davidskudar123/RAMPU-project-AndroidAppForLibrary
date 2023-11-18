@@ -106,17 +106,12 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
 
+
+            }
                 // Navigate back to the LoginActivity
                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish() //Close Register
-            } else {
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Registration failed",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
         }
     }
 }

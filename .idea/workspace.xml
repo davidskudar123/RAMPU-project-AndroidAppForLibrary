@@ -11,13 +11,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Gone">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
-    </list>
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Prva faza napravljena" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -357,7 +351,13 @@
       <option name="project" value="LOCAL" />
       <updated>1700314027758</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Prva faza napravljena">
+      <created>1700322166002</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1700322166002</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,90 +395,16 @@
     <MESSAGE value="Ispravljena i kreirana nova klasa RegisterActivity" />
     <MESSAGE value="Nadodana logika da klikom na registracijski gumb se otvori aktivnost RegisterActivity." />
     <MESSAGE value="Gone" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gone" />
+    <MESSAGE value="Prva faza napravljena" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prva faza napravljena" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>208</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>205</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>210</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
           <line>189</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt</url>
-          <line>86</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>101</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>85</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>87</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>88</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>89</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>90</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt</url>
-          <line>92</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>199</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>200</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>201</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>202</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
