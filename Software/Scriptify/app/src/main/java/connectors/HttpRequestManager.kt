@@ -1,6 +1,7 @@
 package connectors
 
 
+import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Call
@@ -182,20 +183,18 @@ class HttpRequestManager {
         try {
             val jsonMediaType = "application/json".toMediaTypeOrNull()
 
-            // Create JSON request body
-            val requestBody = """
-            {
-                "username": "$username",
-                "password": "$password",
-                "email": "$email",
-                "address": "$address",
-                "firstName": "$firstName",
-                "lastName": "$lastName"
-            }
-        """.trimIndent().toRequestBody(jsonMediaType)
-
             // Use the updated registration endpoint URL
             val registrationUrl = "$address:4000/register"
+
+            // Create JSON request body using the JsonConverter
+            val requestBody = JsonConverter().registrationRequestJson(
+                username,
+                password,
+                email,
+                address,
+                firstName,
+                lastName
+            ).toRequestBody(jsonMediaType)
 
             // Create the request
             val request = Request.Builder()
