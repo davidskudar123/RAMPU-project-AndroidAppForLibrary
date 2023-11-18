@@ -11,11 +11,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Ispravljena i kreirana nova klasa RegisterActivity">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Gone" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,7 +337,21 @@
       <option name="project" value="LOCAL" />
       <updated>1700313640537</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Nadodana logika da klikom na registracijski gumb se otvori aktivnost RegisterActivity.">
+      <created>1700314002986</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700314002986</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Gone">
+      <created>1700314027758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700314027758</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,6 +387,8 @@
     <MESSAGE value="Dodana pretvorba JSON objekta zahtjeva za registraciju Objekt" />
     <MESSAGE value="Importirana klasa JsonConverter, zahtjev se registraciju se sad konvertira preko JsonConverter klase." />
     <MESSAGE value="Ispravljena i kreirana nova klasa RegisterActivity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ispravljena i kreirana nova klasa RegisterActivity" />
+    <MESSAGE value="Nadodana logika da klikom na registracijski gumb se otvori aktivnost RegisterActivity." />
+    <MESSAGE value="Gone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gone" />
   </component>
 </project>
