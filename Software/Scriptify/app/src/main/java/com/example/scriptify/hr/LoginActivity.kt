@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
@@ -23,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var username: EditText
     lateinit var password: EditText
     lateinit var loginButton: Button
+    lateinit var registerButton: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         username = findViewById(R.id.Username_login)
         password = findViewById(R.id.Password_login)
         loginButton = findViewById(R.id.LogIn)
+        registerButton = findViewById(R.id.Register_button)
 
         loginButton.setOnClickListener {
             if(username.text.toString() == "" && password.text.toString() ==""){
@@ -91,5 +94,9 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this@LoginActivity,"Something went wrong",Toast.LENGTH_LONG).show()
             }
         }
+    }
+    fun openRegisterActivity(view: View) {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
 }
