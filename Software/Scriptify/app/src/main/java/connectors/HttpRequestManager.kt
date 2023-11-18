@@ -15,6 +15,8 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.Properties
 
+
+
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
@@ -22,6 +24,7 @@ class HttpRequestManager {
     private val address:String ="http://192.168.1.113"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
+    private var registrationUrl: String = "$address:4000/register"
     private var urlUpdate: String ="${address}:4000/updateUserData"
     private var urlUpdateMoney: String ="${address}:4000/updateUserMoney"
     private var urlUpdateBook: String ="${address}:4000/updateBook"
@@ -167,5 +170,49 @@ class HttpRequestManager {
         }
 
         return succ
+    }
+    suspend fun registerUser(
+        username: String,
+        password: String,
+        email: String,
+        address: String,
+        firstName: String,
+        lastName: String
+    ): Boolean {
+        try {
+            val jsonMediaType = "application/json".toMediaTypeOrNull()
+
+            // Create JSON request body
+            val requestBody = """
+            {
+                "username": "$username",
+                "password": "$password",
+                "email": "$email",
+                "address": "$address",
+                "firstName": "$firstName",
+                "lastName": "$lastName"
+            }
+        """.trimIndent().toRequestBody(jsonMediaType)
+
+            // Use the updated registration endpoint URL
+            val registrationUrl = "$address:4000/register"
+
+            // Create the request
+            val request = Request.Builder()
+                .url(registrationUrl)
+                .post(requestBody)
+                .build()
+
+            // Make the request
+            val response: Response = client.newCall(request).execute()
+
+            // Check if registration was successful based on the HTTP status code
+            val registrationSuccessful = response.isSuccessful
+
+            return registrationSuccessful
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        }
     }
 }
