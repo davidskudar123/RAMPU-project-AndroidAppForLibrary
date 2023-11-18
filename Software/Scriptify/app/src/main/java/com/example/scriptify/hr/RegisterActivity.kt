@@ -99,7 +99,10 @@ class RegisterActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
 
-                        // You may navigate to the login screen or perform other actions
+                        // Navigate back to the LoginActivity
+                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish() //Close Register
                     } else {
                         Toast.makeText(
                             this@RegisterActivity,
