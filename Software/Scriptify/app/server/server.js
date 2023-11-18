@@ -174,6 +174,39 @@ app.post('/updateBook/:id', (req, res) => {
     res.json({ message: 'Data updated successfully' });
   });
 });
+ app.post('/register', (req, res) => {
+    const userData = req.body;  // User data sent via JSON
+
+    console.log('Connected to database');
+
+    // Insert user data into the database
+    const sql = `
+        INSERT INTO user (username, password, email, address, first_name, last_name)
+        VALUES (?, ?, ?, ?, ?, ?);
+    `;
+
+    con.query(
+        sql,
+        [
+            userData.username,
+            userData.password,
+            userData.email,
+            userData.address,
+            userData.first_name,
+            userData.last_name
+        ],
+        (error, results, fields) => {
+            if (error) {
+                console.error('Error inserting data: ' + error.stack);
+                res.status(500).json({ error: 'Error inserting data' });
+                return;
+            }
+
+            // Sending a success response
+            res.json({ message: 'Registration successful' });
+        }
+    );
+});
 app.listen(4000, () => {
   console.log('Listening on port 4000');
   con.connect((err) => {

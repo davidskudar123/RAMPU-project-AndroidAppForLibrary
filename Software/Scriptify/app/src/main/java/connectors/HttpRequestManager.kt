@@ -1,6 +1,7 @@
 package connectors
 
 
+import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Call
@@ -15,6 +16,8 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.Properties
 
+
+
 //Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
@@ -22,6 +25,7 @@ class HttpRequestManager {
     private val address:String ="http://192.168.1.113"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
+    private var registrationUrl: String = "${address}:4000/register"
     private var urlUpdate: String ="${address}:4000/updateUserData"
     private var urlUpdateMoney: String ="${address}:4000/updateUserMoney"
     private var urlUpdateBook: String ="${address}:4000/updateBook"
@@ -167,5 +171,47 @@ class HttpRequestManager {
         }
 
         return succ
+    }
+    suspend fun registerUser(
+        username: String,
+        password: String,
+        email: String,
+        address: String,
+        firstName: String,
+        lastName: String
+    ): Boolean {
+        try {
+            val jsonMediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
+
+            // Use the updated registration endpoint URL
+
+
+            // Create JSON request body using the JsonConverter
+            val requestBody = JsonConverter().registrationRequestJson(
+                username,
+                password,
+                email,
+                address,
+                firstName,
+                lastName
+            )
+
+            // Create the request
+            val request = Request.Builder()
+                .url(registrationUrl)
+                .post(requestBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+                .build()
+
+            // Make the request
+            val response: Response = client.newCall(request).execute()
+
+            // Check if registration was successful based on the HTTP status code
+            val registrationSuccessful = response.isSuccessful
+
+            return registrationSuccessful
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        }
     }
 }
