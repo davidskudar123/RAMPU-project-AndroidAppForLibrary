@@ -62,7 +62,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         password = view.findViewById(R.id.password_profile)
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
-        progress = view.findViewById(R.id.progressBar_profile)
         profile_rv = view.findViewById(R.id.profile_rv)
         val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
         profile_rv.startAnimation(animation)
@@ -74,7 +73,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         input_money_amount = view.findViewById(R.id.input_money_amount)
 
         loadData(first_name, last_name, address, mail,username,password, money)
-        progress.setVisibility(View.INVISIBLE)
+        //progress.setVisibility(View.INVISIBLE)
         profile_button.setOnClickListener{
             saveUserData(first_name, last_name, address, username, password, mail);
         }
