@@ -50,7 +50,7 @@ class BookExchangeFragment(id:Int): Fragment(R.layout.book_exchange_fragment) {
             try {
                 val jsonConverter: JsonConverter = JsonConverter()
                 val httpRequestManager: HttpRequestManager = HttpRequestManager()
-                var data = httpRequestManager.getUserBooks(Id)
+                var data = httpRequestManager.getBooksOfUsers(Id)
 
                 launch(Dispatchers.Main) {
                     val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)
