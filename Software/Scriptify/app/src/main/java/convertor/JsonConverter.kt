@@ -67,6 +67,7 @@ class JsonConverter {
             return gson.fromJson(json, Array<Books>::class.java).toList()
         }
     }
+
 //tijelo zahtjeva za registraciju
     public fun registrationRequestJson(
         username: String,
