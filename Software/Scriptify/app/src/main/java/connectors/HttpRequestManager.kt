@@ -22,7 +22,7 @@ import java.util.Properties
 
 class HttpRequestManager {
     val properties = Properties()
-    private val address:String ="http://192.168.1.2"
+    private val address:String ="http://192.168.1.8"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var registrationUrl: String = "${address}:4000/register"
@@ -33,6 +33,7 @@ class HttpRequestManager {
     private var urlDeleteBook: String = "${address}:4000/deleteBook"
     private var addBook: String = "${address}:4000/makeBook"
     private var connectBook: String = "${address}:4000/userBookCon"
+    private var urlBooksOfUsers: String = "${address}:4000/BooksOfUsers"
     private val client = OkHttpClient()
 
      fun getUserData(): String  {
@@ -95,6 +96,26 @@ class HttpRequestManager {
 
         return res.toString()
     }
+
+    fun getBooksOfUsers(id:Int):String{
+        val request = Request.Builder().url("${urlBooksOfUsers}/${id}").build()
+        var res: String? = ""
+        try {
+            val response = client.newCall(request).execute()
+            if(response.isSuccessful){
+                res = response.body?.string() ?: "Empty response body"
+            }
+            else{
+                res = "Unexpected code ${response.code}"
+            }
+        }
+        catch (e: IOException){
+            e.printStackTrace()
+            res = null;
+        }
+        return res.toString()
+    }
+
     fun updateUserData(jsonBody : String, id:Int): Boolean {
         val client = OkHttpClient()
         val request = Request.Builder()
