@@ -11,10 +11,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Kreiran BooksOfUsersRecyclerAdapter.">
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Kreiran xml dokument za prikaz knjiga korisnika.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookExchangeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookExchangeFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +62,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -384,7 +382,13 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1705700756378</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="Kreiran xml dokument za prikaz knjiga korisnika.">
+      <created>1705702722942</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1705702722942</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,6 +430,7 @@
     <MESSAGE value="Dodana ikona profila na profil." />
     <MESSAGE value="Kreirana funkcija za dohvat knjiga svih korisnika." />
     <MESSAGE value="Kreiran BooksOfUsersRecyclerAdapter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kreiran BooksOfUsersRecyclerAdapter." />
+    <MESSAGE value="Kreiran xml dokument za prikaz knjiga korisnika." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kreiran xml dokument za prikaz knjiga korisnika." />
   </component>
 </project>
