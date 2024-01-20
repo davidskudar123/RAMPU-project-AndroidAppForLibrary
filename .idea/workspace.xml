@@ -11,8 +11,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Kreiran xml dokument za prikaz knjiga korisnika.">
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Završeno dohvaćanje i prikazivanje svih knjiga ostalih korisnika na book exchange fragmentu.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -388,7 +389,13 @@
       <option name="presentableId" value="LOCAL−00016" />
       <updated>1705702722942</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL−00017" summary="Završeno dohvaćanje i prikazivanje svih knjiga ostalih korisnika na book exchange fragmentu.">
+      <created>1705703858932</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1705703858933</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -431,6 +438,7 @@
     <MESSAGE value="Kreirana funkcija za dohvat knjiga svih korisnika." />
     <MESSAGE value="Kreiran BooksOfUsersRecyclerAdapter." />
     <MESSAGE value="Kreiran xml dokument za prikaz knjiga korisnika." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kreiran xml dokument za prikaz knjiga korisnika." />
+    <MESSAGE value="Završeno dohvaćanje i prikazivanje svih knjiga ostalih korisnika na book exchange fragmentu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Završeno dohvaćanje i prikazivanje svih knjiga ostalih korisnika na book exchange fragmentu." />
   </component>
 </project>

@@ -4,5 +4,8 @@
     <color name="mid_dark_theme">#435585</color>
     <color name="mid_light_theme">#818FB4</color>
     <color name="light_theme">#F5E8C7</color>
+    <color name="button_buy">#00A300</color>
+    <color name="button_exchange">#4C00B0</color>
+
 
 </resources>
