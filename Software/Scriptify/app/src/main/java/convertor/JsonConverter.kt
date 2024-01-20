@@ -63,6 +63,15 @@ class JsonConverter {
 
         return  jsonObject.toString()
     }
+    public fun UpdateMoneyToJson(idUser: Int, money: Int):String{
+        val jsonObject = JSONObject()
+        jsonObject.put("id_user", idUser)
+        jsonObject.put("money", money)
+
+        return  jsonObject.toString()
+    }
+
+
     public fun userBooktoJsonConverter(idUser:Int,idBook:Int): String{
         val jsonObject = JSONObject()
         jsonObject.put("user_id_user",idUser)

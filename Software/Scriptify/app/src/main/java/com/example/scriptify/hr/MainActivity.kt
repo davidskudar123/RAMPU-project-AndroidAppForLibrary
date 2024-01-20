@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val id: Int = intent.getStringExtra("id")!!.toInt()
-
         val profileFragment : ProfileFragment = ProfileFragment(id)
         val myBooksFragment: MyBooksFragment = MyBooksFragment(id)
         val bookExchangeFragment : BookExchangeFragment = BookExchangeFragment(id)
