@@ -11,9 +11,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Implementiran fragment za kupnju knjige.">
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Kreirana funkcija za spremanje kupljene knjige u bazu, te krairana funkcija za slanje podataka prema bazi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,7 +408,19 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1705740136891</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="Kreirana funkcija za pretvaranje kupljene knjige u json format.">
+      <created>1705754007854</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1705754007854</updated>
+    </task>
+    <task id="LOCAL−00021" summary="Kreirana funkcija za spremanje kupljene knjige u bazu, te krairana funkcija za slanje podataka prema bazi.">
+      <created>1705754263883</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1705754263883</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -454,6 +466,8 @@
     <MESSAGE value="Završeno dohvaćanje i prikazivanje svih knjiga ostalih korisnika na book exchange fragmentu." />
     <MESSAGE value="Promjenjen dizajn prikaza knjiga na book exchange. Dodani buttoni za  kupnju i razmjenu knjiga." />
     <MESSAGE value="Implementiran fragment za kupnju knjige." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementiran fragment za kupnju knjige." />
+    <MESSAGE value="Kreirana funkcija za pretvaranje kupljene knjige u json format." />
+    <MESSAGE value="Kreirana funkcija za spremanje kupljene knjige u bazu, te krairana funkcija za slanje podataka prema bazi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kreirana funkcija za spremanje kupljene knjige u bazu, te krairana funkcija za slanje podataka prema bazi." />
   </component>
 </project>
