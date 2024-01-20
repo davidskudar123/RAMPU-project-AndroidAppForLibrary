@@ -36,7 +36,11 @@ class HttpRequestManager {
     private var UpdateConnectBook: String = "${address}:4000/updateUserBookCon"
     private var urlBooksOfUsers: String = "${address}:4000/BooksOfUsers"
     private var buyBook: String = "${address}:4000/buyBook"
+    private var updateMoney: String = "${address}:4000/updateMoney"
+    private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
     private val client = OkHttpClient()
+
+
 
      fun getUserData(): String  {
         val request = Request.Builder().url(url).build()
@@ -78,6 +82,27 @@ class HttpRequestManager {
 
         return res.toString()
     }
+
+    fun getUserMoneyInfo(jsonBody : String): String  {
+        val request = Request.Builder().url("${urlMoneyInfo}").build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+        return res.toString()
+    }
+
 
     fun getUserBooks(id:Int):String{
         val request = Request.Builder().url("${urlBooks}/${id}").build()
@@ -138,6 +163,16 @@ class HttpRequestManager {
 
         val response = client.newCall(request).execute()
 
+        return response.isSuccessful
+    }
+
+    fun UpdateMoney(jsonBody: String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${updateMoney}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        val response = client.newCall(request).execute()
         return response.isSuccessful
     }
     fun updateBookData(jsonBody : String, id:Int): Boolean {

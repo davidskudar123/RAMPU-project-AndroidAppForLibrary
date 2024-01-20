@@ -11,9 +11,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Implementirana kupovina knjige.">
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Implementirana provjera nacina placanja.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -427,7 +427,13 @@
       <option name="presentableId" value="LOCAL−00022" />
       <updated>1705757763181</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL−00023" summary="Implementirana provjera nacina placanja.">
+      <created>1705761952113</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1705761952113</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -476,6 +482,7 @@
     <MESSAGE value="Kreirana funkcija za pretvaranje kupljene knjige u json format." />
     <MESSAGE value="Kreirana funkcija za spremanje kupljene knjige u bazu, te krairana funkcija za slanje podataka prema bazi." />
     <MESSAGE value="Implementirana kupovina knjige." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementirana kupovina knjige." />
+    <MESSAGE value="Implementirana provjera nacina placanja." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementirana provjera nacina placanja." />
   </component>
 </project>
