@@ -6,6 +6,8 @@
     <color name="light_theme">#F5E8C7</color>
     <color name="button_buy">#00A300</color>
     <color name="button_exchange">#4C00B0</color>
+    <color name="button_close">#A30000</color>
+
 
 
 </resources>
