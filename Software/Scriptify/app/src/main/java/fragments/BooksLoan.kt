@@ -1,22 +1,67 @@
 package fragments
 
+import adapters.LibraryAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import blueprints.Books
+import blueprints.Library
 import com.example.scriptify.hr.R
 
-// Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview
-//VRLO BITNO- Pošto radimo sa http requestovima potrebno je koristiti courutines, u ostalim fragmentima može se pronaći implementacija koja se može iskopirati i doraditi po potrebi
-class BooksLoan(id:Int): Fragment(R.layout.book_loan_fragment) {
+class BooksLoan(id: Int) : Fragment(R.layout.book_loan_fragment), LibraryAdapter.OnLibraryClickListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.book_loan_fragment,container,false)
+        val view = inflater.inflate(R.layout.book_loan_fragment, container, false)
+
+        // Dohvati mock podatke o knjižnicama
+        val mockLibraries = getMockLibraries()
+
+        // Prikazi podatke u RecyclerView
+        val recyclerView: RecyclerView = view.findViewById(R.id.libraryRecyclerView)
+        val libraryAdapter = LibraryAdapter(mockLibraries, this)
+        recyclerView.adapter = libraryAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         return view
+    }
+
+    // Funkcija za dobivanje mock podataka o knjižnicama
+    private fun getMockLibraries(): List<Library> {
+        return listOf(
+            Library(
+                "1",
+                "Library A",
+                listOf(
+                    Books("101", "Book 1", "Author 1", "Description 1"),
+                    Books("102", "Book 2", "Author 2", "Description 2")
+                )
+            ),
+            Library(
+                "2",
+                "Library B",
+                listOf(
+                    Books("103", "Book 3", "Author 3", "Description 3"),
+                    Books("104", "Book 4", "Author 4", "Description 4")
+                )
+            )
+            // Add more libraries as needed
+        )
+    }
+
+    override fun onLibraryClick(library: Library) {
+
+        //replace the fragment to show books of the selected library
+        val booksFragment = BooksFragment(library.books)
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.flLayout, booksFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }

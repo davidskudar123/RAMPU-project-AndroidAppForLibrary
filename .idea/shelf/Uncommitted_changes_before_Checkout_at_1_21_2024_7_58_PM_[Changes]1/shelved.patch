@@ -1,0 +1,46 @@
+Index: Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fragments\r\n\r\nimport adapters.MyBookRecyclerAdapter\r\nimport android.content.Context\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.view.animation.AnimationUtils\r\nimport android.widget.Toast\r\nimport androidx.fragment.app.Fragment\r\nimport androidx.fragment.app.FragmentActivity\r\nimport com.example.scriptify.hr.R\r\nimport com.google.android.material.floatingactionbutton.FloatingActionButton\r\nimport connectors.HttpRequestManager\r\nimport java.io.IOException\r\nimport androidx.lifecycle.lifecycleScope\r\nimport androidx.recyclerview.widget.LinearLayoutManager\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport blueprints.Books\r\nimport blueprints.User\r\nimport com.android.volley.toolbox.HttpClientStack.HttpPatch\r\nimport convertor.JsonConverter\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\nimport kotlinx.coroutines.*\r\nimport kotlinx.coroutines.delay\r\n// Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview\r\n//VRLO BITNO- Pošto radimo sa http requestovima potrebno je koristiti courutines, u ostalim fragmentima može se pronaći implementacija koja se može iskopirati i doraditi po potrebi\r\n\r\nclass MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {\r\n\r\n    lateinit var fab: FloatingActionButton\r\n    lateinit var recycler: RecyclerView\r\n    private var Id = Id\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        var view = inflater.inflate(R.layout.my_books_fragment, container, false)\r\n        fab = view.findViewById(R.id.floatingActionButton)\r\n        recycler = view.findViewById(R.id.my_books_rv)\r\n        recycler.layoutManager = LinearLayoutManager(requireContext())\r\n\r\n        loadView(Id,recycler)\r\n        val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)\r\n        recycler.startAnimation(animation)\r\n        fab.setOnClickListener {\r\n            val fragmentManager = (context as FragmentActivity).supportFragmentManager\r\n            val myBookDialogFragment = MyBookDialogFragment(Id){\r\n                loadView(Id,recycler)\r\n                recycler.startAnimation(animation)\r\n            }\r\n            myBookDialogFragment.show(fragmentManager,\"MyBookDialogFragment\")\r\n        }\r\n\r\n        return view\r\n    }\r\n    \r\n\r\n   public fun loadView(Id:Int,recyclerView: RecyclerView) {\r\n            viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {\r\n                val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)\r\n                try {\r\n                    val jsonConverter: JsonConverter = JsonConverter()\r\n                    val httpRequestManager: HttpRequestManager = HttpRequestManager()\r\n                    var data = httpRequestManager.getUserBooks(Id)\r\n\r\n                    launch(Dispatchers.Main) {\r\n                        val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)\r\n                        //kreiramo callback funkciju u adapteru koju ćemo proslijediti i u dialog fragment koji će onda invokat ju po potrebi\r\n                        val adapter = MyBookRecyclerAdapter(books!!,Id){\r\n\r\n                            loadView(Id,recycler)\r\n                            recycler.startAnimation(animation)\r\n\r\n                        }\r\n                        recyclerView.adapter = adapter\r\n\r\n                    }\r\n                }catch (err:IOException){\r\n                    Toast.makeText(requireContext(),\"Something went wrong\",Toast.LENGTH_LONG)\r\n                }\r\n\r\n\r\n            }\r\n\r\n\r\n    }\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt b/Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt
+--- a/Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt	
++++ b/Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt	
+@@ -76,7 +76,8 @@
+                             loadView(Id,recycler)
+                             recycler.startAnimation(animation)
+ 
+-                        }
++                        }++
++
+                         recyclerView.adapter = adapter
+ 
+                     }
+Index: Software/Scriptify/app/src/main/java/blueprints/Libraries.kt
+===================================================================
+diff --git a/Software/Scriptify/app/src/main/java/blueprints/Libraries.kt b/Software/Scriptify/app/src/main/java/blueprints/Libraries.kt
+deleted file mode 100644
+--- a/Software/Scriptify/app/src/main/java/blueprints/Libraries.kt	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-package blueprints
+-data class Library(
+-    val idKnjiznice: String,
+-    val nazivKnjiznice: String,
+-    val books: List<Books>
+-)
+\ No newline at end of file
+Index: Software/Scriptify/app/src/main/java/model/Book.kt
+===================================================================
+diff --git a/Software/Scriptify/app/src/main/java/model/Book.kt b/Software/Scriptify/app/src/main/java/model/Book.kt
+deleted file mode 100644
+--- a/Software/Scriptify/app/src/main/java/model/Book.kt	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-package model
+-
+-class Book {
+-}
+\ No newline at end of file
