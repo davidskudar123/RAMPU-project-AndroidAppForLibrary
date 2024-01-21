@@ -11,7 +11,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Pripremljeni converteri i http request za Recenzije">
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Treba popraviti bug gdje se rv ne prikazuje">
       <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyBookReviewsAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
@@ -480,7 +480,13 @@
       <option name="presentableId" value="LOCAL−00030" />
       <updated>1705869765898</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL−00031" summary="Treba popraviti bug gdje se rv ne prikazuje">
+      <created>1705877062500</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1705877062500</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -507,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dodano dohvaćanje zahtjeva za registraciju sa servera" />
     <MESSAGE value="Dodana pretvorba JSON objekta zahtjeva za registraciju Objekt" />
     <MESSAGE value="Importirana klasa JsonConverter, zahtjev se registraciju se sad konvertira preko JsonConverter klase." />
     <MESSAGE value="Ispravljena i kreirana nova klasa RegisterActivity" />
@@ -532,22 +537,7 @@
     <MESSAGE value="Napravljen book reviews dialog za pregled reviews, knjiga (template)" />
     <MESSAGE value="Dodavanje izgleda za recycler view reviews" />
     <MESSAGE value="Pripremljeni converteri i http request za Recenzije" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pripremljeni converteri i http request za Recenzije" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt</url>
-          <line>55</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt</url>
-          <line>56</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Treba popraviti bug gdje se rv ne prikazuje" />
+    <option name="LAST_COMMIT_MESSAGE" value="Treba popraviti bug gdje se rv ne prikazuje" />
   </component>
 </project>
