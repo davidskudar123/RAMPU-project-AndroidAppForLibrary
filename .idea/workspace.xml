@@ -11,8 +11,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Napravljen reviews blueprint">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_reviews_dialog.xml" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Napravljen book reviews dialog za pregled reviews, knjiga (template)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -456,7 +455,13 @@
       <option name="presentableId" value="LOCAL−00027" />
       <updated>1705862321058</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL−00028" summary="Napravljen book reviews dialog za pregled reviews, knjiga (template)">
+      <created>1705863879224</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1705863879224</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -483,7 +488,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Poporavljen layout za registraciju." />
     <MESSAGE value="Kreirana i implementirana inicijalna logika za aktivnost Registracije" />
     <MESSAGE value="Dodane ovinsosti za rad na registaciji" />
     <MESSAGE value="Dodano dohvaćanje zahtjeva za registraciju sa servera" />
@@ -508,7 +512,8 @@
     <MESSAGE value="BooksOfUsersRecyclerAdapter" />
     <MESSAGE value="Riješeni bug sa kupnjom knjiga." />
     <MESSAGE value="Napravljen reviews blueprint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Napravljen reviews blueprint" />
+    <MESSAGE value="Napravljen book reviews dialog za pregled reviews, knjiga (template)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Napravljen book reviews dialog za pregled reviews, knjiga (template)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
