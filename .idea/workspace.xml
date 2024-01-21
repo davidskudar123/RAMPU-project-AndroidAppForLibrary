@@ -11,14 +11,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Dodana najnovija verzija baze">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023__11_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023__11_35__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/db/scriptify_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/db/scriptify_db.sql" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Riješeni bug sa kupnjom knjiga.">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Reviews.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +62,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -449,7 +443,13 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1705857936796</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL−00026" summary="Riješeni bug sa kupnjom knjiga.">
+      <created>1705861660328</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1705861660329</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -476,7 +476,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kreiran layout file za registraciju." />
     <MESSAGE value="Dizajniran inicijalni layout file za registraciju." />
     <MESSAGE value="Poporavljen layout za registraciju." />
     <MESSAGE value="Kreirana i implementirana inicijalna logika za aktivnost Registracije" />
@@ -501,7 +500,8 @@
     <MESSAGE value="Implementirana provjera nacina placanja." />
     <MESSAGE value="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji." />
     <MESSAGE value="BooksOfUsersRecyclerAdapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="BooksOfUsersRecyclerAdapter" />
+    <MESSAGE value="Riješeni bug sa kupnjom knjiga." />
+    <option name="LAST_COMMIT_MESSAGE" value="Riješeni bug sa kupnjom knjiga." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
