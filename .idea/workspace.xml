@@ -11,9 +11,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Dodan dependency u build gradle za inicijalni prikaz knjižara.">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Libraries.kt" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Dodan data class Library">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/LibraryAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/item_library.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2024_6_40_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2024_6_40_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_loan_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_loan_fragment.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +67,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -75,7 +79,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Development" />
+        <entry key="$PROJECT_DIR$" value="DevelopmentNew" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,7 +92,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="456214da-b5da-4840-99ec-a30a71973042" />
+        <option name="accountId" value="aaca0fcb-798e-48ef-ae6b-9b2bbb928b82" />
         <option name="url" value="https://github.com/foivz/rampu23-scriptify.git" />
       </UrlAndAccount>
     </option>
@@ -115,6 +119,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-viewC:/Users/budal/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.10.0/93873f2a41da69e38213dbe9ed91a0402a903c88/material-1.10.0-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_SELECTED": "NavigationBarView",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
@@ -456,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705859302461</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Dodan data class Library">
+      <created>1705863910035</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705863910035</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -470,7 +482,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="DevelopmentNew" />
+                        <option value="MockDataLibraries" />
                       </list>
                     </value>
                   </entry>
@@ -483,7 +495,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dizajniran inicijalni layout file za registraciju." />
     <MESSAGE value="Poporavljen layout za registraciju." />
     <MESSAGE value="Kreirana i implementirana inicijalna logika za aktivnost Registracije" />
     <MESSAGE value="Dodane ovinsosti za rad na registaciji" />
@@ -508,7 +519,8 @@
     <MESSAGE value="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji." />
     <MESSAGE value="BooksOfUsersRecyclerAdapter" />
     <MESSAGE value="Dodan dependency u build gradle za inicijalni prikaz knjižara." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodan dependency u build gradle za inicijalni prikaz knjižara." />
+    <MESSAGE value="Dodan data class Library" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodan data class Library" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
