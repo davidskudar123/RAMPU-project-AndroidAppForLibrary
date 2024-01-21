@@ -38,6 +38,7 @@ class HttpRequestManager {
     private var buyBook: String = "${address}:4000/buyBook"
     private var updateMoney: String = "${address}:4000/updateMoney"
     private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
+    private var reviews: String = "${address}:4000/reviews"
     private val client = OkHttpClient()
 
 
@@ -82,6 +83,27 @@ class HttpRequestManager {
 
         return res.toString()
     }
+    fun getReviewsForBook(id:Int): String  {
+        val request = Request.Builder().url("${reviews}/${id}").build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return res.toString()
+    }
+
 
     fun getUserMoneyInfo(jsonBody : String): String  {
         val request = Request.Builder()

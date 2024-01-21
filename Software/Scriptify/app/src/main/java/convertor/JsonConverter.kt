@@ -1,6 +1,7 @@
 package convertor
 
 import blueprints.Books
+import blueprints.Reviews
 import blueprints.User
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -23,6 +24,14 @@ class JsonConverter {
         }else {
             val gson = Gson()
             return gson.fromJson(json, Array<User>::class.java).toList()
+        }
+    }
+    public fun JsonToReviewConverter(json:String):List<Reviews>?{
+        if(json == "null"){
+            return null
+        }else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Reviews>::class.java).toList()
         }
     }
     public fun UserToJsonConverter(id:Int,updatedFirstName:String,updatedLastName:String,updatedAddress:String,updatedUsername:String,updatedPassword:String,updatedMail:String):String{
