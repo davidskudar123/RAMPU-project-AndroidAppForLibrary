@@ -11,8 +11,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Riješeni bug sa kupnjom knjiga.">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Reviews.kt" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Napravljen reviews blueprint">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_reviews_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -449,7 +450,13 @@
       <option name="presentableId" value="LOCAL−00026" />
       <updated>1705861660329</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL−00027" summary="Napravljen reviews blueprint">
+      <created>1705862321058</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1705862321058</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -476,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dizajniran inicijalni layout file za registraciju." />
     <MESSAGE value="Poporavljen layout za registraciju." />
     <MESSAGE value="Kreirana i implementirana inicijalna logika za aktivnost Registracije" />
     <MESSAGE value="Dodane ovinsosti za rad na registaciji" />
@@ -501,21 +507,12 @@
     <MESSAGE value="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji." />
     <MESSAGE value="BooksOfUsersRecyclerAdapter" />
     <MESSAGE value="Riješeni bug sa kupnjom knjiga." />
-    <option name="LAST_COMMIT_MESSAGE" value="Riješeni bug sa kupnjom knjiga." />
+    <MESSAGE value="Napravljen reviews blueprint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Napravljen reviews blueprint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt</url>
-          <line>150</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt</url>
-          <line>153</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
           <line>105</line>
