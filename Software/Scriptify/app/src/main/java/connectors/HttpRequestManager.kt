@@ -38,7 +38,7 @@ class HttpRequestManager {
     private var buyBook: String = "${address}:4000/buyBook"
     private var updateMoney: String = "${address}:4000/updateMoney"
     private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
-    private var reviews: String = "${address}:4000/reviews"
+    private var reviews: String = "${address}:4000/review"
     private val client = OkHttpClient()
 
 

@@ -121,8 +121,9 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
 
         }
         reviews.setOnClickListener {
+            dismiss()
             val fragmentManager = (context as FragmentActivity).supportFragmentManager
-            val bookReviews = BookReviewsDialogFragment()
+            val bookReviews = BookReviewsDialogFragment(IdBook,requireContext())
             bookReviews.show(fragmentManager,"BookReviewsDialogFragment")
         }
         add.setOnClickListener {
