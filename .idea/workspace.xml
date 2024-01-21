@@ -11,9 +11,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="BooksOfUsersRecyclerAdapter">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksOfUsersRecyclerAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/books_of_users_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_buy_book.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -438,7 +440,13 @@
       <option name="presentableId" value="LOCAL−00024" />
       <updated>1705768060794</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL−00025" summary="BooksOfUsersRecyclerAdapter">
+      <created>1705857936796</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1705857936796</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -489,6 +497,7 @@
     <MESSAGE value="Implementirana kupovina knjige." />
     <MESSAGE value="Implementirana provjera nacina placanja." />
     <MESSAGE value="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji." />
+    <MESSAGE value="BooksOfUsersRecyclerAdapter" />
+    <option name="LAST_COMMIT_MESSAGE" value="BooksOfUsersRecyclerAdapter" />
   </component>
 </project>
