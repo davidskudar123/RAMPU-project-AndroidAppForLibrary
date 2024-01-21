@@ -1,4 +1,3 @@
-// BooksLoan.kt
 package fragments
 
 import adapters.LibraryAdapter
@@ -13,7 +12,7 @@ import blueprints.Books
 import blueprints.Library
 import com.example.scriptify.hr.R
 
-class BooksLoan(id: Int) : Fragment(R.layout.book_loan_fragment) {
+class BooksLoan(id: Int) : Fragment(R.layout.book_loan_fragment), LibraryAdapter.OnLibraryClickListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,7 +25,7 @@ class BooksLoan(id: Int) : Fragment(R.layout.book_loan_fragment) {
 
         // Prikazi podatke u RecyclerView
         val recyclerView: RecyclerView = view.findViewById(R.id.libraryRecyclerView)
-        val libraryAdapter = LibraryAdapter(mockLibraries)
+        val libraryAdapter = LibraryAdapter(mockLibraries, this)
         recyclerView.adapter = libraryAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -54,5 +53,15 @@ class BooksLoan(id: Int) : Fragment(R.layout.book_loan_fragment) {
             )
             // Add more libraries as needed
         )
+    }
+
+    override fun onLibraryClick(library: Library) {
+
+        //replace the fragment to show books of the selected library
+        val booksFragment = BooksFragment(library.books)
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.flLayout, booksFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }

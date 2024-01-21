@@ -1,0 +1,35 @@
+package adapters
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import blueprints.Books
+import com.example.scriptify.hr.R
+
+class BooksAdapter(private val books: List<Books>) :
+    RecyclerView.Adapter<BooksAdapter.BookViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_book, parent, false)
+        return BookViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
+        val book = books[position]
+        holder.bind(book)
+    }
+
+    override fun getItemCount(): Int = books.size
+
+    class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val bookTitleTextView: TextView = itemView.findViewById(R.id.bookTitleTextView)
+
+        fun bind(book: Books) {
+            bookTitleTextView.text = book.naziv_knjige
+            // Bind other views with data if needed
+        }
+    }
+}
