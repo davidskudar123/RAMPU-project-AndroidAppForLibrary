@@ -11,10 +11,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Dodana logika za registraciju na server.js.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Dodan dependency u build gradle za inicijalni prikaz knjižara.">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Libraries.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +63,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -100,6 +100,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Xhx8B3714iptnFyzE5chxvWvR1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -112,10 +115,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
-    "android.gradle.sync.needed": "true",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
+    "last_directory_selection": "C:/Users/budal/AndroidStudioProjects/rampu23-scriptify/Software/Scriptify/app/src/main/java",
     "last_opened_file_path": "C:/Projects/rampu23-scriptify/Software/Scriptify/settings.gradle.kts",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
@@ -446,7 +449,14 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1705857936796</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Dodan dependency u build gradle za inicijalni prikaz knjižara.">
+      <created>1705859302461</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1705859302461</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -473,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kreiran layout file za registraciju." />
     <MESSAGE value="Dizajniran inicijalni layout file za registraciju." />
     <MESSAGE value="Poporavljen layout za registraciju." />
     <MESSAGE value="Kreirana i implementirana inicijalna logika za aktivnost Registracije" />
@@ -498,7 +507,8 @@
     <MESSAGE value="Implementirana provjera nacina placanja." />
     <MESSAGE value="Moze se kupovati placanjem putem pouzeca ili putem novcanika u aplikaciji." />
     <MESSAGE value="BooksOfUsersRecyclerAdapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="BooksOfUsersRecyclerAdapter" />
+    <MESSAGE value="Dodan dependency u build gradle za inicijalni prikaz knjižara." />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodan dependency u build gradle za inicijalni prikaz knjižara." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
