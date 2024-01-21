@@ -110,6 +110,7 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
         return view
     }
 
+    @SuppressLint("SuspiciousIndentation")
     fun BuyABook(IDbook:Int, IDuser:Int, Name: String, Desc:String, Autor:String, spinnerValue: String){
         var idbook:Int = IDbook
         var iduser:Int = IDuser

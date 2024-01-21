@@ -1,225 +1,364 @@
-CREATE DATABASE  IF NOT EXISTS `scriptify_final` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `scriptify_final`;
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: scriptify_final
--- ------------------------------------------------------
--- Server version	8.0.34
+-- Host: 127.0.0.1
+-- Generation Time: Jan 21, 2024 at 06:39 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `scriptify`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `knjige`
 --
 
-DROP TABLE IF EXISTS `knjige`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `knjige` (
-  `idKnjige` int NOT NULL AUTO_INCREMENT,
+  `idKnjige` int(11) NOT NULL,
   `naziv_knjige` varchar(45) DEFAULT NULL,
   `autor` varchar(255) DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`idKnjige`)
-) ENGINE=InnoDB AUTO_INCREMENT=513649219 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `Description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `knjige`
 --
 
-LOCK TABLES `knjige` WRITE;
-/*!40000 ALTER TABLE `knjige` DISABLE KEYS */;
-INSERT INTO `knjige` VALUES (1,'Astrophysics for people in a hurry','Neil DeGrass Tyso','An engaging and concise exploration of astrophysics, written by the renowned astrophysicist Neil deGrasse Tyson. This book provides a quick yet informative journey through the mysteries of the cosmos.'),(2,'Friends in New York','Mathew Perry','Beautiful story of 6 friends in New York'),(3,'Ana Karenjina','Fjodor Dostojevski','Amazing Book, about Ana'),(4,'Moja igra','Luka Modrić','\"Moja igra\" is written by the talented Croatian footballer Luka Modrić. In this autobiography, Modrić shares insights into his life, career, and the world of football'),(5,'Zločin i kazna','Fjodor Miljič Dostojevski','Man who killed grandma, and was emotional'),(6,'Tired of Winning','Donald Trump','Guide on how to win'),(323232,'Uvod u programiranje','Alen Lovrenčić','Uvod u c++ programiranje'),(9138960,'Uvod u programiranje','Mario Konecki i Alen Lovrencic','Uvod u programiranje'),(25950724,'testBook','autor','decs'),(38996773,'seg','esr','svd'),(91886543,'test','test','test'),(112270560,'test','te','test'),(123102973,'test','test','test'),(125982519,'test','test','test'),(152047813,'Uvod u algoritme','Alen Lovrenic','Uvod u sve vrste algoritama'),(173538435,'test','test','teste'),(189191730,'To Kill a Mocking Bir','Harper Lee','A classic novel that explores the issues of racial injustice and segregation.'),(199721778,'buba saba','buba saba','mala buba'),(211897043,'test','te','test'),(227475030,'how to love','Stura marino','volim luku'),(228499805,'test','test','test'),(284298740,'dvsvsd','fewwef','gwegwed'),(300380050,'Moj program','Marino Štura','Knjiga govori o prvom programu'),(384475309,'e','e','e'),(387626094,'gesg','test','sgeg'),(397472551,'test','test','test'),(406617487,'test','test','test'),(414527267,'test2','test2','test2'),(420784528,'hre','sdfs','sdf'),(423328433,'test','test','test'),(431630138,'t','t','t'),(468530946,'test','test','test'),(484525344,'Napredno programiranje 3','Alen Lovrencic','Napredni koncepti programiranja'),(510190237,'test','testreq.params.id','test'),(513649218,'test','test','test');
-/*!40000 ALTER TABLE `knjige` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `knjige` (`idKnjige`, `naziv_knjige`, `autor`, `Description`) VALUES
+(323232, 'Uvod u programiranje', 'Alen Lovrenčić', 'Uvod u c++ programiranje'),
+(9138960, 'Uvod u programiranje', 'Mario Konecki i Alen Lovrencic', 'Uvod u programiranje'),
+(15348240, 'Zlocin i kazna', 'Fjodor Miljic Dostojevski', 'Man who killed grandma, and was emotional'),
+(16907856, 'Ana Karenjina', 'Fjodor Dostojevski', 'Amazing Book, about Ana.'),
+(25950724, 'testBook', 'autor', 'decs'),
+(38996773, 'seg', 'esr', 'svd'),
+(85338843, 'Knjiga od korisnika TEST', 'Testiramo za kupovinu', 'Testiramo kupovinu knjiga.'),
+(91886543, 'test', 'test', 'test'),
+(112270560, 'test', 'te', 'test'),
+(123102973, 'test', 'test', 'test'),
+(125982519, 'test', 'test', 'test'),
+(135544289, 'asd', 'ad', 'asd'),
+(152047813, 'Uvod u algoritme', 'Alen Lovrenic', 'Uvod u sve vrste algoritama'),
+(173538435, 'test', 'test', 'teste'),
+(189191730, 'To Kill a Mocking Bir', 'Harper Lee', 'A classic novel that explores the issues of racial injustice and segregation.'),
+(199721778, 'buba saba', 'buba saba', 'mala buba'),
+(211897043, 'test', 'te', 'test'),
+(227475030, 'how to love', 'Stura marino', 'volim luku'),
+(228499805, 'test', 'test', 'test'),
+(240508263, 'dsa', 'dsa', 'dsa'),
+(247895104, 'Moja igra', 'Luka Modric', 'Moja igra is written by the talented Croatian fo..'),
+(256534695, 'tt', 'tt', 'tt'),
+(284298740, 'dvsvsd', 'fewwef', 'gwegwed'),
+(300380050, 'Moj program', 'Marino Štura', 'Knjiga govori o prvom programu'),
+(384475309, 'e', 'e', 'e'),
+(387626094, 'gesg', 'test', 'sgeg'),
+(397472551, 'test', 'test', 'test'),
+(406617487, 'test', 'test', 'test'),
+(414527267, 'test2', 'test2', 'test2'),
+(420784528, 'hre', 'sdfs', 'sdf'),
+(423328433, 'test', 'test', 'test'),
+(431630138, 't', 't', 't'),
+(468530946, 'test', 'test', 'test'),
+(484525344, 'Napredno programiranje 3', 'Alen Lovrencic', 'Napredni koncepti programiranja'),
+(486662880, 'asd', 'asd', 'asdasfasfsafsafasfasfsafgdahfdhrgjztzfsdgsdfsdhfgsdfasfsdgdsgffsafsdgdfsgsddsagddasdgsdfdshdfsdbsdsrbrdhfadfdsggea'),
+(510190237, 'test', 'testreq.params.id', 'test'),
+(513649218, 'test', 'test', 'test');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `knjizara`
 --
 
-DROP TABLE IF EXISTS `knjizara`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `knjizara` (
-  `idKnjizara` int NOT NULL AUTO_INCREMENT,
-  `ime` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idKnjizara`),
-  UNIQUE KEY `idKnjizara_UNIQUE` (`idKnjizara`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idKnjizara` int(11) NOT NULL,
+  `ime` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `knjizara`
 --
 
-LOCK TABLES `knjizara` WRITE;
-/*!40000 ALTER TABLE `knjizara` DISABLE KEYS */;
-INSERT INTO `knjizara` VALUES (1,'Zagrebacka knjiznica'),(2,'Varazdinska knjiznica');
-/*!40000 ALTER TABLE `knjizara` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `knjizara` (`idKnjizara`, `ime`) VALUES
+(1, 'Zagrebacka knjiznica'),
+(2, 'Varazdinska knjiznica');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `knjizara_has_knjige`
 --
 
-DROP TABLE IF EXISTS `knjizara_has_knjige`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `knjizara_has_knjige` (
-  `knjizara_has_knjige_id` int NOT NULL AUTO_INCREMENT,
-  `Knjizara_idKnjizara` int NOT NULL,
-  `Knjige_idKnjige` int NOT NULL,
-  PRIMARY KEY (`knjizara_has_knjige_id`,`Knjizara_idKnjizara`,`Knjige_idKnjige`),
-  KEY `fk_Knjizara_has_Knjige_Knjige1_idx` (`Knjige_idKnjige`,`knjizara_has_knjige_id`),
-  KEY `fk_Knjizara_has_Knjige_Knjizara1_idx` (`Knjizara_idKnjizara`),
-  CONSTRAINT `knjizara_has_knjige_ibfk_1` FOREIGN KEY (`Knjizara_idKnjizara`) REFERENCES `knjizara` (`idKnjizara`),
-  CONSTRAINT `knjizara_has_knjige_ibfk_2` FOREIGN KEY (`Knjige_idKnjige`) REFERENCES `knjige` (`idKnjige`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `knjizara_has_knjige_id` int(11) NOT NULL,
+  `Knjizara_idKnjizara` int(11) NOT NULL,
+  `Knjige_idKnjige` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `knjizara_has_knjige`
+-- Table structure for table `purchased_books`
 --
 
-LOCK TABLES `knjizara_has_knjige` WRITE;
-/*!40000 ALTER TABLE `knjizara_has_knjige` DISABLE KEYS */;
-INSERT INTO `knjizara_has_knjige` VALUES (13,1,1),(14,1,2),(15,2,2),(16,2,3);
-/*!40000 ALTER TABLE `knjizara_has_knjige` ENABLE KEYS */;
-UNLOCK TABLES;
+CREATE TABLE `purchased_books` (
+  `idKnjige` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `naziv_knjige` varchar(255) DEFAULT NULL,
+  `autor` varchar(255) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `purchased_books`
+--
+
+INSERT INTO `purchased_books` (`idKnjige`, `id_user`, `naziv_knjige`, `autor`, `Description`) VALUES
+(6, 1, 'Tired of Winning', 'Guide on how to win', 'Donald Trump'),
+(15348240, 7, 'Zlocin i kazna', 'Man who killed grandma, and was emotional', 'Fjodor Miljic Dostojevski'),
+(16907856, 7, 'Ana Karenjina', 'Amazing Book, about Ana.', 'Fjodor Dostojevski'),
+(85338843, 7, 'Knjiga od korisnika TEST', 'Testiramo kupovinu knjiga.', 'Testiramo za kupovinu'),
+(152047813, 1, 'Uvod u algoritme', 'Uvod u sve vrste algoritama', 'Alen Lovrenic'),
+(227475030, 7, 'how to love', 'volim luku', 'Stura marino'),
+(240508263, 1, 'dsa', 'dsa', 'dsa'),
+(247895104, 7, 'Moja igra', 'Moja igra is written by the talented Croatian fo..', 'Luka Modric'),
+(484525344, 1, 'Napredno programiranje 3', 'Napredni koncepti programiranja', 'Alen Lovrencic'),
+(486662880, 1, 'asd', 'asdasfasfsafsafasfasfsafgdahfdhrgjztzfsdgsdfsdhfgsdfasfsdgdsgffsafsdgdfsgsddsagddasdgsdfdshdfsdbsdsrbrdhfadfdsggea', 'asd');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `reviews`
 --
 
-DROP TABLE IF EXISTS `reviews`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reviews` (
-  `idReview` int NOT NULL AUTO_INCREMENT,
-  `idKnjige` int DEFAULT NULL,
+  `idReview` int(11) NOT NULL,
+  `idKnjige` int(11) DEFAULT NULL,
   `review_text` varchar(255) DEFAULT NULL,
-  `rating` int DEFAULT NULL,
-  PRIMARY KEY (`idReview`),
-  KEY `idKnjige` (`idKnjige`),
-  CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`idKnjige`) REFERENCES `knjige` (`idKnjige`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `reviews`
---
-
-LOCK TABLES `reviews` WRITE;
-/*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `id_user` int NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
   `username` varchar(16) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(32) NOT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` timestamp NULL DEFAULT current_timestamp(),
   `address` varchar(255) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `money` decimal(10,0) DEFAULT NULL,
-  `status` text,
-  PRIMARY KEY (`id_user`),
-  UNIQUE KEY `id_user_UNIQUE` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `status` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'john_doe','john.doe@example.com','1234','2023-11-05 16:00:42','123 Main St, City, Country','John ','Doe',495,'I like reading a lot'),(2,'jane_smith','jane.smith@example.com','password456','2023-11-05 16:00:42','456 Elm St, Town, Country','Jane ','Smith',135,'Reading is my favourite hobby'),(3,'joey_balboa','yoe_te@gmail.com','12345','2023-11-17 20:47:07','765 Royal Lane, USA','Joe','Balboa',0,'I like books and the gym'),(4,'test','test','test','2023-11-18 15:38:35','test','test','test',25,NULL),(5,'marino','mojmail@gmail.com','1234','2023-11-18 15:44:39','Sv. Bana jelacica 5','Marino','Štura',50,NULL),(7,'test','test','test','2023-11-18 15:47:27','test','test','test',NULL,NULL),(8,'test','test','ttest','2023-11-18 16:21:34','test','test','test',NULL,NULL),(9,'tst','test','test','2023-11-18 16:23:33','test','test','test',NULL,NULL),(10,'tst','test','test','2023-11-18 16:25:24','test','test','test',NULL,NULL),(11,'mrvu','krse.volim@gmail.con','krse123','2023-11-18 16:47:54','foi 4','Luka','Krsevan nizic',NULL,NULL),(12,'mrvu','krse.volim@gmail.com','krse123','2023-11-18 16:47:58','foi 4','Luka','Krsevan nizic',NULL,NULL),(13,'mrvu','krse.volim@gmail.com','krse123','2023-11-18 16:48:02','foi 4','Luka','Krsevan ',NULL,NULL),(14,'mrvu','krse.volim@gmail.com','krse123','2023-11-18 16:48:07','foi 4','Luka','Krsevan nizic',NULL,NULL),(15,'mrvi','krse.volim@gmail.com','krse123','2023-11-18 16:48:13','foi 4','Luka','Krsevan nizic',NULL,NULL),(16,'mrvi','krse.volim@gmail.com','krse123','2023-11-18 16:48:20','foi 4','Luka','Krsevan nizic',NULL,NULL),(17,'mrvi','krse.volim@gmail.com','krse123','2023-11-18 16:48:21','foi 4','Luka','Krsevan nizic',NULL,NULL),(18,'t','t','t','2023-11-18 16:49:21','t','t','t',NULL,NULL),(19,'krse','volim.krsu@gmail.com','krse123','2023-11-18 16:50:03','foi 4','Luka','Krsevan Nizic',200,NULL),(20,'bubasba','mgveric7@gmail.com','hah','2023-11-18 19:04:56','bubiceva kuca','buha','saba',100,NULL);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `create_time`, `address`, `first_name`, `last_name`, `money`, `status`) VALUES
+(1, 'john_doe', 'john.doe@example.com', '1234', '2023-11-05 15:00:42', '123 Main St, City, Country', 'John ', 'Doe', 499, 'I like reading a lot'),
+(2, 'jane_smith', 'jane.smith@example.com', 'password456', '2023-11-05 15:00:42', '456 Elm St, Town, Country', 'Jane ', 'Smith', 135, 'Reading is my favourite hobby'),
+(3, 'joey_balboa', 'yoe_te@gmail.com', '12345', '2023-11-17 19:47:07', '765 Royal Lane, USA', 'Joe', 'Balboa', 0, 'I like books and the gym'),
+(4, 'test', 'test', 'test', '2023-11-18 14:38:35', 'test', 'test', 'test', 75, NULL),
+(5, 'marino', 'mojmail@gmail.com', '1234', '2023-11-18 14:44:39', 'Sv. Bana jelacica 5', 'Marino', 'Štura', 50, NULL),
+(7, 'test', 'test', 'test', '2023-11-18 14:47:27', 'test', 'test', 'test', 300, NULL),
+(8, 'test', 'test', 'ttest', '2023-11-18 15:21:34', 'test', 'test', 'test', NULL, NULL),
+(9, 'tst', 'test', 'test', '2023-11-18 15:23:33', 'test', 'test', 'test', NULL, NULL),
+(10, 'tst', 'test', 'test', '2023-11-18 15:25:24', 'test', 'test', 'test', NULL, NULL),
+(11, 'mrvu', 'krse.volim@gmail.con', 'krse123', '2023-11-18 15:47:54', 'foi 4', 'Luka', 'Krsevan nizic', NULL, NULL),
+(12, 'mrvu', 'krse.volim@gmail.com', 'krse123', '2023-11-18 15:47:58', 'foi 4', 'Luka', 'Krsevan nizic', NULL, NULL),
+(13, 'mrvu', 'krse.volim@gmail.com', 'krse123', '2023-11-18 15:48:02', 'foi 4', 'Luka', 'Krsevan ', NULL, NULL),
+(14, 'mrvu', 'krse.volim@gmail.com', 'krse123', '2023-11-18 15:48:07', 'foi 4', 'Luka', 'Krsevan nizic', NULL, NULL),
+(15, 'mrvi', 'krse.volim@gmail.com', 'krse123', '2023-11-18 15:48:13', 'foi 4', 'Luka', 'Krsevan nizic', NULL, NULL),
+(16, 'mrvi', 'krse.volim@gmail.com', 'krse123', '2023-11-18 15:48:20', 'foi 4', 'Luka', 'Krsevan nizic', NULL, NULL),
+(17, 'mrvi', 'krse.volim@gmail.com', 'krse123', '2023-11-18 15:48:21', 'foi 4', 'Luka', 'Krsevan nizic', NULL, NULL),
+(18, 't', 't', 't', '2023-11-18 15:49:21', 't', 't', 't', NULL, NULL),
+(19, 'krse', 'volim.krsu@gmail.com', 'krse123', '2023-11-18 15:50:03', 'foi 4', 'Luka', 'Krsevan Nizic', 200, NULL),
+(20, 'bubasba', 'mgveric7@gmail.com', 'hah', '2023-11-18 18:04:56', 'bubiceva kuca', 'buha', 'saba', 100, NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user_has_knjige`
 --
 
-DROP TABLE IF EXISTS `user_has_knjige`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_has_knjige` (
-  `user_id_user` int NOT NULL,
-  `Knjige_idKnjige` int NOT NULL,
-  PRIMARY KEY (`user_id_user`,`Knjige_idKnjige`),
-  KEY `fk_user_has_Knjige_Knjige1_idx` (`Knjige_idKnjige`),
-  KEY `fk_user_has_Knjige_user1_idx` (`user_id_user`),
-  CONSTRAINT `user_has_knjige_ibfk_1` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`),
-  CONSTRAINT `user_has_knjige_ibfk_2` FOREIGN KEY (`Knjige_idKnjige`) REFERENCES `knjige` (`idKnjige`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `user_id_user` int(11) NOT NULL,
+  `Knjige_idKnjige` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_has_knjige`
 --
 
-LOCK TABLES `user_has_knjige` WRITE;
-/*!40000 ALTER TABLE `user_has_knjige` DISABLE KEYS */;
-INSERT INTO `user_has_knjige` VALUES (1,4),(1,5),(2,5),(1,6),(2,6),(5,123102973),(2,152047813),(19,227475030),(4,484525344);
-/*!40000 ALTER TABLE `user_has_knjige` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `user_has_knjige` (`user_id_user`, `Knjige_idKnjige`) VALUES
+(1, 16907856),
+(1, 85338843),
+(1, 152047813),
+(1, 227475030),
+(1, 240508263),
+(1, 247895104),
+(1, 484525344),
+(1, 486662880),
+(7, 15348240);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user_has_knjizara_has_knjige`
 --
 
-DROP TABLE IF EXISTS `user_has_knjizara_has_knjige`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_has_knjizara_has_knjige` (
-  `user_id_user` int NOT NULL,
-  `Knjizara_has_Knjige_knjizara_has_knjige_id` int NOT NULL,
-  PRIMARY KEY (`user_id_user`,`Knjizara_has_Knjige_knjizara_has_knjige_id`),
-  KEY `user_has_Knjizara_has_Knjige_fk_idx` (`Knjizara_has_Knjige_knjizara_has_knjige_id`),
-  KEY `user_has_Knjizara_has_Knjige_user_idx` (`user_id_user`),
-  CONSTRAINT `fk_user_has_Knjizara_has_Knjige_Knjizara_has_Knjige1` FOREIGN KEY (`Knjizara_has_Knjige_knjizara_has_knjige_id`) REFERENCES `knjizara_has_knjige` (`knjizara_has_knjige_id`),
-  CONSTRAINT `fk_user_has_Knjizara_has_Knjige_user1` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `user_id_user` int(11) NOT NULL,
+  `Knjizara_has_Knjige_knjizara_has_knjige_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_has_knjizara_has_knjige`
+-- Indexes for dumped tables
 --
 
-LOCK TABLES `user_has_knjizara_has_knjige` WRITE;
-/*!40000 ALTER TABLE `user_has_knjizara_has_knjige` DISABLE KEYS */;
-INSERT INTO `user_has_knjizara_has_knjige` VALUES (1,13),(2,14);
-/*!40000 ALTER TABLE `user_has_knjizara_has_knjige` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Indexes for table `knjige`
+--
+ALTER TABLE `knjige`
+  ADD PRIMARY KEY (`idKnjige`);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for table `knjizara`
+--
+ALTER TABLE `knjizara`
+  ADD PRIMARY KEY (`idKnjizara`),
+  ADD UNIQUE KEY `idKnjizara_UNIQUE` (`idKnjizara`);
+
+--
+-- Indexes for table `knjizara_has_knjige`
+--
+ALTER TABLE `knjizara_has_knjige`
+  ADD PRIMARY KEY (`knjizara_has_knjige_id`,`Knjizara_idKnjizara`,`Knjige_idKnjige`),
+  ADD KEY `fk_Knjizara_has_Knjige_Knjige1_idx` (`Knjige_idKnjige`,`knjizara_has_knjige_id`),
+  ADD KEY `fk_Knjizara_has_Knjige_Knjizara1_idx` (`Knjizara_idKnjizara`);
+
+--
+-- Indexes for table `purchased_books`
+--
+ALTER TABLE `purchased_books`
+  ADD PRIMARY KEY (`idKnjige`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`idReview`),
+  ADD KEY `idKnjige` (`idKnjige`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `id_user_UNIQUE` (`id_user`);
+
+--
+-- Indexes for table `user_has_knjige`
+--
+ALTER TABLE `user_has_knjige`
+  ADD PRIMARY KEY (`user_id_user`,`Knjige_idKnjige`),
+  ADD KEY `fk_user_has_Knjige_Knjige1_idx` (`Knjige_idKnjige`),
+  ADD KEY `fk_user_has_Knjige_user1_idx` (`user_id_user`);
+
+--
+-- Indexes for table `user_has_knjizara_has_knjige`
+--
+ALTER TABLE `user_has_knjizara_has_knjige`
+  ADD PRIMARY KEY (`user_id_user`,`Knjizara_has_Knjige_knjizara_has_knjige_id`),
+  ADD KEY `user_has_Knjizara_has_Knjige_fk_idx` (`Knjizara_has_Knjige_knjizara_has_knjige_id`),
+  ADD KEY `user_has_Knjizara_has_Knjige_user_idx` (`user_id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `knjige`
+--
+ALTER TABLE `knjige`
+  MODIFY `idKnjige` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513649219;
+
+--
+-- AUTO_INCREMENT for table `knjizara`
+--
+ALTER TABLE `knjizara`
+  MODIFY `idKnjizara` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `knjizara_has_knjige`
+--
+ALTER TABLE `knjizara_has_knjige`
+  MODIFY `knjizara_has_knjige_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `idReview` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `knjizara_has_knjige`
+--
+ALTER TABLE `knjizara_has_knjige`
+  ADD CONSTRAINT `knjizara_has_knjige_ibfk_1` FOREIGN KEY (`Knjizara_idKnjizara`) REFERENCES `knjizara` (`idKnjizara`),
+  ADD CONSTRAINT `knjizara_has_knjige_ibfk_2` FOREIGN KEY (`Knjige_idKnjige`) REFERENCES `knjige` (`idKnjige`);
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`idKnjige`) REFERENCES `knjige` (`idKnjige`);
+
+--
+-- Constraints for table `user_has_knjige`
+--
+ALTER TABLE `user_has_knjige`
+  ADD CONSTRAINT `user_has_knjige_ibfk_1` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`),
+  ADD CONSTRAINT `user_has_knjige_ibfk_2` FOREIGN KEY (`Knjige_idKnjige`) REFERENCES `knjige` (`idKnjige`);
+
+--
+-- Constraints for table `user_has_knjizara_has_knjige`
+--
+ALTER TABLE `user_has_knjizara_has_knjige`
+  ADD CONSTRAINT `fk_user_has_Knjizara_has_Knjige_Knjizara_has_Knjige1` FOREIGN KEY (`Knjizara_has_Knjige_knjizara_has_knjige_id`) REFERENCES `knjizara_has_knjige` (`knjizara_has_knjige_id`),
+  ADD CONSTRAINT `fk_user_has_Knjizara_has_Knjige_user1` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-01-19 19:48:09
