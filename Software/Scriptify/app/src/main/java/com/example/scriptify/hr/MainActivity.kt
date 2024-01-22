@@ -1,5 +1,6 @@
 package com.example.scriptify.hr
 
+import BooksLoan
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fragments.BookExchangeFragment
-import fragments.BooksLoan
 import fragments.MyBooksFragment
 import fragments.ProfileFragment
 
