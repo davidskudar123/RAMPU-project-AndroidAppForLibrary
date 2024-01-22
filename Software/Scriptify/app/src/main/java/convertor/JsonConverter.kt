@@ -94,10 +94,10 @@ class JsonConverter {
         jsonObject.put("Knjige_idKnjige",idBook)
         return jsonObject.toString()
     }
-    public fun BooktoBooktoJsonConverter(idUser:Int,idBook:Int): String{
+    public fun BooktoBooktoJsonConverter(idBookGdje:Int,idBookKoja:Int): String{
         val jsonObject = JSONObject()
-        jsonObject.put("user_id_user",idUser)
-        jsonObject.put("Knjige_idKnjige",idBook)
+        jsonObject.put("WhereBook",idBookGdje)
+        jsonObject.put("Book",idBookKoja)
         return jsonObject.toString()
     }
 
