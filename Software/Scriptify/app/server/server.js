@@ -133,10 +133,40 @@ app.post('/urlMoneyInfo', (req, res) => {
     res.json(results);
   });
 });
+app.get('/review/:id', (req, res) => {
+    const book_id = req.params.id;
 
 
+    console.log('Connected to database');
+
+    // Izvrši SQL UPDATE upit
+    const sql = `SELECT * FROM reviews WHERE idKnjige = ${book_id}`;
+    con.query(sql, (error, results, fields) => {
+      if (error) {
+        console.error('Error updating data: ' + error.stack);
+        res.status(500).json({ error: 'Error.' });
+        return;
+      }
+
+      // Slanje odgovora o uspješnom ažuriranju
+      res.json(results);
+    });
+  });
 
 
+  app.get('/libraries', (req, res) => {
+    console.log('Connected to database for fetching libraries');
+
+    con.query('SELECT * FROM knjizara', (error, results) => {
+      if (error) {
+        console.error('Error querying libraries: ' + error.stack);
+        res.status(500).json({ error: 'Error querying libraries' });
+        return;
+      }
+
+      res.json(results);
+    });
+  });
 app.get('/myBooks/:id', (req, res) => {
   const userId = req.params.id;
   const sql = `SELECT b.*
