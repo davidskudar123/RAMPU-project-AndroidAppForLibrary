@@ -30,30 +30,6 @@ app.get('/', (req, res) => {
 
     });
   });
-//komentar
-  app.get('/BooksOfLibrary/:id', (req, res) => {
-    const libraryId = req.params.id;
-
-    // Koristi JOIN za dohvaćanje knjiga povezanih s određenom knjižnicom
-    const sql = `
-      SELECT k.idKnjige, k.naziv_knjige, k.autor, k.Description
-      FROM knjige k
-      JOIN knjizara_has_knjige khk ON k.idKnjige = khk.Knjige_idKnjige
-      WHERE khk.Knjizara_idKnjizara = ${libraryId};
-    `;
-
-    con.query(sql, (error, results, fields) => {
-      if (error) {
-        console.error('Error retrieving data: ' + error.stack);
-        res.status(500).json({ error: 'Error retrieving data' });
-        return;
-      }
-
-      // Slanje odgovora o uspješnom dohvaćanju knjiga za knjižnicu
-      res.json(results);
-    });
-  });
-
 
 app.get('/loginuser/:id', (req, res) => {
 
@@ -116,6 +92,7 @@ app.post('/updateUserMoney/:id', (req, res) => {
 
     // Slanje odgovora o uspješnom ažuriranju
     res.json({ message: 'Data updated successfully' });
+console.log("UPDATE FINISH");
   });
 });
 
@@ -134,6 +111,7 @@ app.post('/updateMoney', (req, res) => {
     }
 
     // Slanje odgovora o uspješnom ažuriranju
+console.log("UPDATE FINISH");
     res.json({ message: 'Data updated successfully' });
   });
 });
@@ -155,25 +133,13 @@ app.post('/urlMoneyInfo', (req, res) => {
 
     // Slanje odgovora o uspješnom ažuriranju
     res.json(results);
+console.log(results);
   });
+
 });
 app.get('/review/:id', (req, res) => {
     const book_id = req.params.id;
 
-//Zahtjev za dohvat bibolotekas
-app.get('/libraries', (req, res) => {
-  console.log('Connected to database for fetching libraries');
-
-  con.query('SELECT * FROM knjizara', (error, results) => {
-    if (error) {
-      console.error('Error querying libraries: ' + error.stack);
-      res.status(500).json({ error: 'Error querying libraries' });
-      return;
-    }
-
-    res.json(results);
-  });
-});
 
     console.log('Connected to database');
 
@@ -191,6 +157,26 @@ app.get('/libraries', (req, res) => {
     });
   });
 
+
+app.get('/getBooks', (req, res) => {
+    const book_id = req.params.id;
+
+
+    console.log('Connected to database');
+
+    // Izvrši SQL UPDATE upit
+    const sql = `SELECT * FROM knjige`;
+    con.query(sql, (error, results, fields) => {
+      if (error) {
+        console.error('Error updating data: ' + error.stack);
+        res.status(500).json({ error: 'Error.' });
+        return;
+      }
+
+      // Slanje odgovora o uspješnom ažuriranju
+      res.json(results);
+    });
+  });
 
   app.get('/libraries', (req, res) => {
     console.log('Connected to database for fetching libraries');
@@ -270,6 +256,8 @@ app.post('/userBookCon',(req,res)=>{
       }
     })
     res.json({success:"Book added"})
+
+console.log(userBook);
 })
 
 app.post('/updateUserBookCon',(req,res)=>{
@@ -279,9 +267,27 @@ app.post('/updateUserBookCon',(req,res)=>{
       if(err){
         console.log(err)
         res.status(500).json({error:"Book adding error"})
+	return;
       }
     })
-    res.json({success:"Book added"})
+    	res.json({success:"Book added"})
+	console.log("IZVRSENO");
+	console.log(userBook);
+})
+
+app.post('/UpdateConnectBookToBook',(req,res)=>{
+    const BooksInfo = req.body
+    const sql = "UPDATE user_has_Knjige SET Knjige_idKnjige = ? WHERE Knjige_idKnjige = ?"
+    con.query(sql,[BooksInfo.WhereBook,BooksInfo.Book],(err,results,fields)=>{
+      if(err){
+        console.log(err)
+        res.status(500).json({error:"Book adding error"})
+	return;
+      }
+    })
+ 	res.json({success:"Book added"})
+	console.log("IZVRSENO");
+	console.log(BooksInfo);
 })
 
 app.post('/makeBook',(req,res)=>{
