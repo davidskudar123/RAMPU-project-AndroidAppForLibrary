@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Scriptify.iml" filepath="$PROJECT_DIR$/.idea/modules/Scriptify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Scriptify.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Scriptify.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Scriptify.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Scriptify.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Scriptify.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Scriptify.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Scriptify.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Scriptify.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/rampu23-scriptify.iml" filepath="$PROJECT_DIR$/.idea/rampu23-scriptify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Scriptify/rampu23-scriptify.Scriptify.iml" filepath="$PROJECT_DIR$/.idea/modules/Scriptify/rampu23-scriptify.Scriptify.iml" />
+    </modules>
+  </component>
+</project>
