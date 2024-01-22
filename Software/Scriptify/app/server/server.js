@@ -134,6 +134,20 @@ app.post('/urlMoneyInfo', (req, res) => {
   });
 });
 
+//Zahtjev za dohvat bibolotekas
+app.get('/libraries', (req, res) => {
+  console.log('Connected to database for fetching libraries');
+
+  con.query('SELECT * FROM knjizara', (error, results) => {
+    if (error) {
+      console.error('Error querying libraries: ' + error.stack);
+      res.status(500).json({ error: 'Error querying libraries' });
+      return;
+    }
+
+    res.json(results);
+  });
+});
 
 
 
