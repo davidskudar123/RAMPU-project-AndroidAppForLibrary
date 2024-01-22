@@ -45,6 +45,7 @@ class HttpRequestManager {
     private var BooksOfLibrary: String = "${address}:4000/BooksOfLibrary"
 
     private var reviews: String = "${address}:4000/review"
+    private var getBooks: String = "${address}:4000/getBooks"
     private val client = OkHttpClient()
 //dohvaćanje
     fun getLibraryBooks(libraryId: Int): List<Books>? {
@@ -87,7 +88,6 @@ class HttpRequestManager {
         }
         return null
     }
-
 
 
 

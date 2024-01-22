@@ -11,16 +11,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Kreiran dialog_exchange_book.xml">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Prva faza napravljena">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_18_2023_2_43_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_21_2024_7_58_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_21_2024_7_58_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_21_2024_7_58_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_21_2024_7_58_PM__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_21_2024_8_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_21_2024_8_44_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_1_21_2024_8_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_1_21_2024_8_44_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023__11_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023__11_35__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2024_6_40_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2024_6_40_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksOfUsersRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksOfUsersRecyclerAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Books.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Books.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookExchangeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookExchangeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/books_of_users_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/books_of_users_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_exchange_book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_exchange_book.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_buy_book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_buy_book.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,19 +374,7 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1700322166002</updated>
     </task>
-    <task id="LOCAL−00013" summary="Dovršena kupovina knjiga.">
-      <created>1705946516675</created>
-      <option name="number" value="LOCAL−00013" />
-      <option name="presentableId" value="LOCAL−00013" />
-      <updated>1705946516675</updated>
-    </task>
-    <task id="LOCAL−00014" summary="Kreiran dialog_exchange_book.xml">
-      <created>1705947412113</created>
-      <option name="number" value="LOCAL−00014" />
-      <option name="presentableId" value="LOCAL−00014" />
-      <updated>1705947412113</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,9 +413,7 @@
     <MESSAGE value="Nadodana logika da klikom na registracijski gumb se otvori aktivnost RegisterActivity." />
     <MESSAGE value="Gone" />
     <MESSAGE value="Prva faza napravljena" />
-    <MESSAGE value="Dovršena kupovina knjiga." />
-    <MESSAGE value="Kreiran dialog_exchange_book.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kreiran dialog_exchange_book.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prva faza napravljena" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
