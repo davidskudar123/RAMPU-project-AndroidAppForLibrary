@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import blueprints.Books
 import com.example.scriptify.hr.R
 import fragments.BooksOfUsersDialogFragment
+import fragments.ExchangeBookFragment
 import fragments.MyBookDialogFragment
 
 class BooksOfUsersRecyclerAdapter(val data:List<Books>, Id:Int, val updateCallback: () -> Unit) : RecyclerView.Adapter<BooksOfUsersRecyclerAdapter.ViewHolder>() {
@@ -19,6 +20,7 @@ class BooksOfUsersRecyclerAdapter(val data:List<Books>, Id:Int, val updateCallba
         var desc: TextView = item.findViewById(R.id.description_books_of_users)
         var autor: TextView = item.findViewById(R.id.Autor_books_of_users)
         var btnBuy: Button = item.findViewById(R.id.btn_buy)
+        var btnExchange: Button = item.findViewById(R.id.btn_exchange)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,6 +49,15 @@ class BooksOfUsersRecyclerAdapter(val data:List<Books>, Id:Int, val updateCallba
                 updateCallback
             )
             booksOfUsersDialogFragment.show(fragmentManager, "BooksOfUsersDialogFragment")
+        }
+
+        holder.btnExchange.setOnClickListener{
+            val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
+            val exchangeBookFragment = ExchangeBookFragment(
+                Id,
+                updateCallback
+            )
+            exchangeBookFragment.show(fragmentManager, "ExchangeBookFragment")
         }
 
     }

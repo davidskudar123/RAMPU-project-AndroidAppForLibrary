@@ -39,7 +39,7 @@ class BookExchangeFragment(private val userId: Int) : Fragment(R.layout.book_exc
         val view2 = inflater.inflate(R.layout.books_of_users_item, container, false)
 
         buy = view2.findViewById(R.id.btn_buy)
-        exchange = view2.findViewById(R.id.btnChange)
+        exchange = view2.findViewById(R.id.btn_exchange)
         recycler = view.findViewById(R.id.books_of_users)
         recycler.layoutManager = LinearLayoutManager(requireContext())
 

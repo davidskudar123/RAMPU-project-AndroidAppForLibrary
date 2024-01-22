@@ -58,6 +58,36 @@
             app:layout_constraintTop_toBottomOf="@id/exchangeBook"
             />
 
+        <Button
+            android:id="@+id/excBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/button_buy"
+            android:text="Exchange"
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/excClose"
+            />
+
+        <Button
+            android:id="@+id/excClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_close"
+            android:text="Close"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/excBook"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            />
 
 
 
