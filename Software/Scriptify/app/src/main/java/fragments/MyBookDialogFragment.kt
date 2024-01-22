@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,6 +55,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
     lateinit var sc_notice : TextView
     lateinit var sc_sign: TextView
     lateinit var addedCallback: ()->Unit
+    lateinit var reviews: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,7 +65,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         val view = inflater.inflate(R.layout.dialog_my_books,container,false)
         val view2 = inflater.inflate(R.layout.my_books_fragment,container,false)
         var settableBookId = generateBookId()
-
+        reviews = view.findViewById(R.id.mybooks_reviews)
         bookDesc = view.findViewById(R.id.my_book_dialog_desc)
         bookName = view.findViewById(R.id.my_book_dialog_name)
         title = view.findViewById(R.id.title_dialog_mybooks)
@@ -87,6 +89,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         if(IdBook == 0){
             update.setVisibility(View.INVISIBLE)
             delete.setVisibility(View.INVISIBLE)
+            reviews.setVisibility(View.INVISIBLE)
             add.setVisibility(View.VISIBLE)
             add_title.setVisibility(View.VISIBLE)
             sc_sign.setVisibility(View.VISIBLE)
@@ -116,6 +119,12 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
                 }
                 .show()
 
+        }
+        reviews.setOnClickListener {
+            dismiss()
+            val fragmentManager = (context as FragmentActivity).supportFragmentManager
+            val bookReviews = BookReviewsDialogFragment(IdBook)
+            bookReviews.show(fragmentManager,"BookReviewsDialogFragment")
         }
         add.setOnClickListener {
 
