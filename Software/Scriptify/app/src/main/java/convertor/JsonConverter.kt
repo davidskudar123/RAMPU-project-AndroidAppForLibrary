@@ -17,6 +17,15 @@ class JsonConverter {
             return gson.fromJson(json, Array<Library>::class.java).toList()
         }
     }
+
+    fun JsonToLibraryBookListConverter(json: String): List<Books>? {
+        if (json == "null") {
+            return null
+        } else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Books>::class.java).toList()
+        }
+    }
     public fun JsonToUserListConverter(json:String):List<User>?{
         if(json == "null"){
             return null
