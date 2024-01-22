@@ -31,6 +31,30 @@ app.get('/', (req, res) => {
     });
   });
 
+  app.get('/BooksOfLibrary/:id', (req, res) => {
+    const libraryId = req.params.id;
+
+    // Koristi JOIN za dohvaćanje knjiga povezanih s određenom knjižnicom
+    const sql = `
+      SELECT k.idKnjige, k.naziv_knjige, k.autor, k.Description
+      FROM knjige k
+      JOIN knjizara_has_knjige khk ON k.idKnjige = khk.Knjige_idKnjige
+      WHERE khk.Knjizara_idKnjizara = ${libraryId};
+    `;
+
+    con.query(sql, (error, results, fields) => {
+      if (error) {
+        console.error('Error retrieving data: ' + error.stack);
+        res.status(500).json({ error: 'Error retrieving data' });
+        return;
+      }
+
+      // Slanje odgovora o uspješnom dohvaćanju knjiga za knjižnicu
+      res.json(results);
+    });
+  });
+
+
 app.get('/loginuser/:id', (req, res) => {
 
   const userId = req.params.id;
@@ -136,6 +160,20 @@ app.post('/urlMoneyInfo', (req, res) => {
 app.get('/review/:id', (req, res) => {
     const book_id = req.params.id;
 
+//Zahtjev za dohvat bibolotekas
+app.get('/libraries', (req, res) => {
+  console.log('Connected to database for fetching libraries');
+
+  con.query('SELECT * FROM knjizara', (error, results) => {
+    if (error) {
+      console.error('Error querying libraries: ' + error.stack);
+      res.status(500).json({ error: 'Error querying libraries' });
+      return;
+    }
+
+    res.json(results);
+  });
+});
 
     console.log('Connected to database');
 
