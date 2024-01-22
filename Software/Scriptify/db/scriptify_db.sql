@@ -108,8 +108,13 @@ CREATE TABLE `knjizara_has_knjige` (
   `Knjige_idKnjige` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+-- --------------------------------------------------------;
 
+
+INSERT INTO `knjizara_has_knjige` (`knjizara_has_knjige_id`, `Knjizara_idKnjizara`, `Knjige_idKnjige`) VALUES
+(1, 1, 1690785),
+(2,1, 85338843),
+(,2, 152047813),
 --
 -- Table structure for table `purchased_books`
 --
@@ -220,6 +225,9 @@ INSERT INTO `user_has_knjige` (`user_id_user`, `Knjige_idKnjige`) VALUES
 (1, 484525344),
 (1, 486662880),
 (7, 15348240);
+
+
+
 
 -- --------------------------------------------------------
 
