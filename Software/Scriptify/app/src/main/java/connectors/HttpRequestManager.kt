@@ -39,30 +39,35 @@ class HttpRequestManager {
     private var buyBook: String = "${address}:4000/buyBook"
     private var updateMoney: String = "${address}:4000/updateMoney"
     private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
+    private var libraries: String = "${address}:4000/libraries"
     private val client = OkHttpClient()
 
 
-
     fun getLibraries(): List<Library>? {
-        val request = Request.Builder().url("${url}libraries").build()
-        var res: String? = ""
+        val request = Request.Builder().url("${libraries}").build()
+
         try {
-            val response = client.newCall(request).execute()
-            if (response.isSuccessful) {
-                res = response.body?.string() ?: "Empty response body"
-                return JsonConverter().JsonToLibraryListConverter(res)
-            } else {
-                res = "Unexpected code ${response.code}"
+            client.newCall(request).execute().use { response ->
+                if (response.isSuccessful) {
+                    val responseBody = response.body?.string()
+                    return responseBody?.let {
+                        JsonConverter().JsonToLibraryListConverter(it)
+                    }
+                } else {
+                    println("Unexpected code ${response.code}")
+                }
             }
         } catch (e: IOException) {
             e.printStackTrace()
-            res = null
         }
         return null
     }
 
 
-     fun getUserData(): String  {
+
+
+
+    fun getUserData(): String  {
         val request = Request.Builder().url(url).build()
         var res: String? = ""
 
