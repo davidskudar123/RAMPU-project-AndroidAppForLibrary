@@ -94,7 +94,7 @@
                 android:textSize="12sp"
                 />
             <Button
-                android:id="@+id/btnChange"
+                android:id="@+id/btn_exchange"
                 android:layout_width="110dp"
                 android:layout_height="35dp"
                 app:layout_constraintStart_toEndOf="@id/btn_buy"

@@ -39,6 +39,7 @@ class HttpRequestManager {
     private var updateMoney: String = "${address}:4000/updateMoney"
     private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
     private var reviews: String = "${address}:4000/review"
+    private var getBooks: String = "${address}:4000/getBooks"
     private val client = OkHttpClient()
 
 
@@ -63,6 +64,28 @@ class HttpRequestManager {
 
         return res.toString()
     }
+    fun getBooksFromDatabase(): String  {
+        val request = Request.Builder().url("${getBooks}").build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return res.toString()
+    }
+
+
     fun getSpecificUserData(id:Int): String  {
         val request = Request.Builder().url("${urlSpecific}/${id}").build()
         var res: String? = ""
