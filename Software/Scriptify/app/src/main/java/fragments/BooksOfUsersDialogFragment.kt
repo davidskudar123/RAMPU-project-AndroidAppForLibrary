@@ -49,7 +49,7 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
     lateinit var sc_notice : TextView
     lateinit var sc_sign: TextView
     lateinit var addedCallback: ()->Unit
-
+    lateinit var money: TextView
     private lateinit var paymentMethodSpinner: Spinner
 
 
@@ -73,6 +73,7 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
         add_title = view.findViewById(R.id.title_dialog_buy_book_buy)
         sc_notice = view.findViewById(R.id.sc_notice_add)
         sc_sign = view.findViewById(R.id.sc_sign_add)
+        money = view.findViewById(R.id.moneyShow)
         title.setText("Buying a book")
         bookName.setText("${Name}")
         bookDesc.setText("${Desc}")
@@ -142,58 +143,38 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
             else if(spinnerValue == "My wallet"){
                 /// za sada knjiga iznosi 50 coinsa
 
-                var value:Int  = 51
+                var value:Int  = 0
 
                 val jsonConverter = JsonConverter()
                 val httpRequestManager = HttpRequestManager()
                 var ForMoneyOfUser: String = jsonConverter.userToJsonConverter(iduser)
 
                 val data = httpRequestManager.getUserMoneyInfo(ForMoneyOfUser)
+                val user: List<User>? = jsonConverter.JsonToUserConverter(data)
 
-                        launch(Dispatchers.Main) {
-                            val user: List<User>? = jsonConverter.JsonToUserConverter(data)
-                            if(user != null){
-                                value = user[0].money
-                            }
-                        }
+                if(user != null){
+                    value = user[0].money
+                }
+                money.setText(value.toString())
 
                 Log.d("Tag", "Poruka s varijablom: $value")
                 if(value >= 50){
                     val successBuy:Boolean = httpRequestManager.buyBook(purchasedBookInJson)
                     val successConnection: Boolean = httpRequestManager.UpdateConnectBookUser(connection)
+                    value -= 50
+                    val jsonBody = jsonConverter.UserMoneyToJsonConverter(UserID, value)
+                    val success = httpRequestManager.updateUserMoney(jsonBody, UserID)
                     notifyBookUpdated()
-                    launch(Dispatchers.Main){
-                        if (successBuy && successConnection){
-                            value -= 50
-                            UpdateUserMoney(iduser, value)
-                            Toast.makeText(requireContext(),"The book has been purchased for 50 coins.",Toast.LENGTH_SHORT).show()
-                        }else{
-                            Toast.makeText(requireContext(),"Error when buying a book.",Toast.LENGTH_SHORT).show()
-                        }
+
+                    if (successBuy && successConnection && success) {
+
+                        Log.d("Tag", "Poruka s varijablom: $value")
                     }
+
                 }else{
                     launch(Dispatchers.Main){
                         Toast.makeText(requireContext(),"You don't have enough money on your account.",Toast.LENGTH_SHORT).show()
                     }
-                }
-            }
-        }
-    }
-
-    private fun UpdateUserMoney(iduser: Int, value: Int) {
-
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default){
-
-            val jsonConverter = JsonConverter()
-            val httpRequestManager = HttpRequestManager()
-            var updateMoneyToJson: String = jsonConverter.UpdateMoneyToJson(iduser, value)
-            val success: Boolean = httpRequestManager.UpdateMoney(updateMoneyToJson)
-
-            launch(Dispatchers.Main){
-                if (success){
-                    Toast.makeText(requireContext(),"Coins are updated.",Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(requireContext(),"Money update error.",Toast.LENGTH_SHORT).show()
                 }
             }
         }

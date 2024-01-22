@@ -143,6 +143,8 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         }
 
     }
+
+
     private fun showDialogAddMoney() {
         val dialog_add_money = view?.findViewById<FrameLayout>(R.id.dialog_add_money)
         dialog_add_money?.visibility = View.VISIBLE
