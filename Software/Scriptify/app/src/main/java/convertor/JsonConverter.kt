@@ -1,6 +1,7 @@
 package convertor
 
 import blueprints.Books
+import blueprints.Library
 import blueprints.User
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -8,6 +9,14 @@ import org.json.JSONObject
 
 class JsonConverter {
 
+    fun JsonToLibraryListConverter(json: String): List<Library>? {
+        if (json == "null") {
+            return null
+        } else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Library>::class.java).toList()
+        }
+    }
     public fun JsonToUserListConverter(json:String):List<User>?{
         if(json == "null"){
             return null
