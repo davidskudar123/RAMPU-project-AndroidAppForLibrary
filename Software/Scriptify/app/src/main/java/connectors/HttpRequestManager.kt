@@ -1,6 +1,7 @@
 package connectors
 
 
+import blueprints.Library
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -40,6 +41,25 @@ class HttpRequestManager {
     private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
     private val client = OkHttpClient()
 
+
+
+    fun getLibraries(): List<Library>? {
+        val request = Request.Builder().url("${url}libraries").build()
+        var res: String? = ""
+        try {
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+                return JsonConverter().JsonToLibraryListConverter(res)
+            } else {
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+        return null
+    }
 
 
      fun getUserData(): String  {
