@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import blueprints.Library
 import com.example.scriptify.hr.R
 import connectors.HttpRequestManager
+import fragments.BooksFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
 
@@ -26,18 +26,24 @@ class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
     ): View? {
         val view = inflater.inflate(R.layout.book_loan_fragment, container, false)
 
+        val recyclerView: RecyclerView = view.findViewById(R.id.libraryRecyclerView)
+
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
             try {
-               val libraries: List<Library>? = httpRequestManager.getLibraries()
-
-                val recyclerView: RecyclerView = view.findViewById(R.id.libraryRecyclerView)
+                val libraries: List<Library>? = httpRequestManager.getLibraries()
 
                 if (libraries != null) {
                     // Use LibraryAdapter to display libraries
-                    launch(Dispatchers.Main){
+                    launch(Dispatchers.Main) {
                         val libraryAdapter = LibraryAdapter(libraries)
                         recyclerView.adapter = libraryAdapter
                         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+                        // Set onItemClickListener for reacting to library selection
+                        libraryAdapter.onItemClickListener = { position ->
+                            val selectedLibraryId = libraries[position].idKnjizara
+                            showBooksForLibrary(selectedLibraryId)
+                        }
                     }
 
                 } else {
@@ -51,5 +57,18 @@ class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
         }
 
         return view
+    }
+
+    private fun showBooksForLibrary(libraryId: Int) {
+        // Call the function to fetch books for the selected library
+        // Example:
+        //val books = httpRequestManager.getLibraryBooks(libraryId) ?: emptyList()
+
+        // Create and show a new fragment with the retrieved books
+        val booksFragment = BooksFragment(libraryId)
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.flLayout, booksFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
