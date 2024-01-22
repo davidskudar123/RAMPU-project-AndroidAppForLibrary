@@ -79,6 +79,7 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
                 return@setOnClickListener
             } else {
                 Exchange(selectedBook)
+                dismiss()
             }
         }
 
@@ -90,7 +91,7 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
         var httpRequestManager: HttpRequestManager = HttpRequestManager()
 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
-            var connection1: String = jsonConverter.userBooktoJsonConverter(IDUser, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
+            var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
             val successConnection1: Boolean = httpRequestManager.UpdateConnectBookUser(connection1)
 
             var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
@@ -106,8 +107,6 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
                 }
             }
         }
-
-        dismiss()
     }
 
     private fun fetchBooksFromDatabase() {
@@ -115,7 +114,7 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
             try {
                 val jsonConverter = JsonConverter()
                 val httpRequestManager = HttpRequestManager()
-                val data = httpRequestManager.getUserBooks(IDUser)
+                val data = httpRequestManager.getUserBooks(UserID)
 
                 launch(Dispatchers.Main) {
                     bookList = jsonConverter.JsonToBooksConverter(data) ?: emptyList()

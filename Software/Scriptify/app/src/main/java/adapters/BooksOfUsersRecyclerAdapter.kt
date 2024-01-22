@@ -55,6 +55,7 @@ class BooksOfUsersRecyclerAdapter(val data:List<Books>, Id:Int, val updateCallba
             val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
             val exchangeBookFragment = ExchangeBookFragment(
                 Id,
+                items.idKnjige.toInt(),
                 updateCallback
             )
             exchangeBookFragment.show(fragmentManager, "ExchangeBookFragment")
