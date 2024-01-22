@@ -23,11 +23,17 @@ import connectors.HttpRequestManager
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.internal.connection.Exchange
 import okhttp3.internal.userAgent
 import java.io.IOException
 
 class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_exchange_book) {
 
+    var IDUser:Int = 0
+    constructor(idUser:Int, addedCallback:()->Unit) :this(0,0, {}){
+        this.IDUser = idUser
+        this.addedCallback = addedCallback
+    }
     var UserID = idUser
     var IdBook = ID
 
@@ -72,22 +78,36 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
                 ).show()
                 return@setOnClickListener
             } else {
-
-                var jsonConverter: JsonConverter = JsonConverter()
-                var httpRequestManager: HttpRequestManager = HttpRequestManager()
-
-                var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
-                val successConnection1: Boolean = httpRequestManager.UpdateConnectBookUser(connection1)
-
-                var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
-                val successConnection2: Boolean = httpRequestManager.UpdateConnectBookUser(connection2)
-
-
-                dismiss()
+                Exchange(selectedBook)
             }
         }
 
         return view
+    }
+
+    fun Exchange(selectedBook:Books){
+        var jsonConverter: JsonConverter = JsonConverter()
+        var httpRequestManager: HttpRequestManager = HttpRequestManager()
+
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
+            var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
+            val successConnection1: Boolean = httpRequestManager.UpdateConnectBookUser(connection1)
+
+            var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
+            val successConnection2: Boolean = httpRequestManager.UpdateConnectBookToBook(connection2)
+
+            notifyBookUpdated()
+
+            launch(Dispatchers.Main){
+                if (successConnection1 && successConnection2){
+                    Toast.makeText(requireContext(),"Books were exchanged.",Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(requireContext(),"Error when exchanging books.",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        dismiss()
     }
 
     private fun fetchBooksFromDatabase() {
