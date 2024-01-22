@@ -11,9 +11,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Importanje BooksLoan u main">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Updejt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/LibraryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/LibraryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/db/scriptify_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/db/scriptify_db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +81,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="DevelopmentNew" />
+        <entry key="$PROJECT_DIR$" value="LibraryGetting" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -528,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705940551861</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Updejt">
+      <created>1705940650289</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1705940650289</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -542,7 +554,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="LibraryGetting" />
+                        <option value="BooksGetting" />
                       </list>
                     </value>
                   </entry>
@@ -555,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prva faza napravljena" />
     <MESSAGE value="Dodana ikona profila na profil." />
     <MESSAGE value="Kreirana funkcija za dohvat knjiga svih korisnika." />
     <MESSAGE value="Kreiran BooksOfUsersRecyclerAdapter." />
@@ -580,7 +591,8 @@
     <MESSAGE value="Izbrisan click listener za mock datu kako bi se prikazale knjižare" />
     <MESSAGE value="Implementiran dohvat knjižnica sa cour rutinama, mockpodatci izbrisani" />
     <MESSAGE value="Importanje BooksLoan u main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Importanje BooksLoan u main" />
+    <MESSAGE value="Updejt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updejt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -597,22 +609,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>130</line>
+          <line>152</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
-          <line>48</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
-          <line>44</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>49</line>
+          <line>71</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -620,7 +626,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>50</line>
+          <line>72</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -628,17 +634,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>51</line>
+          <line>73</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>53</line>
+          <line>75</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
-          <line>52</line>
+          <line>74</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -646,13 +652,64 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
-          <line>34</line>
-          <option name="timeStamp" value="19" />
+          <line>67</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
-          <line>30</line>
-          <option name="timeStamp" value="22" />
+          <line>68</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
+          <line>69</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
+          <line>70</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
+          <line>71</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>34</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>37</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>39</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>40</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
+          <line>47</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt</url>
+          <line>61</line>
+          <properties class="BooksLoan" method="showBooksForLibrary">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
