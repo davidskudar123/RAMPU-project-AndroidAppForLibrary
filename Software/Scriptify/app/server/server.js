@@ -278,7 +278,7 @@ app.post('/updateUserBookCon',(req,res)=>{
 app.post('/UpdateConnectBookToBook',(req,res)=>{
     const BooksInfo = req.body
     const sql = "UPDATE user_has_Knjige SET Knjige_idKnjige = ? WHERE Knjige_idKnjige = ?"
-    con.query(sql,[BooksInfo.WhereBook,BooksInfo.Book],(err,results,fields)=>{
+    con.query(sql,[BooksInfo.Book,BooksInfo.WhereBook],(err,results,fields)=>{
       if(err){
         console.log(err)
         res.status(500).json({error:"Book adding error"})
