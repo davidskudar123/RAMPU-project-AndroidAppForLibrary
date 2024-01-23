@@ -22,7 +22,9 @@ import com.example.scriptify.hr.R
 import connectors.HttpRequestManager
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import okhttp3.internal.connection.Exchange
 import okhttp3.internal.userAgent
 import java.io.IOException
@@ -93,7 +95,9 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
             var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
             val successConnection1: Boolean = httpRequestManager.UpdateConnectBookUser(connection1)
-
+            runBlocking {
+                delay(1000)
+            }
             var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
             val successConnection2: Boolean = httpRequestManager.UpdateConnectBookToBook(connection2)
 

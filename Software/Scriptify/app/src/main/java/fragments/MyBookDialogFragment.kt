@@ -29,10 +29,10 @@ import org.w3c.dom.Text
 import java.io.IOException
 import kotlin.random.Random
 
-class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
+class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
 
-    var IDUser:Int = 0
-    constructor(idUser:Int,addedCallback:()->Unit) :this(0,"","","",{}){
+    var IDUser:Int = user
+    constructor(idUser:Int,addedCallback:()->Unit) :this(0,0,"","","",{}){
         this.IDUser = idUser
         this.addedCallback = addedCallback
     }
@@ -123,7 +123,7 @@ class MyBookDialogFragment(ID:Int,Naziv:String,Desc:String,autor:String,private 
         reviews.setOnClickListener {
             dismiss()
             val fragmentManager = (context as FragmentActivity).supportFragmentManager
-            val bookReviews = BookReviewsDialogFragment(IdBook)
+            val bookReviews = BookReviewsDialogFragment(IdBook,IDUser)
             bookReviews.show(fragmentManager,"BookReviewsDialogFragment")
         }
         add.setOnClickListener {

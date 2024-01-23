@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fragments.BookExchangeFragment
+import fragments.ExchangeBookFragment
 import fragments.MyBooksFragment
 import fragments.ProfileFragment
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val bookLoanFramgent: BooksLoan = BooksLoan(id)
         bottomAppBar = findViewById(R.id.bottom_navigation)
         bottomAppBar.selectedItemId = R.id.book_exchange
-        setCurrentFragment(myBooksFragment)
+        setCurrentFragment(bookExchangeFragment)
 
         bottomAppBar.setOnItemSelectedListener {item->
             when(item.itemId){

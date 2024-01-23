@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,8 +24,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class BookReviewsDialogFragment(Id:Int) : DialogFragment(R.layout.book_reviews_dialog) {
+class BookReviewsDialogFragment(Id:Int,Iduser:Int) : DialogFragment(R.layout.book_reviews_dialog) {
     var idBook = Id
+    var IDUser = Iduser
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,8 +34,15 @@ class BookReviewsDialogFragment(Id:Int) : DialogFragment(R.layout.book_reviews_d
     ): View? {
         val view = inflater.inflate(R.layout.book_reviews_dialog, container, false)
         val rv_reviews: RecyclerView = view.findViewById(R.id.rv_reviews_items)
+        val btn_review: Button = view.findViewById(R.id.button_add_review_dialog_from_reviews)
+
         rv_reviews.layoutManager = LinearLayoutManager(requireContext())
         loadView(idBook, rv_reviews)
+        btn_review.setOnClickListener {
+            val fragmentManager = (context as FragmentActivity).supportFragmentManager
+            val addReviewDialogFragment = AddReviewDialogFragment(idBook,IDUser)
+            addReviewDialogFragment.show(fragmentManager,"AddReviewDialogFragment")
+        }
         return view
     }
     public fun loadView(Id:Int,recyclerView: RecyclerView) {

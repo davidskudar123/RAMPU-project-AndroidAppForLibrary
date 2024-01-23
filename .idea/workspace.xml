@@ -43,15 +43,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Dorađen dizajn book_loan_fragment.xml">
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/drawable/border_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="DOdani reviews">
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/AddReviewDialogFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/add_review_dialog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/books_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/books_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/item_book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/item_book.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/item_library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/item_library.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyBookRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyBookRecyclerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_reviews_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/book_reviews_dialog.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\budal\.android\avd\Nexus_4_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\mustr\.android\avd\Pixel_7_Pro_API_34.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -105,8 +107,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
-        <option value="Kotlin Class" />
         <option value="resourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -152,10 +154,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "android-custom-viewC:/Users/budal/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED": "RecyclerView",
+    "android-custom-viewC:/Users/mustr/AppData/Local/Android/Sdk/sources/android-34/android/view/View.java_SELECTED": "View",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Projects/rampu23-scriptify/Software/Scriptify/settings.gradle.kts",
+    "last_opened_file_path": "C:/Projects/rampu23-scriptify/Software/Scriptify/app/src/main/res/layout",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -169,6 +172,9 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\rampu23-scriptify\Software\Scriptify\app\src\main\res\layout" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\rampu23-scriptify\Software\Scriptify\gradle" />
       <recent name="C:\Projects\rampu23-scriptify\Software\Scriptify\.idea" />
@@ -186,7 +192,6 @@
       <option name="ALL_USERS" value="true" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -251,7 +256,6 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -455,15 +459,7 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1705960406048</updated>
     </task>
-    <task id="LOCAL-00020" summary="Dorađen dizajn book_loan_fragment.xml">
-      <option name="closed" value="true" />
-      <created>1706002165905</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1706002165905</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,8 +505,7 @@
     <MESSAGE value="Azuriran server.js" />
     <MESSAGE value="Azurirana baza." />
     <MESSAGE value="Prva faza napravljena" />
-    <MESSAGE value="Dorađen dizajn book_loan_fragment.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dorađen dizajn book_loan_fragment.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prva faza napravljena" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -534,6 +529,56 @@
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
           <line>34</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt</url>
+          <line>41</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt</url>
+          <line>42</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt</url>
+          <line>28</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt</url>
+          <line>123</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt</url>
+          <line>124</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt</url>
+          <line>125</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt</url>
+          <line>126</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt</url>
+          <line>33</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt</url>
+          <line>35</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
