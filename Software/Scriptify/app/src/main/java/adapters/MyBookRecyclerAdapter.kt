@@ -1,18 +1,13 @@
 package adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import blueprints.Books
 import com.example.scriptify.hr.R
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import fragments.BooksLoan
 import fragments.MyBookDialogFragment
 
 class MyBookRecyclerAdapter(val data:List<Books>,Id:Int,val updateCallback: () -> Unit) : RecyclerView.Adapter<MyBookRecyclerAdapter.ViewHolder>() {
@@ -40,7 +35,7 @@ class MyBookRecyclerAdapter(val data:List<Books>,Id:Int,val updateCallback: () -
         holder.autor.text = items.autor
         holder.itemView.setOnClickListener {
             val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
-            val myBookDialogFragment = MyBookDialogFragment(items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor,updateCallback)
+            val myBookDialogFragment = MyBookDialogFragment(Id,items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor,updateCallback)
             myBookDialogFragment.show(fragmentManager, "MyBookDialogFragment")
         }
 

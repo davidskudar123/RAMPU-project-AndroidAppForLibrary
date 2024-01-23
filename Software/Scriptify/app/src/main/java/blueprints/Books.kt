@@ -6,4 +6,11 @@ data class Books (
     val autor: String,
     val Description: String
 
+
+
 )
+{
+    override fun toString(): String {
+        return "$naziv_knjige - $autor"
+    }
+}

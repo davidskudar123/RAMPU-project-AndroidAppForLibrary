@@ -1,6 +1,11 @@
 package convertor
 
 import blueprints.Books
+
+import blueprints.Library
+
+import blueprints.Reviews
+
 import blueprints.User
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -8,6 +13,23 @@ import org.json.JSONObject
 
 class JsonConverter {
 
+    fun JsonToLibraryListConverter(json: String): List<Library>? {
+        if (json == "null") {
+            return null
+        } else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Library>::class.java).toList()
+        }
+    }
+
+    fun JsonToLibraryBookListConverter(json: String): List<Books>? {
+        if (json == "null") {
+            return null
+        } else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Books>::class.java).toList()
+        }
+    }
     public fun JsonToUserListConverter(json:String):List<User>?{
         if(json == "null"){
             return null
@@ -23,6 +45,14 @@ class JsonConverter {
         }else {
             val gson = Gson()
             return gson.fromJson(json, Array<User>::class.java).toList()
+        }
+    }
+    public fun JsonToReviewConverter(json:String):List<Reviews>?{
+        if(json == "null"){
+            return null
+        }else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<Reviews>::class.java).toList()
         }
     }
     public fun UserToJsonConverter(id:Int,updatedFirstName:String,updatedLastName:String,updatedAddress:String,updatedUsername:String,updatedPassword:String,updatedMail:String):String{
@@ -43,6 +73,14 @@ class JsonConverter {
         return  jsonObject.toString()
     }
 
+    public fun userToJsonConverter(id:Int):String{
+        val jsonObject = JSONObject()
+        jsonObject.put("id_user", id)
+        return  jsonObject.toString()
+    }
+
+
+
     public fun BookToJsonConverter(idKnjige:Int,naziv_knjige:String,Description:String,autor:String):String{
         val jsonObject = JSONObject()
         jsonObject.put("idKnjige", idKnjige) // Pretpostavimo da treba poslati i ID korisnika
@@ -52,12 +90,38 @@ class JsonConverter {
 
         return  jsonObject.toString()
     }
+
+    public fun PurchasedBookToJsonConverter(idBook:Int, idUser:Int, Name:String, Autor:String, Description: String):String{
+        val jsonObject = JSONObject()
+        jsonObject.put("idKnjige", idBook)
+        jsonObject.put("id_user", idUser)
+        jsonObject.put("naziv_knjige", Name)
+        jsonObject.put("autor", Autor)
+        jsonObject.put("Description", Description)
+
+        return  jsonObject.toString()
+    }
+    public fun UpdateMoneyToJson(idUser: Int, money: Int):String{
+        val jsonObject = JSONObject()
+        jsonObject.put("id_user", idUser)
+        jsonObject.put("money", money)
+
+        return  jsonObject.toString()
+    }
+
     public fun userBooktoJsonConverter(idUser:Int,idBook:Int): String{
         val jsonObject = JSONObject()
         jsonObject.put("user_id_user",idUser)
         jsonObject.put("Knjige_idKnjige",idBook)
         return jsonObject.toString()
     }
+    public fun BooktoBooktoJsonConverter(idBookGdje:Int,idBookKoja:Int): String{
+        val jsonObject = JSONObject()
+        jsonObject.put("WhereBook",idBookGdje)
+        jsonObject.put("Book",idBookKoja)
+        return jsonObject.toString()
+    }
+
 
     public fun JsonToBooksConverter(json:String):List<Books>?{
         if(json == "null"){
@@ -67,6 +131,7 @@ class JsonConverter {
             return gson.fromJson(json, Array<Books>::class.java).toList()
         }
     }
+
 //tijelo zahtjeva za registraciju
     public fun registrationRequestJson(
         username: String,

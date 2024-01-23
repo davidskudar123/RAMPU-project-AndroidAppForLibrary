@@ -1,5 +1,6 @@
 package com.example.scriptify.hr
 
+import BooksLoan
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fragments.BookExchangeFragment
-import fragments.BooksLoan
+import fragments.ExchangeBookFragment
 import fragments.MyBooksFragment
 import fragments.ProfileFragment
 
@@ -24,14 +25,13 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val id: Int = intent.getStringExtra("id")!!.toInt()
-
         val profileFragment : ProfileFragment = ProfileFragment(id)
         val myBooksFragment: MyBooksFragment = MyBooksFragment(id)
         val bookExchangeFragment : BookExchangeFragment = BookExchangeFragment(id)
         val bookLoanFramgent: BooksLoan = BooksLoan(id)
         bottomAppBar = findViewById(R.id.bottom_navigation)
         bottomAppBar.selectedItemId = R.id.book_exchange
-        setCurrentFragment(myBooksFragment)
+        setCurrentFragment(bookExchangeFragment)
 
         bottomAppBar.setOnItemSelectedListener {item->
             when(item.itemId){

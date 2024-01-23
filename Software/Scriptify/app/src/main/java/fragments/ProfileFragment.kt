@@ -62,7 +62,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         password = view.findViewById(R.id.password_profile)
         mail = view.findViewById(R.id.mail_profile)
         profile_button = view.findViewById(R.id.profileUpdate)
-        progress = view.findViewById(R.id.progressBar_profile)
         profile_rv = view.findViewById(R.id.profile_rv)
         val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
         profile_rv.startAnimation(animation)
@@ -74,7 +73,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         input_money_amount = view.findViewById(R.id.input_money_amount)
 
         loadData(first_name, last_name, address, mail,username,password, money)
-        progress.setVisibility(View.INVISIBLE)
+        //progress.setVisibility(View.INVISIBLE)
         profile_button.setOnClickListener{
             saveUserData(first_name, last_name, address, username, password, mail);
         }
@@ -144,24 +143,23 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         }
 
     }
-    private fun showDialogAddMoney(){
+
+
+    private fun showDialogAddMoney() {
         val dialog_add_money = view?.findViewById<FrameLayout>(R.id.dialog_add_money)
         dialog_add_money?.visibility = View.VISIBLE
 
-        add_money.setOnClickListener{
+        add_money.setOnClickListener {
+            if (!TextUtils.isEmpty(input_money_amount.text)) {
+                val moneyOfUser = money.text.toString()
+                val inputMoney = input_money_amount.text.toString()
 
-            if(!TextUtils.isEmpty(input_money_amount.text)){
-
-                var updatedMoney:Int
-                var moneyOfUser = money.text.toString()
-                var inputMoney = input_money_amount.text.toString()
-                if(moneyOfUser.isNotEmpty() && inputMoney.isNotEmpty()){
-                    val courutine =  viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
+                    val courutine = viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
                         try {
-                            var moneyOfUserInt = moneyOfUser.toInt()
-                            var inputMoneyInt = inputMoney.toInt()
+                            val moneyOfUserInt = moneyOfUser.toInt()
+                            val inputMoneyInt = inputMoney.toInt()
 
-                            updatedMoney = moneyOfUserInt + inputMoneyInt
+                            val updatedMoney = moneyOfUserInt + inputMoneyInt
                             val jsonConverter = JsonConverter()
                             val jsonBody = jsonConverter.UserMoneyToJsonConverter(Id, updatedMoney)
 
@@ -176,7 +174,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                                         "Podaci ažurirani",
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                    loadData(first_name, last_name, address, mail,username,password, money)
+                                    loadData(first_name, last_name, address, mail, username, password, money)
                                 } else {
                                     Toast.makeText(
                                         requireContext(),
@@ -187,26 +185,24 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                             }
 
                         } catch (e: NumberFormatException) {
-                            Toast.makeText(
-                                requireContext(),
-                                "Unos nije ispravan, unesite broj!",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            launch(Dispatchers.Main) {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Unos nije ispravan, unesite broj!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
                     }
-                }
-                else{
-                    Toast.makeText(requireContext(), "Niste unjeli iznos!", Toast.LENGTH_SHORT).show()
-                }
 
-            }
-
-            else{
-                Toast.makeText(requireContext(), "Unesite ispravan iznos novca!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Niste unijeli iznos!", Toast.LENGTH_SHORT).show()
             }
         }
-        Close.setOnClickListener{
+
+        Close.setOnClickListener {
             dialog_add_money?.visibility = View.GONE
         }
     }
+
 }

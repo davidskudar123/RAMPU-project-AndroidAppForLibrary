@@ -1,6 +1,8 @@
 package connectors
 
 
+import blueprints.Books
+import blueprints.Library
 import convertor.JsonConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -22,7 +24,7 @@ import java.util.Properties
 
 class HttpRequestManager {
     val properties = Properties()
-    private val address:String ="http://192.168.1.113"
+    private val address:String ="http://192.168.216.145"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var registrationUrl: String = "${address}:4000/register"
@@ -33,7 +35,62 @@ class HttpRequestManager {
     private var urlDeleteBook: String = "${address}:4000/deleteBook"
     private var addBook: String = "${address}:4000/makeBook"
     private var connectBook: String = "${address}:4000/userBookCon"
+    private var UpdateConnectBook: String = "${address}:4000/updateUserBookCon"
+    private var UpdateConnectBookToBook: String = "${address}:4000/UpdateConnectBookToBook"
+    private var urlBooksOfUsers: String = "${address}:4000/BooksOfUsers"
+    private var buyBook: String = "${address}:4000/buyBook"
+    private var updateMoney: String = "${address}:4000/updateMoney"
+    private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
+    private var libraries: String = "${address}:4000/libraries"
+    private var BooksOfLibrary: String = "${address}:4000/BooksOfLibrary"
+
+    private var reviews: String = "${address}:4000/review"
+    private var getBooks: String = "${address}:4000/getBooks"
     private val client = OkHttpClient()
+//dohvaćanje
+    fun getLibraryBooks(libraryId: Int): List<Books>? {
+        val request = Request.Builder().url("${BooksOfLibrary}/${libraryId}").build()
+
+        try {
+            client.newCall(request).execute().use { response ->
+                if (response.isSuccessful) {
+                    val responseBody = response.body?.string()
+                    return responseBody?.let {
+                        JsonConverter().JsonToLibraryBookListConverter(it)
+                    }
+                } else {
+                    println("Unexpected code ${response.code}")
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
+
+    fun getLibraries(): List<Library>? {
+        val request = Request.Builder().url("${libraries}").build()
+
+        try {
+            client.newCall(request).execute().use { response ->
+                if (response.isSuccessful) {
+                    val responseBody = response.body?.string()
+                    return responseBody?.let {
+                        JsonConverter().JsonToLibraryListConverter(it)
+                    }
+                } else {
+                    println("Unexpected code ${response.code}")
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
+
+
 
      fun getUserData(): String  {
         val request = Request.Builder().url(url).build()
@@ -55,6 +112,28 @@ class HttpRequestManager {
 
         return res.toString()
     }
+    fun getBooksFromDatabase(): String  {
+        val request = Request.Builder().url("${getBooks}").build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return res.toString()
+    }
+
+
     fun getSpecificUserData(id:Int): String  {
         val request = Request.Builder().url("${urlSpecific}/${id}").build()
         var res: String? = ""
@@ -75,6 +154,51 @@ class HttpRequestManager {
 
         return res.toString()
     }
+    fun getReviewsForBook(id:Int): String  {
+        val request = Request.Builder().url("${reviews}/${id}").build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return res.toString()
+    }
+
+
+    fun getUserMoneyInfo(jsonBody : String): String  {
+        val request = Request.Builder()
+            .url("${urlMoneyInfo}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+        return res.toString()
+    }
+
 
     fun getUserBooks(id:Int):String{
         val request = Request.Builder().url("${urlBooks}/${id}").build()
@@ -95,6 +219,26 @@ class HttpRequestManager {
 
         return res.toString()
     }
+
+    fun getBooksOfUsers(id:Int):String{
+        val request = Request.Builder().url("${urlBooksOfUsers}/${id}").build()
+        var res: String? = ""
+        try {
+            val response = client.newCall(request).execute()
+            if(response.isSuccessful){
+                res = response.body?.string() ?: "Empty response body"
+            }
+            else{
+                res = "Unexpected code ${response.code}"
+            }
+        }
+        catch (e: IOException){
+            e.printStackTrace()
+            res = null;
+        }
+        return res.toString()
+    }
+
     fun updateUserData(jsonBody : String, id:Int): Boolean {
         val client = OkHttpClient()
         val request = Request.Builder()
@@ -115,6 +259,16 @@ class HttpRequestManager {
 
         val response = client.newCall(request).execute()
 
+        return response.isSuccessful
+    }
+
+    fun UpdateMoney(jsonBody: String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${updateMoney}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        val response = client.newCall(request).execute()
         return response.isSuccessful
     }
     fun updateBookData(jsonBody : String, id:Int): Boolean {
@@ -140,6 +294,19 @@ class HttpRequestManager {
         val response = client.newCall(request).execute()
         return response.isSuccessful
     }
+
+    fun buyBook(jsonBook:String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${buyBook}")
+            .post(jsonBook.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+
+
+        val response = client.newCall(request).execute()
+        return response.isSuccessful
+
+    }
     fun connectBookUser(jsonBody: String):Boolean{
         val client = OkHttpClient()
         val request = Request.Builder()
@@ -149,7 +316,24 @@ class HttpRequestManager {
         val response = client.newCall(request).execute()
         return response.isSuccessful
     }
-
+    fun UpdateConnectBookUser(jsonBody: String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${UpdateConnectBook}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        val response = client.newCall(request).execute()
+        return response.isSuccessful
+    }
+    fun UpdateConnectBookToBook(jsonBody: String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${UpdateConnectBookToBook}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        val response = client.newCall(request).execute()
+        return response.isSuccessful
+    }
     fun deleteBook(IdBook:Int):Boolean{
         val request = Request.Builder().url("${urlDeleteBook}/${IdBook}").build()
         var res: String? = ""
