@@ -7,12 +7,20 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Rest of your layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:text="Books" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/booksRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
+
 
 </LinearLayout>
