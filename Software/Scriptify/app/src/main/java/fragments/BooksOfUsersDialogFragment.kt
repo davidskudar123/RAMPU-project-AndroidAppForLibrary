@@ -85,6 +85,7 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         paymentMethodSpinner.adapter = adapter
 
+        LoadMoneyOfUser(UserID)
 
         close.setOnClickListener {
             dismiss()
@@ -109,6 +110,27 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
         }
 
         return view
+    }
+
+    private fun LoadMoneyOfUser(IDuser: Int) {
+
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+
+            var value = 0
+            var iduser:Int = IDuser
+
+            val jsonConverter = JsonConverter()
+            val httpRequestManager = HttpRequestManager()
+            var ForMoneyOfUser: String = jsonConverter.userToJsonConverter(iduser)
+
+            val data = httpRequestManager.getUserMoneyInfo(ForMoneyOfUser)
+            val user: List<User>? = jsonConverter.JsonToUserConverter(data)
+
+            if (user != null) {
+                money.setText(user[0].money.toString())
+            }
+
+        }
     }
 
     @SuppressLint("SuspiciousIndentation")
@@ -155,7 +177,7 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
                 if(user != null){
                     value = user[0].money
                 }
-                money.setText(value.toString())
+
 
                 Log.d("Tag", "Poruka s varijablom: $value")
                 if(value >= 50){
