@@ -31,7 +31,7 @@ class MyBookReviewsAdapter(val data: List<Reviews>,Id:Int): RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val items = data[position]
-        holder.name.text = items.idKnjige.toString()
+        holder.name.text = items.korisnik_ime
         holder.desc.text = items.review_text
         holder.ocjena.text = items.rating.toString()
         holder.itemView.setOnClickListener {

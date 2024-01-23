@@ -11,17 +11,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Azurirana baza.">
+    <list default="true" id="f92b1b00-c126-4ea1-8abf-8be762148235" name="Changes" comment="Prva faza napravljena">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\David\.android\avd\Pixel_4_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\mustr\.android\avd\Pixel_7_Pro_API_34.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -261,6 +261,10 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Android App.Scriptify" />
+      <item itemvalue="Android App.app" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StandaloneScriptsStorage">
@@ -442,7 +446,6 @@
     <MESSAGE value="Ispravljena i kreirana nova klasa RegisterActivity" />
     <MESSAGE value="Nadodana logika da klikom na registracijski gumb se otvori aktivnost RegisterActivity." />
     <MESSAGE value="Gone" />
-    <MESSAGE value="Prva faza napravljena" />
     <MESSAGE value="Dovršena kupovina knjiga." />
     <MESSAGE value="Kreiran dialog_exchange_book.xml" />
     <MESSAGE value="Implementiran fragment za razmjenu knjiga." />
@@ -450,7 +453,8 @@
     <MESSAGE value="Zavrsena implementacija razmjena knjiga." />
     <MESSAGE value="Azuriran server.js" />
     <MESSAGE value="Azurirana baza." />
-    <option name="LAST_COMMIT_MESSAGE" value="Azurirana baza." />
+    <MESSAGE value="Prva faza napravljena" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prva faza napravljena" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -459,6 +463,21 @@
           <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt</url>
           <line>373</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>40</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>39</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt</url>
+          <line>34</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

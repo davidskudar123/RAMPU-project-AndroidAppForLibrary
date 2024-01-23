@@ -6,7 +6,7 @@ let con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '1234',
-  database: 'scriptify_david', // ZAMJENI IME PO POTREBI
+  database: 'sc_final', // ZAMJENI IME PO POTREBI
   port: 3306
 });
 
@@ -212,7 +212,28 @@ app.get('/myBooks/:id', (req, res) => {
   });
 });
 
+app.get('/BooksOfLibrary/:id', (req, res) => {
+  const libraryId = req.params.id;
 
+  // Koristi JOIN za dohvaćanje knjiga povezanih s određenom knjižnicom
+  const sql = `
+    SELECT k.idKnjige, k.naziv_knjige, k.autor, k.Description
+    FROM knjige k
+    JOIN knjizara_has_knjige khk ON k.idKnjige = khk.Knjige_idKnjige
+    WHERE khk.Knjizara_idKnjizara = ${libraryId};
+  `;
+
+  con.query(sql, (error, results, fields) => {
+    if (error) {
+      console.error('Error retrieving data: ' + error.stack);
+      res.status(500).json({ error: 'Error retrieving data' });
+      return;
+    }
+
+    // Slanje odgovora o uspješnom dohvaćanju knjiga za knjižnicu
+    res.json(results);
+  });
+});
 app.get('/BooksOfUsers/:id',(req,res)=>{
    const userId = req.params.id
    const sql = `SELECT b.*
@@ -382,4 +403,4 @@ app.listen(4000, () => {
       return;
     }
 });
-})
+}
