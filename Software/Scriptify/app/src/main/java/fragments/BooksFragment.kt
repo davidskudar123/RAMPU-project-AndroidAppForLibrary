@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +41,12 @@ class BooksFragment(private val libraryId: Int) : Fragment(R.layout.books_fragme
                     if (books != null) {
                         val booksAdapter = BooksAdapter(books)
                         recyclerView.adapter = booksAdapter
+                        // Set onItemClickListener for reacting to book selection
+                        booksAdapter.onItemClickListener = { position ->
+                            // Handle the click event, e.g., show book details
+                            val selectedBookId = books[position].idKnjige
+                            showBookDetails(selectedBookId)
+                        }
 
                     } else {
                         // Handle case when books are null
@@ -52,5 +60,10 @@ class BooksFragment(private val libraryId: Int) : Fragment(R.layout.books_fragme
         }
 
         return view
+    }
+
+    private fun showBookDetails(bookId: String) {
+        // Example: Display a toast
+        Toast.makeText(requireContext(), "Book ID: $bookId", Toast.LENGTH_SHORT).show()
     }
 }

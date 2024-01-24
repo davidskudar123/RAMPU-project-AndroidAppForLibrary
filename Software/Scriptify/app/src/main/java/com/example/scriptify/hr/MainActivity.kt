@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val bookLoanFramgent: BooksLoan = BooksLoan(id)
         bottomAppBar = findViewById(R.id.bottom_navigation)
         bottomAppBar.selectedItemId = R.id.book_exchange
-        setCurrentFragment(bookExchangeFragment)
+        setCurrentFragment(bookLoanFramgent)
 
         bottomAppBar.setOnItemSelectedListener {item->
             when(item.itemId){
