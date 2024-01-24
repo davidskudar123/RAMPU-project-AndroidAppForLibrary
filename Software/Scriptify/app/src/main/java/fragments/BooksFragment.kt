@@ -28,38 +28,12 @@ class BooksFragment(private val libraryId: Int, private val Id: Int) : Fragment(
         // Initialize and set up your RecyclerView and adapter here
         val recyclerView: RecyclerView = view.findViewById(R.id.booksRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                // Call the function to fetch books for the selected library
-                val books: List<Books>? = httpRequestManager.getLibraryBooks(libraryId,id)
-
-                // Check for null and update the UI on the main thread
-                launch(Dispatchers.Main) {
-                    if (books != null) {
-                        val booksAdapter = BooksAdapter(books)
-                        recyclerView.adapter = booksAdapter
-
-                        // Set onItemClickListener for reacting to book selection
-                        booksAdapter.onItemClickListener = { position ->
-                            // Handle the click event, e.g., show book details
-                            val selectedBook = books[position]
-                            showBookDetails(selectedBook)
-                        }
-                    } else {
-                        // Handle case when books are null
-                        // You might want to show an error message or handle it appropriately
-                    }
-                }
-            } catch (e: Exception) {
-                // Handle exception, log error, or show an error message
-                // Note: You may want to handle errors appropriately
-            }
-        }
+        updateUIAfterBookPurchase(recyclerView)
 
         return view
     }
 
-    private fun showBookDetails(selectedBook: Books) {
+    private fun showBookDetails(selectedBook: Books, recyclerView: RecyclerView) {
         // Show the BooksOfUsersDialogFragment when a book is clicked
 
         val bookId = selectedBook.idKnjige.toIntOrNull() ?: -1
@@ -72,7 +46,7 @@ class BooksFragment(private val libraryId: Int, private val Id: Int) : Fragment(
             selectedBook.autor
         ) {
             // Callback to handle UI update after book purchase
-            updateUIAfterBookPurchase()
+            updateUIAfterBookPurchase(recyclerView)
         }
 
         // Display the dialog
@@ -80,7 +54,35 @@ class BooksFragment(private val libraryId: Int, private val Id: Int) : Fragment(
     }
 
     // Function to update UI after book purchase
-    private fun updateUIAfterBookPurchase() {
-        //jos implementirat
+    private fun updateUIAfterBookPurchase(recyclerView:RecyclerView) {
+
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // Call the function to fetch books for the selected library
+                val books: List<Books>? = httpRequestManager.getLibraryBooks(libraryId, id)
+
+                // Check for null and update the UI on the main thread
+                launch(Dispatchers.Main) {
+                    if (books != null) {
+                        val booksAdapter = BooksAdapter(books)
+                        recyclerView.adapter = booksAdapter
+
+                        // Set onItemClickListener for reacting to book selection
+                        booksAdapter.onItemClickListener = { position ->
+                            // Handle the click event, e.g., show book details
+                            val selectedBook = books[position]
+                            showBookDetails(selectedBook,recyclerView)
+                        }
+                    } else {
+                        // Handle case when books are null
+                        // You might want to show an error message or handle it appropriately
+                    }
+                }
+            } catch (e: Exception) {
+                // Handle exception, log error, or show an error message
+                // Note: You may want to handle errors appropriately
+            }
+        }
+
         }
     }
