@@ -40,7 +40,9 @@ class BookReviewsDialogFragment(Id:Int,Iduser:Int) : DialogFragment(R.layout.boo
         loadView(idBook, rv_reviews)
         btn_review.setOnClickListener {
             val fragmentManager = (context as FragmentActivity).supportFragmentManager
-            val addReviewDialogFragment = AddReviewDialogFragment(idBook,IDUser)
+            val addReviewDialogFragment = AddReviewDialogFragment(idBook,IDUser){
+                loadView(idBook, rv_reviews)
+            }
             addReviewDialogFragment.show(fragmentManager,"AddReviewDialogFragment")
         }
         return view

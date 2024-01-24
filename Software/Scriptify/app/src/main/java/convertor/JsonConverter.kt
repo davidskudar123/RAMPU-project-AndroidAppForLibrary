@@ -8,6 +8,7 @@ import blueprints.Reviews
 
 import blueprints.User
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import org.json.JSONObject
 //Ova klasa služi za pretvaranje JSON objekata u Objekte u blueprintu, po potrebi se proširava
 
@@ -130,6 +131,15 @@ class JsonConverter {
             val gson = Gson()
             return gson.fromJson(json, Array<Books>::class.java).toList()
         }
+    }
+
+    public fun AddingReviewsJsonConverter(reviews: Reviews):String{
+        val jsonObject = JSONObject()
+        jsonObject.put("idKnjige",reviews.idKnjige)
+        jsonObject.put("review_text",reviews.review_text)
+        jsonObject.put("rating",reviews.rating)
+        jsonObject.put("korisnik_ime",reviews.korisnik_ime)
+        return jsonObject.toString()
     }
 
 //tijelo zahtjeva za registraciju

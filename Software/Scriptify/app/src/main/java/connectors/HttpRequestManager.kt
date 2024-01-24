@@ -43,9 +43,9 @@ class HttpRequestManager {
     private var urlMoneyInfo: String = "${address}:4000/urlMoneyInfo"
     private var libraries: String = "${address}:4000/libraries"
     private var BooksOfLibrary: String = "${address}:4000/BooksOfLibrary"
-
     private var reviews: String = "${address}:4000/review"
     private var getBooks: String = "${address}:4000/getBooks"
+    private var addReview: String = "${address}:4000/addReview"
     private val client = OkHttpClient()
 //dohvaćanje
 fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
@@ -250,6 +250,17 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
         val client = OkHttpClient()
         val request = Request.Builder()
             .url("${urlUpdate}/${id}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+
+        val response = client.newCall(request).execute()
+
+        return response.isSuccessful
+    }
+    fun addReview(jsonBody : String): Boolean {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${addReview}")
             .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
             .build()
 

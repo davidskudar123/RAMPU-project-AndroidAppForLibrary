@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.EditText
 import android.widget.NumberPicker
 import android.widget.Toast
@@ -24,7 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class AddReviewDialogFragment(IdBook: Int,Iduser:Int) : DialogFragment(R.layout.add_review_dialog) {
+class AddReviewDialogFragment(IdBook: Int,Iduser:Int,val callback: ()->Unit) : DialogFragment(R.layout.add_review_dialog) {
     var IDBook = IdBook
     var IDUser = Iduser
     override fun onCreateView(
@@ -36,9 +37,17 @@ class AddReviewDialogFragment(IdBook: Int,Iduser:Int) : DialogFragment(R.layout.
         var numberPicker: NumberPicker = view.findViewById(R.id.num_picker_review)
         var autor : EditText = view.findViewById(R.id.add_review_dialog_autor)
         var review_text : EditText = view.findViewById(R.id.add_review_dialog_desc)
+        var add: Button = view.findViewById(R.id.add_button_reviews)
+
         numberPicker.minValue = 1
         numberPicker.maxValue = 10
         loadView(IDBook,IDUser,autor)
+        add.setOnClickListener {
+            var rating = numberPicker.value
+            addReview(IDBook,rating,review_text.text.toString(),autor.text.toString())
+            callback.invoke()
+            dismiss()
+        }
         return view
     }
     public fun loadView(Id_book:Int, id_user:Int,autor: EditText) {
@@ -66,5 +75,22 @@ class AddReviewDialogFragment(IdBook: Int,Iduser:Int) : DialogFragment(R.layout.
         }
 
 
+    }
+    public fun addReview(Id_book: Int,rating:Int,review:String,korisnik: String){
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+            val jsonConverter: JsonConverter = JsonConverter()
+            val httpRequestManager: HttpRequestManager = HttpRequestManager()
+            var review: Reviews = Reviews(idKnjige = Id_book, review_text = review, rating = rating, korisnik_ime = korisnik, idReview = 0)
+            var data = jsonConverter.AddingReviewsJsonConverter(review)
+            var success : Boolean = httpRequestManager.addReview(data)
+
+            launch(Dispatchers.Main){
+                if(success){
+
+                }
+            }
+
+
+        }
     }
 }
