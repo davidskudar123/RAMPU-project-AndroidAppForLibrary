@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import blueprints.Library
 import com.example.scriptify.hr.R
 import connectors.HttpRequestManager
-import fragments.BooksFragment
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
 
+    private val id = Id
     private val httpRequestManager = HttpRequestManager()
 
     override fun onCreateView(
@@ -65,7 +66,7 @@ class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
         //val books = httpRequestManager.getLibraryBooks(libraryId) ?: emptyList()
 
         // Create and show a new fragment with the retrieved books
-        val booksFragment = BooksFragment(libraryId)
+        val booksFragment = BooksFragment(libraryId,id)
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.flLayout, booksFragment)
             .addToBackStack(null)
