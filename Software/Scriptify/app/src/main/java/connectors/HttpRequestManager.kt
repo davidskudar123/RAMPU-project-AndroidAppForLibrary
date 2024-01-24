@@ -48,25 +48,30 @@ class HttpRequestManager {
     private var getBooks: String = "${address}:4000/getBooks"
     private val client = OkHttpClient()
 //dohvaćanje
-    fun getLibraryBooks(libraryId: Int): List<Books>? {
-        val request = Request.Builder().url("${BooksOfLibrary}/${libraryId}").build()
+fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
 
-        try {
-            client.newCall(request).execute().use { response ->
-                if (response.isSuccessful) {
-                    val responseBody = response.body?.string()
-                    return responseBody?.let {
-                        JsonConverter().JsonToLibraryBookListConverter(it)
-                    }
-                } else {
-                    println("Unexpected code ${response.code}")
+
+    val request = Request.Builder().url("${BooksOfLibrary}/$libraryId/$userId").build()
+    var res: String? = ""
+
+    try {
+        val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                val responseBody = response.body?.string()
+                return responseBody?.let {
+                    JsonConverter().JsonToLibraryBookListConverter(it)
                 }
+            } else {
+                println("Unexpected code ${response.code}")
             }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return null
+
+    } catch (e: IOException) {
+        e.printStackTrace()
     }
+    return null
+}
+
+
 
 
     fun getLibraries(): List<Library>? {
@@ -88,6 +93,8 @@ class HttpRequestManager {
         }
         return null
     }
+
+
 
 
 
