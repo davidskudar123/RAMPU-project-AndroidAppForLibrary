@@ -33,6 +33,7 @@ class BooksAdapter(private val books: List<Books>) :
 
     override fun getItemCount(): Int = books.size
 
+
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val bookTitleTextView: TextView = itemView.findViewById(R.id.bookTitleTextView)
         private val bookAuthorTextView: TextView = itemView.findViewById(R.id.bookAuthorTextView)
