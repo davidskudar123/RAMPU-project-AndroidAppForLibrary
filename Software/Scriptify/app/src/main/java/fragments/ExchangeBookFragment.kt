@@ -93,18 +93,18 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
         var httpRequestManager: HttpRequestManager = HttpRequestManager()
 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
-            var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
-            val successConnection1: Boolean = httpRequestManager.UpdateConnectBookUser(connection1)
-            runBlocking {
-                delay(1000)
+            var connection1: String = jsonConverter.BooktoBooktoJsonConverter(IdBook, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
+            val successConnection1: Boolean = httpRequestManager.UpdateConnectBookToBook(connection1)
+            if (successConnection1) {
+                var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
+                val successConnection2: Boolean = httpRequestManager.UpdateConnectBookToBook(connection2)
             }
-            var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
-            val successConnection2: Boolean = httpRequestManager.UpdateConnectBookToBook(connection2)
+
 
             notifyBookUpdated()
 
             launch(Dispatchers.Main){
-                if (successConnection1 && successConnection2){
+                if (successConnection1){
                     Toast.makeText(requireContext(),"Books were exchanged.",Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(requireContext(),"Error when exchanging books.",Toast.LENGTH_SHORT).show()
