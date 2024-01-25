@@ -99,7 +99,7 @@ class JsonConverter {
         jsonObject.put("naziv_knjige", Name)
         jsonObject.put("autor", Autor)
         jsonObject.put("Description", Description)
-        jsonObject.put("Cijena", Cijena)
+        jsonObject.put("cijena_knjige", Cijena)
 
         return  jsonObject.toString()
     }

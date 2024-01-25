@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import okhttp3.internal.userAgent
 import java.io.IOException
 
-class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,autor:String,cijena_knjige:Int private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_buy_book) {
+class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,autor:String,cijena_knjige:Int, private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_buy_book) {
 
     var IDUser:Int = 0
     constructor(idUser:Int, addedCallback:()->Unit) :this(0,0,"","","",0, {}){
@@ -168,7 +168,6 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
                 }
             }
             else if(spinnerValue == "My wallet"){
-                /// za sada knjiga iznosi 50 coinsa
 
                 var value:Int  = 0
 
@@ -185,17 +184,18 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
 
 
                 Log.d("Tag", "Poruka s varijablom: $value")
-                if(value >= 50){
+                if(value >= Cijena){
                     val successBuy:Boolean = httpRequestManager.buyBook(purchasedBookInJson)
                     val successConnection: Boolean = httpRequestManager.UpdateConnectBookUser(connection)
-                    value -= 50
+                    value -= Cijena
                     val jsonBody = jsonConverter.UserMoneyToJsonConverter(UserID, value)
                     val success = httpRequestManager.updateUserMoney(jsonBody, UserID)
                     notifyBookUpdated()
 
                     if (successBuy && successConnection && success) {
-
-                        Log.d("Tag", "Poruka s varijablom: $value")
+                        launch(Dispatchers.Main){
+                            Toast.makeText(requireContext(),"The book has been purchased.",Toast.LENGTH_SHORT).show()
+                        }
                     }
 
                 }else{
