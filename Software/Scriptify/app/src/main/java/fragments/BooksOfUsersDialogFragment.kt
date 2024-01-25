@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import okhttp3.internal.userAgent
 import java.io.IOException
 
-class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,autor:String,cijena_knjige:Int, private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_buy_book) {
+class BooksOfUsersDialogFragment(idUser: Int, ID:Int, Naziv:String, Desc:String, autor:String, cijena_knjige:Int, private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_buy_book) {
 
     var IDUser:Int = 0
     constructor(idUser:Int, addedCallback:()->Unit) :this(0,0,"","","",0, {}){

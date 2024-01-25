@@ -39,11 +39,12 @@ class BooksFragment(private val libraryId: Int, private val Id: Int) : Fragment(
         val bookId = selectedBook.idKnjige.toIntOrNull() ?: -1
         val dialogFragment = BooksOfUsersDialogFragment(
 
-            Id, // Pass the user ID
-            bookId,// Pass the user ID
+            Id,
+            bookId,
             selectedBook.naziv_knjige,
             selectedBook.Description,
-            selectedBook.autor
+            selectedBook.autor,
+            selectedBook.cijena_knjige
         ) {
             // Callback to handle UI update after book purchase
             updateUIAfterBookPurchase(recyclerView)

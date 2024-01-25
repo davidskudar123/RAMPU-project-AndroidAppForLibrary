@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Dodan atribut cijena knjige kod pregleda knjiga.">
+    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Implementirana kupovina knjige prema stvarnoj cijeni knjige u bazi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Books.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/Books.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +134,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1706216939997</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Implementirana kupovina knjige prema stvarnoj cijeni knjige u bazi.">
+      <created>1706217476939</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1706217476939</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +168,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dodan atribut cijena knjige kod pregleda knjiga." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodan atribut cijena knjige kod pregleda knjiga." />
+    <MESSAGE value="Implementirana kupovina knjige prema stvarnoj cijeni knjige u bazi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementirana kupovina knjige prema stvarnoj cijeni knjige u bazi." />
   </component>
 </project>
