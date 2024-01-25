@@ -25,10 +25,10 @@ import kotlinx.coroutines.launch
 import okhttp3.internal.userAgent
 import java.io.IOException
 
-class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,autor:String, private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_buy_book) {
+class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,autor:String,cijena_knjige:Int private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_buy_book) {
 
     var IDUser:Int = 0
-    constructor(idUser:Int, addedCallback:()->Unit) :this(0,0,"","","", {}){
+    constructor(idUser:Int, addedCallback:()->Unit) :this(0,0,"","","",0, {}){
         this.IDUser = idUser
         this.addedCallback = addedCallback
     }
@@ -38,10 +38,12 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
     var Name = Naziv
     var Desc = Desc
     var Autor = autor
+    var Cijena = cijena_knjige
     lateinit var add_title: TextView
     lateinit var bookName : TextView
     lateinit var title: TextView
     lateinit var bookDesc : TextView
+    lateinit var cijena: TextView
     lateinit var close: Button
     lateinit var buy: Button
     lateinit var autor : TextView
@@ -74,10 +76,12 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
         sc_notice = view.findViewById(R.id.sc_notice_add)
         sc_sign = view.findViewById(R.id.sc_sign_add)
         money = view.findViewById(R.id.moneyShow)
+        cijena = view.findViewById(R.id.price)
         title.setText("Buying a book")
         bookName.setText("${Name}")
         bookDesc.setText("${Desc}")
         autor.setText("${Autor}")
+        cijena.setText("${Cijena}")
 
         val paymentOptions = arrayOf("Cash on collection", "My wallet")
         val adapter =
@@ -103,7 +107,7 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
                 return@setOnClickListener
             } else {
                 var spinnerValue = selectedPaymentMethod.toString()
-                BuyABook(IdBook, UserID, Name, Desc, Autor, spinnerValue)
+                BuyABook(IdBook, UserID, Name, Desc, Autor, Cijena, spinnerValue)
                 dismiss()
             }
 
@@ -134,18 +138,19 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int,Naziv:String,Desc:String,au
     }
 
     @SuppressLint("SuspiciousIndentation")
-    fun BuyABook(IDbook:Int, IDuser:Int, Name: String, Desc:String, Autor:String, spinnerValue: String){
+    fun BuyABook(IDbook:Int, IDuser:Int, Name: String, Desc:String, Autor:String, Cijena:Int, spinnerValue: String){
         var idbook:Int = IDbook
         var iduser:Int = IDuser
         var name:String = Name
         var desc:String = Desc
         var autor:String = Autor
+        var cijena:Int = Cijena
         var spinnerValue = spinnerValue
         var jsonConverter: JsonConverter = JsonConverter()
         var httpRequestManager: HttpRequestManager = HttpRequestManager()
 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
-            var purchasedBookInJson: String = jsonConverter.PurchasedBookToJsonConverter(idbook, iduser, name, desc, autor)
+            var purchasedBookInJson: String = jsonConverter.PurchasedBookToJsonConverter(idbook, iduser, name, desc, autor, cijena)
             var connection: String = jsonConverter.userBooktoJsonConverter(iduser,idbook)
 
             if(spinnerValue == "Cash on collection"){

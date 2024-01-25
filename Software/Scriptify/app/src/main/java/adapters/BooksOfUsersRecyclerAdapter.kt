@@ -46,6 +46,7 @@ class BooksOfUsersRecyclerAdapter(val data:List<Books>, Id:Int, val updateCallba
                 items.naziv_knjige,
                 items.Description,
                 items.autor,
+                items.cijena_knjige,
                 updateCallback
             )
             booksOfUsersDialogFragment.show(fragmentManager, "BooksOfUsersDialogFragment")
