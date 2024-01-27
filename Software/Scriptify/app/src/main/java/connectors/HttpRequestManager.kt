@@ -24,7 +24,7 @@ import java.util.Properties
 
 class HttpRequestManager {
     val properties = Properties()
-    private val address:String ="http://192.168.216.145"
+    private val address:String ="http://192.168.1.4"
     private val url: String = "${address}:4000/"
     private var urlSpecific: String ="${address}:4000/loginuser"
     private var registrationUrl: String = "${address}:4000/register"
@@ -46,6 +46,10 @@ class HttpRequestManager {
     private var reviews: String = "${address}:4000/review"
     private var getBooks: String = "${address}:4000/getBooks"
     private var addReview: String = "${address}:4000/addReview"
+    private var delete: String = "${address}:4000/delete"
+    private var urlUserOfBook: String = "${address}:4000/urlUserOfBook"
+
+
     private val client = OkHttpClient()
 //dohvaćanje
 fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
@@ -206,6 +210,29 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
         return res.toString()
     }
 
+    fun getUserIdOfBook(jsonBody : String): String  {
+        val request = Request.Builder()
+            .url("${urlUserOfBook}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        var res: String? = ""
+
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                // Handle unsuccessful response if needed
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+        return res.toString()
+    }
+
 
     fun getUserBooks(id:Int):String{
         val request = Request.Builder().url("${urlBooks}/${id}").build()
@@ -329,6 +356,15 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
         val client = OkHttpClient()
         val request = Request.Builder()
             .url("${connectBook}")
+            .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+        val response = client.newCall(request).execute()
+        return response.isSuccessful
+    }
+    fun DeleteUserBook(jsonBody: String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${delete}")
             .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
             .build()
         val response = client.newCall(request).execute()

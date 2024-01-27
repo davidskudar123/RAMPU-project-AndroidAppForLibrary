@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Završena implementacija kupnje prema stvarnoj cijeni knjige.">
+    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Azurirana baza.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,16 +42,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Scriptify.app.main" />
@@ -145,7 +147,19 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1706219281114</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Dorađena razmjena knjiga, postoji problem sto se jedna zamjena desi, a druga ne.">
+      <created>1706220234153</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1706220234153</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Azurirana baza.">
+      <created>1706220373068</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1706220373068</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +189,8 @@
     <MESSAGE value="Dodan atribut cijena knjige kod pregleda knjiga." />
     <MESSAGE value="Implementirana kupovina knjige prema stvarnoj cijeni knjige u bazi." />
     <MESSAGE value="Završena implementacija kupnje prema stvarnoj cijeni knjige." />
-    <option name="LAST_COMMIT_MESSAGE" value="Završena implementacija kupnje prema stvarnoj cijeni knjige." />
+    <MESSAGE value="Dorađena razmjena knjiga, postoji problem sto se jedna zamjena desi, a druga ne." />
+    <MESSAGE value="Azurirana baza." />
+    <option name="LAST_COMMIT_MESSAGE" value="Azurirana baza." />
   </component>
 </project>

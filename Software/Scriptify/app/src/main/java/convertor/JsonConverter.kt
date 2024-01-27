@@ -48,6 +48,21 @@ class JsonConverter {
             return gson.fromJson(json, Array<User>::class.java).toList()
         }
     }
+    data class UserResponse(val user_id_user: Int)
+    public fun JsonToUserIdConverter(json: String): Int? {
+        if (json == "null") {
+            return null
+        } else {
+            val gson = Gson()
+            val userArray = gson.fromJson(json, Array<UserResponse>::class.java)
+
+            // Ako imate samo jedan rezultat, možete uzeti prvi element niza
+            val userResponse = userArray.firstOrNull()
+
+            // Ako je objekt dostupan, dobijte user_id_user
+            return userResponse?.user_id_user
+        }
+    }
     public fun JsonToReviewConverter(json:String):List<Reviews>?{
         if(json == "null"){
             return null
@@ -76,11 +91,9 @@ class JsonConverter {
 
     public fun userToJsonConverter(id:Int):String{
         val jsonObject = JSONObject()
-        jsonObject.put("id_user", id)
+        jsonObject.put("user_id_user", id)
         return  jsonObject.toString()
     }
-
-
 
     public fun BookToJsonConverter(idKnjige:Int,naziv_knjige:String,Description:String,autor:String):String{
         val jsonObject = JSONObject()
@@ -124,7 +137,11 @@ class JsonConverter {
         return jsonObject.toString()
     }
 
-
+    public fun BookJsonConverter(idBook:Int): String{
+        val jsonObject = JSONObject()
+        jsonObject.put("Knjige_idKnjige",idBook)
+        return jsonObject.toString()
+    }
     public fun JsonToBooksConverter(json:String):List<Books>?{
         if(json == "null"){
             return null

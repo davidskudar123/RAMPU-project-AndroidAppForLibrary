@@ -93,11 +93,29 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
         var httpRequestManager: HttpRequestManager = HttpRequestManager()
 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
-            var connection1: String = jsonConverter.BooktoBooktoJsonConverter(IdBook, selectedBook.idKnjige.toInt()) // krizanje knjige i korisnika
-            val successConnection1: Boolean = httpRequestManager.UpdateConnectBookToBook(connection1)
-            if (successConnection1) {
-                var connection2: String = jsonConverter.BooktoBooktoJsonConverter(selectedBook.idKnjige.toInt(), IdBook) // krizanje knjige i korisnika
-                val successConnection2: Boolean = httpRequestManager.UpdateConnectBookToBook(connection2)
+
+
+            var delete1: String = jsonConverter.BookJsonConverter(IdBook)
+            var delete2: String = jsonConverter.BookJsonConverter(selectedBook.idKnjige.toInt())
+
+            val data = httpRequestManager.getUserIdOfBook(delete2)
+
+            val userId: Int? = jsonConverter.JsonToUserIdConverter(data)
+
+            println("${userId}")
+            var deleted1: Boolean = httpRequestManager.DeleteUserBook(delete1)
+            var deleted2: Boolean = httpRequestManager.DeleteUserBook(delete2)
+
+            var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, IdBook)
+            val successConnection1: Boolean = httpRequestManager.connectBookUser(connection1)
+
+            if(userId != null) {
+                var connection2: String = jsonConverter.userBooktoJsonConverter(
+                    userId,
+                    selectedBook.idKnjige.toInt()
+                )
+                val successConnection2: Boolean =
+                    httpRequestManager.connectBookUser(connection2)
             }
 
 
