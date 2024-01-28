@@ -9,9 +9,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova.">
+    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Ažuriran server.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/androidTest/java/com/example/scriptify/hr/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/androidTest/java/com/example/scriptify/hr/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/BooksAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/LibraryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/LibraryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/com/example/scriptify/hr/RegisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/AddReviewDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/AddReviewDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BookReviewsDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksLoan.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBooksFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +176,19 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1706376535701</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Završena razmjena knjiga između korisnika.">
+      <created>1706437996411</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1706437996411</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Ažuriran server.">
+      <created>1706438094138</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1706438094138</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +221,8 @@
     <MESSAGE value="Dorađena razmjena knjiga, postoji problem sto se jedna zamjena desi, a druga ne." />
     <MESSAGE value="Azurirana baza." />
     <MESSAGE value="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova." />
+    <MESSAGE value="Završena razmjena knjiga između korisnika." />
+    <MESSAGE value="Ažuriran server." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ažuriran server." />
   </component>
 </project>

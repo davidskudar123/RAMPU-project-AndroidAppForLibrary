@@ -34,7 +34,6 @@ class LibraryAdapter(
 
         fun bind(library: Library) {
             libraryNameTextView.text = library.ime
-            // Bind other views with data if needed
         }
     }
 }

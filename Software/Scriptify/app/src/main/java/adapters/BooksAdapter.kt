@@ -11,7 +11,6 @@ import com.example.scriptify.hr.R
 class BooksAdapter(private val books: List<Books>) :
     RecyclerView.Adapter<BooksAdapter.BookViewHolder>() {
 
-    // Add onItemClickListener property
     var onItemClickListener: ((Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -24,9 +23,7 @@ class BooksAdapter(private val books: List<Books>) :
         val book = books[position]
         holder.bind(book)
 
-        // Set click listener on the item view
         holder.itemView.setOnClickListener {
-            // Invoke the onItemClickListener callback with the clicked position
             onItemClickListener?.invoke(position)
         }
     }

@@ -149,7 +149,6 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
                 launch(Dispatchers.Main) {
                     bookList = jsonConverter.JsonToBooksConverter(data) ?: emptyList()
 
-                    // Postavite adapter na Spinner
                     val bookArrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, bookList)
                     bookArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     bookForExchange.adapter = bookArrayAdapter

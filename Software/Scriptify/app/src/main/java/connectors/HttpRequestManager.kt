@@ -20,7 +20,6 @@ import java.util.Properties
 
 
 
-//Ova klasa služi za dohvaćanje svih zahtjeva sa Servera, po potrebi se proširava
 
 class HttpRequestManager {
     val properties = Properties()
@@ -51,7 +50,7 @@ class HttpRequestManager {
 
 
     private val client = OkHttpClient()
-//dohvaćanje
+
 fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
 
 
@@ -113,7 +112,6 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
             } else {
-                // Handle unsuccessful response if needed
                 res = "Unexpected code ${response.code}"
             }
         } catch (e: IOException) {
@@ -155,7 +153,6 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
             } else {
-                // Handle unsuccessful response if needed
                 res = "Unexpected code ${response.code}"
             }
         } catch (e: IOException) {
@@ -175,7 +172,6 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
             } else {
-                // Handle unsuccessful response if needed
                 res = "Unexpected code ${response.code}"
             }
         } catch (e: IOException) {
@@ -200,7 +196,6 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
             } else {
-                // Handle unsuccessful response if needed
                 res = "Unexpected code ${response.code}"
             }
         } catch (e: IOException) {
@@ -223,7 +218,6 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
             } else {
-                // Handle unsuccessful response if needed
                 res = "Unexpected code ${response.code}"
             }
         } catch (e: IOException) {
@@ -243,7 +237,6 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
             if (response.isSuccessful) {
                 res = response.body?.string() ?: "Empty response body"
             } else {
-                // Handle unsuccessful response if needed
                 res = "Unexpected code ${response.code}"
             }
         } catch (e: IOException) {
@@ -421,10 +414,8 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
         try {
             val jsonMediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
 
-            // Use the updated registration endpoint URL
 
 
-            // Create JSON request body using the JsonConverter
             val requestBody = JsonConverter().registrationRequestJson(
                 username,
                 password,
@@ -434,16 +425,13 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
                 lastName
             )
 
-            // Create the request
             val request = Request.Builder()
                 .url(registrationUrl)
                 .post(requestBody.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
                 .build()
 
-            // Make the request
             val response: Response = client.newCall(request).execute()
 
-            // Check if registration was successful based on the HTTP status code
             val registrationSuccessful = response.isSuccessful
 
             return registrationSuccessful

@@ -10,7 +10,6 @@ import blueprints.User
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONObject
-//Ova klasa služi za pretvaranje JSON objekata u Objekte u blueprintu, po potrebi se proširava
 
 class JsonConverter {
 
@@ -56,10 +55,8 @@ class JsonConverter {
             val gson = Gson()
             val userArray = gson.fromJson(json, Array<UserResponse>::class.java)
 
-            // Ako imate samo jedan rezultat, možete uzeti prvi element niza
             val userResponse = userArray.firstOrNull()
 
-            // Ako je objekt dostupan, dobijte user_id_user
             return userResponse?.user_id_user
         }
     }
@@ -73,7 +70,7 @@ class JsonConverter {
     }
     public fun UserToJsonConverter(id:Int,updatedFirstName:String,updatedLastName:String,updatedAddress:String,updatedUsername:String,updatedPassword:String,updatedMail:String):String{
         val jsonObject = JSONObject()
-        jsonObject.put("id_user", id) // Pretpostavimo da treba poslati i ID korisnika
+        jsonObject.put("id_user", id)
         jsonObject.put("first_name", updatedFirstName)
         jsonObject.put("last_name", updatedLastName)
         jsonObject.put("address", updatedAddress)
@@ -160,7 +157,6 @@ class JsonConverter {
         return jsonObject.toString()
     }
 
-//tijelo zahtjeva za registraciju
     public fun registrationRequestJson(
         username: String,
         password: String,

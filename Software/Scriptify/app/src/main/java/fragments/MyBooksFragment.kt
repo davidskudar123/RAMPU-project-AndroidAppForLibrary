@@ -26,8 +26,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.*
 import kotlinx.coroutines.delay
-// Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview
-//VRLO BITNO- Pošto radimo sa http requestovima potrebno je koristiti courutines, u ostalim fragmentima može se pronaći implementacija koja se može iskopirati i doraditi po potrebi
 
 class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
@@ -70,7 +68,6 @@ class MyBooksFragment(Id:Int) : Fragment(R.layout.my_books_fragment) {
 
                     launch(Dispatchers.Main) {
                         val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)
-                        //kreiramo callback funkciju u adapteru koju ćemo proslijediti i u dialog fragment koji će onda invokat ju po potrebi
                         val adapter = MyBookRecyclerAdapter(books!!,Id){
 
                             loadView(Id,recycler)

@@ -28,8 +28,6 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.io.IOException
 
-// Za implementaciju potrebno je dodati Book blueprint, dodati konekcije na server u HttpRequestManageru, i onda u JsonConverteru da ih možemo loadati, uz to i recyclerview
-//VRLO BITNO- Pošto radimo sa http requestovima potrebno je koristiti courutines, u ostalim fragmentima može se pronaći implementacija koja se može iskopirati i doraditi po potrebi
 class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
 
     private val Id: Int = id
@@ -65,7 +63,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         profile_rv = view.findViewById(R.id.profile_rv)
         val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.animation)
         profile_rv.startAnimation(animation)
-        //dodavanje novaca
         money = view.findViewById(R.id.money_profile)
         openMoneyDialog = view.findViewById(R.id.btn_openMoneyDialog)
         add_money = view.findViewById(R.id.btn_add_money)
@@ -73,7 +70,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         input_money_amount = view.findViewById(R.id.input_money_amount)
 
         loadData(first_name, last_name, address, mail,username,password, money)
-        //progress.setVisibility(View.INVISIBLE)
         profile_button.setOnClickListener{
             saveUserData(first_name, last_name, address, username, password, mail);
         }
@@ -106,7 +102,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
-                // Handle the exception, show an error message, etc.
             }
         }
     }
@@ -119,7 +114,6 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         val updatedPassword = password.text.toString()
         val updatedMail = mail.text.toString()
         val jsonConverter: JsonConverter = JsonConverter()
-        //val updatedAddress = adress_profile.text.toString()
 
         val jsonBody = jsonConverter.UserToJsonConverter(Id,updatedFirstName,updatedLastName,updatedAddress,updatedUsername,updatedPassword,updatedMail)
 

@@ -34,13 +34,11 @@ class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
                 val libraries: List<Library>? = httpRequestManager.getLibraries()
 
                 if (libraries != null) {
-                    // Use LibraryAdapter to display libraries
                     launch(Dispatchers.Main) {
                         val libraryAdapter = LibraryAdapter(libraries)
                         recyclerView.adapter = libraryAdapter
                         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-                        // Set onItemClickListener for reacting to library selection
                         libraryAdapter.onItemClickListener = { position ->
                             val selectedLibraryId = libraries[position].idKnjizara
                             showBooksForLibrary(selectedLibraryId)
@@ -48,11 +46,9 @@ class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
                     }
 
                 } else {
-                    // Handle case when libraries are null or empty
                     Log.e("BooksLoan", "Libraries are null or empty")
                 }
             } catch (e: Exception) {
-                // Handle exception, log error, or show an error message
                 Log.e("BooksLoan", "Error fetching libraries", e)
             }
         }
@@ -61,11 +57,7 @@ class BooksLoan(Id: Int) : Fragment(R.layout.book_loan_fragment) {
     }
 
     private fun showBooksForLibrary(libraryId: Int) {
-        // Call the function to fetch books for the selected library
-        // Example:
-        //val books = httpRequestManager.getLibraryBooks(libraryId) ?: emptyList()
 
-        // Create and show a new fragment with the retrieved books
         val booksFragment = BooksFragment(libraryId,id)
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.flLayout, booksFragment)

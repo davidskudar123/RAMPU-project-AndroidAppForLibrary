@@ -57,7 +57,6 @@ class BookReviewsDialogFragment(Id:Int,Iduser:Int) : DialogFragment(R.layout.boo
 
                 launch(Dispatchers.Main) {
                     val reviews: List<Reviews>? = jsonConverter.JsonToReviewConverter(data)
-                    //kreiramo callback funkciju u adapteru koju ćemo proslijediti i u dialog fragment koji će onda invokat ju po potrebi
                     val adapter = MyBookReviewsAdapter(reviews!!,idBook)
                     recyclerView.adapter = adapter
 

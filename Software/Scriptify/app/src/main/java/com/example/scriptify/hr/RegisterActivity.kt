@@ -108,10 +108,9 @@ class RegisterActivity : AppCompatActivity() {
 
 
             }
-                // Navigate back to the LoginActivity
                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 startActivity(intent)
-                finish() //Close Register
+                finish()
         }
     }
 }

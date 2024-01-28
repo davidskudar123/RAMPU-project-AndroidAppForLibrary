@@ -61,7 +61,6 @@ class AddReviewDialogFragment(IdBook: Int,Iduser:Int,val callback: ()->Unit) : D
 
                 launch(Dispatchers.Main) {
                     if (user != null && !user.isNullOrEmpty() && autor != null) {
-                        // Assuming user[0].name is the property you want to set in the autor EditText
                         autor.setText(user[0].first_name ?: "Default Text")
                     }
 
