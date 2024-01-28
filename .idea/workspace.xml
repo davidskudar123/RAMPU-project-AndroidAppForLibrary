@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Azurirana baza.">
+    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +157,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1706220373068</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova.">
+      <created>1706376535701</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1706376535701</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +195,7 @@
     <MESSAGE value="Završena implementacija kupnje prema stvarnoj cijeni knjige." />
     <MESSAGE value="Dorađena razmjena knjiga, postoji problem sto se jedna zamjena desi, a druga ne." />
     <MESSAGE value="Azurirana baza." />
-    <option name="LAST_COMMIT_MESSAGE" value="Azurirana baza." />
+    <MESSAGE value="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova." />
+    <option name="LAST_COMMIT_MESSAGE" value="Dorađena zamjena knjiga, sada se izbrisu trenutne zamjene ali se jos ne doda nova." />
   </component>
 </project>

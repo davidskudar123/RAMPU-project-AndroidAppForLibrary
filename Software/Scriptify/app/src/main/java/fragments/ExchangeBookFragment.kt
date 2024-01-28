@@ -98,16 +98,22 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
             var delete1: String = jsonConverter.BookJsonConverter(IdBook)
             var delete2: String = jsonConverter.BookJsonConverter(selectedBook.idKnjige.toInt())
 
-            val data = httpRequestManager.getUserIdOfBook(delete2)
+            val data = httpRequestManager.getUserIdOfBook(delete1)
 
             val userId: Int? = jsonConverter.JsonToUserIdConverter(data)
 
-            println("${userId}")
+
             var deleted1: Boolean = httpRequestManager.DeleteUserBook(delete1)
             var deleted2: Boolean = httpRequestManager.DeleteUserBook(delete2)
 
+            println("Obrisano 1: $deleted1")
+            println("Obrisano 2: $deleted2")
+
             var connection1: String = jsonConverter.userBooktoJsonConverter(UserID, IdBook)
             val successConnection1: Boolean = httpRequestManager.connectBookUser(connection1)
+
+            println("${connection1}")
+            println("${successConnection1}")
 
             if(userId != null) {
                 var connection2: String = jsonConverter.userBooktoJsonConverter(
@@ -116,6 +122,8 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
                 )
                 val successConnection2: Boolean =
                     httpRequestManager.connectBookUser(connection2)
+                println("${connection2}")
+                println("${selectedBook.idKnjige.toInt()}")
             }
 
 
