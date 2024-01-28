@@ -29,6 +29,7 @@ import okhttp3.internal.connection.Exchange
 import okhttp3.internal.userAgent
 import java.io.IOException
 
+
 class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_exchange_book) {
 
     var IDUser:Int = 0
