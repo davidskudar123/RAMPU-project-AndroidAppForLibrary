@@ -10,6 +10,7 @@ let con = mysql.createConnection({
   port: 3306
 });
 
+
 app.get('/', (req, res) => {
 
 
@@ -117,7 +118,7 @@ console.log("UPDATE FINISH");
 });
 
 app.post('/urlMoneyInfo', (req, res) => {
-  const userData = req.body.id_user;
+  const userData = req.body.user_id_user;
   console.log(userData)
 
   console.log('Connected to database');

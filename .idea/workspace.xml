@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Uklonjeni svi komentari.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
-    </list>
+    <list default="true" id="61912d71-57a3-4b58-b81f-55af7201dcb9" name="Changes" comment="Ispravljene pogreške kod kupnje knjiga." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +179,13 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1706460531229</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Ispravljene pogreške kod kupnje knjiga.">
+      <created>1706463333530</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1706463333530</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +221,7 @@
     <MESSAGE value="Završena razmjena knjiga između korisnika." />
     <MESSAGE value="Ažuriran server." />
     <MESSAGE value="Uklonjeni svi komentari." />
-    <option name="LAST_COMMIT_MESSAGE" value="Uklonjeni svi komentari." />
+    <MESSAGE value="Ispravljene pogreške kod kupnje knjiga." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ispravljene pogreške kod kupnje knjiga." />
   </component>
 </project>
