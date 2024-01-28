@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="350dp"
-        android:layout_height="500dp"
+        android:layout_height="600dp"
         android:layout_margin="15dp"
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,16 +154,17 @@
             android:layout_width="183dp"
             android:layout_height="45dp"
             android:layout_margin="10dp"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
             android:backgroundTint="@color/button_exchange"
             android:text="Reviews"
 
             app:cornerRadius="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/mybooks_delete_dialog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+            app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mybooks_close_dialog"
@@ -213,6 +214,30 @@
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout1"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/et_book_cost"
+            android:layout_width="94dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="0"
+            app:layout_constraintBottom_toTopOf="@+id/mybooks_reviews"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="€"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/mybooks_reviews"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/et_book_cost" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

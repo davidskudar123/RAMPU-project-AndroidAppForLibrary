@@ -27,12 +27,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 import java.io.IOException
+import java.lang.Integer.parseInt
 import kotlin.random.Random
 
-class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
+class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String,cijena_knjige:Int,private val updateCallback: () -> Unit) : DialogFragment(R.layout.dialog_my_books) {
 
     var IDUser:Int = user
-    constructor(idUser:Int,addedCallback:()->Unit) :this(0,0,"","","",{}){
+    constructor(idUser:Int,addedCallback:()->Unit) :this(0,0,"","","",0,{}){
         this.IDUser = idUser
         this.addedCallback = addedCallback
     }
@@ -42,6 +43,7 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
     var Name = Naziv
     var Desc = Desc
     var Autor = autor
+    var Cijena = cijena_knjige
     lateinit var add_title: TextView
     lateinit var bookName : EditText
     lateinit var title: TextView
@@ -56,6 +58,7 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
     lateinit var sc_sign: TextView
     lateinit var addedCallback: ()->Unit
     lateinit var reviews: Button
+    lateinit var bookCost: EditText
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,10 +81,12 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
         add_title = view.findViewById(R.id.title_dialog_mybooks_add)
         sc_notice = view.findViewById(R.id.sc_notice_add)
         sc_sign = view.findViewById(R.id.sc_sign_add)
+        bookCost = view.findViewById(R.id.et_book_cost)
         title.setText("${Name}")
         bookName.setText("${Name}")
         bookDesc.setText("${Desc}")
         autor.setText("${Autor}")
+        bookCost.setText("${Cijena}")
 
         close.setOnClickListener {
             dismiss()
@@ -96,7 +101,7 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
             sc_notice.setVisibility(View.VISIBLE)
         }
         update.setOnClickListener {
-            saveBookData(IdBook,bookName,bookDesc,autor)
+            saveBookData(IdBook,bookName,bookDesc,autor,bookCost)
             notifyBookUpdated()
             dismiss()
         }
@@ -139,7 +144,7 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
                 Toast.makeText(requireContext(),"You have to insert authors name",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }else{
-                addBook(IDUser,settableBookId,bookName,bookDesc,autor)
+                addBook(IDUser,settableBookId,bookName,bookDesc,autor,bookCost)
                 notifyBookAdded()
                 dismiss()
             }
@@ -150,15 +155,16 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
 
         return view
     }
-    fun addBook(userID:Int,BookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText){
+    fun addBook(userID:Int,BookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText,Cijena_Knjige:EditText){
         var naziv:String = Naziv.text.toString()
         var desc:String = Desc.text.toString()
         var autor:String = Autor.text.toString()
+        var cijena_knjige: Int = parseInt(Cijena_Knjige.text.toString())
         var jsonConverter: JsonConverter = JsonConverter()
         var httpRequestManager: HttpRequestManager = HttpRequestManager()
 
        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
-            var bookJson: String = jsonConverter.BookToJsonConverter(BookID,naziv,desc,autor)
+            var bookJson: String = jsonConverter.BookToJsonConverter(BookID,naziv,desc,autor,cijena_knjige)
             var connection: String = jsonConverter.userBooktoJsonConverter(userID,BookID)
             val success:Boolean = httpRequestManager.makeBook(bookJson)
            val successConnection: Boolean = httpRequestManager.connectBookUser(connection)
@@ -201,16 +207,17 @@ class MyBookDialogFragment(user:Int,ID:Int,Naziv:String,Desc:String,autor:String
             }
         }
     }
-    fun saveBookData(bookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText){
+    fun saveBookData(bookID:Int,Naziv: EditText,Desc:EditText,Autor:EditText,Cijena_Knjige:EditText){
         val updatedNaziv = Naziv.text.toString()
         val updatedDesc = Desc.text.toString()
         val updatedAutor = Autor.text.toString()
+        var cijena_knjige: Int = parseInt(Cijena_Knjige.text.toString())
         val jsonConverter: JsonConverter = JsonConverter()
 
         notifyBookUpdated()
         var success: Boolean = false
         val httpRequestManager: HttpRequestManager = HttpRequestManager()
-        val jsonBody = jsonConverter.BookToJsonConverter(bookID,updatedNaziv,updatedDesc,updatedAutor)
+        val jsonBody = jsonConverter.BookToJsonConverter(bookID,updatedNaziv,updatedDesc,updatedAutor,cijena_knjige)
         val courutine =  viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Default) {
             try {
                 val jsonConverter = JsonConverter()

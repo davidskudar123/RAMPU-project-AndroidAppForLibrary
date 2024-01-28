@@ -35,7 +35,7 @@ class MyBookRecyclerAdapter(val data:List<Books>,Id:Int,val updateCallback: () -
         holder.autor.text = items.autor
         holder.itemView.setOnClickListener {
             val fragmentManager = (holder.itemView.context as FragmentActivity).supportFragmentManager
-            val myBookDialogFragment = MyBookDialogFragment(Id,items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor,updateCallback)
+            val myBookDialogFragment = MyBookDialogFragment(Id,items.idKnjige.toInt(),items.naziv_knjige,items.Description,items.autor,items.cijena_knjige,updateCallback)
             myBookDialogFragment.show(fragmentManager, "MyBookDialogFragment")
         }
 

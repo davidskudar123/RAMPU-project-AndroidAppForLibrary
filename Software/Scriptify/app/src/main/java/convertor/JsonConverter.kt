@@ -92,12 +92,13 @@ class JsonConverter {
         return  jsonObject.toString()
     }
 
-    public fun BookToJsonConverter(idKnjige:Int,naziv_knjige:String,Description:String,autor:String):String{
+    public fun BookToJsonConverter(idKnjige:Int,naziv_knjige:String,Description:String,autor:String,cijena_knjige:Int):String{
         val jsonObject = JSONObject()
         jsonObject.put("idKnjige", idKnjige) // Pretpostavimo da treba poslati i ID korisnika
         jsonObject.put("naziv_knjige", naziv_knjige)
         jsonObject.put("autor", autor)
         jsonObject.put("Description", Description)
+        jsonObject.put("cijena_knjige", cijena_knjige)
 
         return  jsonObject.toString()
     }
