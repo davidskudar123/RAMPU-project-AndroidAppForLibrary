@@ -135,6 +135,27 @@ app.post('/urlMoneyInfo', (req, res) => {
     res.json(results);
 console.log(results);
   });
+})
+
+app.post('/urlUserOfBook', (req, res) => {
+  const userData = req.body.Knjige_idKnjige;
+  console.log(userData)
+
+  console.log('Connected to database');
+
+  // Izvrši SQL UPDATE upit
+  const sql = `SELECT user_id_user FROM user_has_knjige WHERE Knjige_idKnjige = ${userData}`;
+  con.query(sql, (error, results, fields) => {
+    if (error) {
+      console.error('Error updating data: ' + error.stack);
+      res.status(500).json({ error: 'Error.' });
+      return;
+    }
+
+    // Slanje odgovora o uspješnom ažuriranju
+    res.json(results);
+console.log(results);
+  });
 
 });
 app.get('/review/:id', (req, res) => {
@@ -267,6 +288,20 @@ app.get('/deleteBook/:id',(req,res)=>{
       res.json(results)
   })
 })
+app.post('/delete',(req,res)=>{
+    const userBook = req.body
+    const sql = "DELETE FROM user_has_knjige WHERE Knjige_idKnjige = ?"
+    con.query(sql,[userBook.Knjige_idKnjige],(err,results,fields)=>{
+      if(err){
+        console.log(err)
+        res.status(500).json({error:"Book deleting error"})
+      }
+    })
+    res.json({success:"UserBook deleted"})
+
+
+})
+
 app.post('/userBookCon',(req,res)=>{
     const userBook = req.body
     const sql = "INSERT INTO user_has_Knjige (user_id_user,Knjige_idKnjige) values (?,?)"
@@ -298,7 +333,7 @@ app.post('/updateUserBookCon',(req,res)=>{
 
 app.post('/UpdateConnectBookToBook',(req,res)=>{
     const BooksInfo = req.body
-    const sql = "UPDATE user_has_Knjige SET Knjige_idKnjige = ? WHERE Knjige_idKnjige = ?"
+    const sql = "UPDATE user_has_knjige SET Knjige_idKnjige = ? WHERE Knjige_idKnjige = ?"
     con.query(sql,[BooksInfo.Book,BooksInfo.WhereBook],(err,results,fields)=>{
       if(err){
         console.log(err)
@@ -403,4 +438,4 @@ app.listen(4000, () => {
       return;
     }
 });
-}
+})
