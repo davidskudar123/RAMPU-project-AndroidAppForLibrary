@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 11:05 PM
+-- Generation Time: Jan 29, 2024 at 09:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,10 +40,13 @@ CREATE TABLE `knjige` (
 --
 
 INSERT INTO `knjige` (`idKnjige`, `naziv_knjige`, `autor`, `Description`, `cijena_knjige`) VALUES
+(70013197, 'Programiranje C++', 'Mladen Konecki', 'Knjiga iz programiranja,', 30),
 (77280409, 'Strukture podataka i algoritmi', 'Alen Lovrencic', 'Knjiga iz predmeta \"Strukture podataka i algoritmi\".', 0),
 (174750374, 'Matematicke metode', 'Blazenka Divjak', 'Knjiga iz MMZI.', 0),
 (362938018, 'Matematika 2', 'Blazenka Divjak', 'Knjiga iz matematike 2.', 0),
-(371032171, 'Matematika 1', 'Blazenka Divjak', 'Knjiga iz matematike 1.', 0);
+(371032171, 'Matematika 1', 'Blazenka Divjak', 'Knjiga iz matematike 1.', 34),
+(513649219, 'Knjiga iz Hrvatskog jezika 1', 'Testni autor', 'Opis knjige iz HJ 1.', 23),
+(513649220, 'Knjiga iz knjiznice', 'Testni autor', 'Opis knjige knjiznice.', 44);
 
 -- --------------------------------------------------------
 
@@ -76,6 +79,14 @@ CREATE TABLE `knjizara_has_knjige` (
   `Knjige_idKnjige` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `knjizara_has_knjige`
+--
+
+INSERT INTO `knjizara_has_knjige` (`knjizara_has_knjige_id`, `Knjizara_idKnjizara`, `Knjige_idKnjige`) VALUES
+(17, 1, 513649219),
+(18, 2, 513649220);
+
 -- --------------------------------------------------------
 
 --
@@ -97,7 +108,39 @@ CREATE TABLE `purchased_books` (
 --
 
 INSERT INTO `purchased_books` (`id_purchased_book`, `idKnjige`, `id_user`, `naziv_knjige`, `autor`, `Description`, `cijena_knjige`) VALUES
-(26, 371032171, 5, 'Matematika 1', 'Knjiga iz matematike 1.', 'Blazenka Divjak', 0);
+(26, 371032171, 5, 'Matematika 1', 'Knjiga iz matematike 1.', 'Blazenka Divjak', 0),
+(27, 371032171, 21, 'Matematika 1', 'Knjiga iz matematike 1.', 'Blazenka Divjak', 0),
+(28, 70013197, 5, 'Programiranje C++', 'Knjiga iz programiranja,', 'Mladen Konecki', 0),
+(29, 77280409, 5, 'Strukture podataka i algoritmi', 'Knjiga iz predmeta \"Strukture podataka i algoritmi\".', 'Alen Lovrencic', 0),
+(30, 70013197, 21, 'Programiranje C++', 'Knjiga iz programiranja,', 'Mladen Konecki', 0),
+(31, 362938018, 5, 'Matematika 2', 'Knjiga iz matematike 2.', 'Blazenka Divjak', 0),
+(32, 77280409, 5, 'Strukture podataka i algoritmi', 'Knjiga iz predmeta \"Strukture podataka i algoritmi\".', 'Alen Lovrencic', 0),
+(33, 362938018, 21, 'Matematika 2', 'Knjiga iz matematike 2.', 'Blazenka Divjak', 0),
+(34, 174750374, 21, 'Matematicke metode', 'Knjiga iz MMZI.', 'Blazenka Divjak', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `received_books`
+--
+
+CREATE TABLE `received_books` (
+  `id_received` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `idKnjige` int(11) NOT NULL,
+  `naziv_knjige` varchar(255) NOT NULL,
+  `autor` varchar(255) NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  `cijena_knjige` int(11) NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `received_books`
+--
+
+INSERT INTO `received_books` (`id_received`, `id_user`, `idKnjige`, `naziv_knjige`, `autor`, `Description`, `cijena_knjige`, `status`) VALUES
+(4, 21, 174750374, 'Matematicke metode', 'Blazenka Divjak', 'Knjiga iz MMZI.', 0, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -139,7 +182,7 @@ INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `create_time`, `
 (1, 'john_doe', 'john.doe@example.com', '1234', '2023-11-05 15:00:42', '123 Main St, City, Country', 'John ', 'Doe', 3, 'I like reading a lot'),
 (2, 'jane_smith', 'jane.smith@example.com', 'password456', '2023-11-05 15:00:42', '456 Elm St, Town, Country', 'Jane ', 'Smith', 135, 'Reading is my favourite hobby'),
 (5, 'marino', 'mojmail@gmail.com', '1234', '2023-11-18 14:44:39', 'Sv. Bana jelacica 5', 'Marino', 'Štura', 21, NULL),
-(21, 'dskudar20', 'dskudar20@foi.hr', '1234', '2024-01-25 21:39:31', 'Adresa', 'David', 'Skudar', NULL, NULL);
+(21, 'dskudar20', 'dskudar20@foi.hr', '1234', '2024-01-25 21:39:31', 'Adresa', 'David', 'Škudar', 22, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,10 +200,11 @@ CREATE TABLE `user_has_knjige` (
 --
 
 INSERT INTO `user_has_knjige` (`user_id_user`, `Knjige_idKnjige`) VALUES
-(5, 362938018),
+(5, 70013197),
 (5, 371032171),
+(21, 77280409),
 (21, 174750374),
-(21, 371032171);
+(21, 362938018);
 
 -- --------------------------------------------------------
 
@@ -205,6 +249,12 @@ ALTER TABLE `purchased_books`
   ADD PRIMARY KEY (`id_purchased_book`);
 
 --
+-- Indexes for table `received_books`
+--
+ALTER TABLE `received_books`
+  ADD PRIMARY KEY (`id_received`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -242,7 +292,7 @@ ALTER TABLE `user_has_knjizara_has_knjige`
 -- AUTO_INCREMENT for table `knjige`
 --
 ALTER TABLE `knjige`
-  MODIFY `idKnjige` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513649219;
+  MODIFY `idKnjige` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513649221;
 
 --
 -- AUTO_INCREMENT for table `knjizara`
@@ -254,13 +304,19 @@ ALTER TABLE `knjizara`
 -- AUTO_INCREMENT for table `knjizara_has_knjige`
 --
 ALTER TABLE `knjizara_has_knjige`
-  MODIFY `knjizara_has_knjige_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `knjizara_has_knjige_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `purchased_books`
 --
 ALTER TABLE `purchased_books`
-  MODIFY `id_purchased_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_purchased_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `received_books`
+--
+ALTER TABLE `received_books`
+  MODIFY `id_received` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reviews`
