@@ -57,7 +57,7 @@ class HttpRequestManager {
 fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
 
 
-    val request = Request.Builder().url("${BooksOfLibrary}/$libraryId/$userId").build()
+    val request = Request.Builder().url("${BooksOfLibrary}/$libraryId").build()
     var res: String? = ""
 
     try {

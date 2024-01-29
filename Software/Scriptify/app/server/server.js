@@ -6,7 +6,7 @@ let con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '1234',
-  database: 'sc_final', // ZAMJENI IME PO POTREBI
+  database: 'sc_production', // ZAMJENI IME PO POTREBI
   port: 3306
 });
 
@@ -350,8 +350,8 @@ app.post('/UpdateConnectBookToBook',(req,res)=>{
 app.post('/makeBook',(req,res)=>{
     const bookData = req.body
     console.log('Book has been made')
-    const sql = "INSERT INTO KNJIGE (idKnjige, naziv_knjige, autor, Description) values (?,?,?,?);"
-    con.query(sql,[bookData.idKnjige,bookData.naziv_knjige,bookData.autor,bookData.Description],(err,results,fields)=> {
+    const sql = "INSERT INTO KNJIGE (idKnjige, naziv_knjige, autor, Description,cijena_knjige) values (?,?,?,?,?);"
+    con.query(sql,[bookData.idKnjige,bookData.naziv_knjige,bookData.autor,bookData.Description,bookData.cijena_knjige],(err,results,fields)=> {
       if(err){
         console.log(err)
         res.status(500).json({error:"Book adding error"})
@@ -384,9 +384,9 @@ app.post('/updateBook/:id', (req, res) => {
 
   // Izvrši SQL UPDATE upit
   const sql = `UPDATE Knjige
-  SET naziv_knjige = ?, Description = ?, autor = ?
+  SET naziv_knjige = ?, Description = ?, autor = ?, cijena_knjige = ?
   WHERE idKnjige = ?;`;
-  con.query(sql, [userData.naziv_knjige, userData.Description, userData.autor, userId], (error, results, fields) => {
+  con.query(sql, [userData.naziv_knjige, userData.Description, userData.autor,userData.cijena_knjige, userId], (error, results, fields) => {
     if (error) {
       console.error('Error updating data: ' + error.stack);
       res.status(500).json({ error: 'Error updating data' });
