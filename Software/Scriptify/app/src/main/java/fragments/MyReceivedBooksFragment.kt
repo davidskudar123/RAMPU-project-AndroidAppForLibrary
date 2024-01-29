@@ -1,6 +1,7 @@
 package fragments
 
 import adapters.MyBookRecyclerAdapter
+import adapters.MyReceivedBookRecyclerAdapter
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +20,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import blueprints.Books
+import blueprints.ReceivedBook
 import blueprints.User
 import com.android.volley.toolbox.HttpClientStack.HttpPatch
 import convertor.JsonConverter
@@ -54,11 +56,11 @@ class MyReceivedBooksFragment(Id:Int) : Fragment(R.layout.my_received_books_frag
             try {
                 val jsonConverter: JsonConverter = JsonConverter()
                 val httpRequestManager: HttpRequestManager = HttpRequestManager()
-                var data = httpRequestManager.getUserBooks(Id)
+                var data = httpRequestManager.getUserReceivedBooks(Id)
 
                 launch(Dispatchers.Main) {
-                    val books: List<Books>? = jsonConverter.JsonToBooksConverter(data)
-                    val adapter = MyBookRecyclerAdapter(books!!,Id){
+                    val books: List<ReceivedBook>? = jsonConverter.JsonToReceivedBooksConverter(data)
+                    val adapter = MyReceivedBookRecyclerAdapter(books!!,Id){
 
                         loadView(Id,recycler)
                         recycler.startAnimation(animation)

@@ -153,6 +153,9 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int, Naziv:String, Desc:String,
             var purchasedBookInJson: String = jsonConverter.PurchasedBookToJsonConverter(idbook, iduser, name, desc, autor, cijena)
             var connection: String = jsonConverter.userBooktoJsonConverter(iduser,idbook)
 
+            var status = "Pending"
+            var receivedBookInJson: String = jsonConverter.ReceivedBookToJsonConverter(iduser, idbook, name, desc, autor, cijena, status)
+
             if(spinnerValue == "Cash on collection"){
                 val successBuy:Boolean = httpRequestManager.buyBook(purchasedBookInJson)
                 val successConnection: Boolean = httpRequestManager.UpdateConnectBookUser(connection)

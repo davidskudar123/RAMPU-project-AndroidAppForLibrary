@@ -3,6 +3,7 @@ package convertor
 import blueprints.Books
 
 import blueprints.Library
+import blueprints.ReceivedBook
 
 import blueprints.Reviews
 
@@ -114,6 +115,20 @@ class JsonConverter {
 
         return  jsonObject.toString()
     }
+
+    public fun ReceivedBookToJsonConverter(idUser:Int, idBook:Int, Name:String, Description: String, Autor:String, Cijena: Int, Status: String ):String{
+        val jsonObject = JSONObject()
+        jsonObject.put("id_user", idUser)
+        jsonObject.put("idKnjige", idBook)
+        jsonObject.put("naziv_knjige", Name)
+        jsonObject.put("Description", Description)
+        jsonObject.put("autor", Autor)
+        jsonObject.put("cijena_knjige", Cijena)
+        jsonObject.put("status", Status)
+        return  jsonObject.toString()
+    }
+
+
     public fun UpdateMoneyToJson(idUser: Int, money: Int):String{
         val jsonObject = JSONObject()
         jsonObject.put("id_user", idUser)
@@ -146,6 +161,14 @@ class JsonConverter {
         }else {
             val gson = Gson()
             return gson.fromJson(json, Array<Books>::class.java).toList()
+        }
+    }
+    public fun JsonToReceivedBooksConverter(json:String):List<ReceivedBook>?{
+        if(json == "null"){
+            return null
+        }else {
+            val gson = Gson()
+            return gson.fromJson(json, Array<ReceivedBook>::class.java).toList()
         }
     }
 

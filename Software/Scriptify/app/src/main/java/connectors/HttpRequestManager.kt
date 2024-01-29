@@ -47,6 +47,9 @@ class HttpRequestManager {
     private var addReview: String = "${address}:4000/addReview"
     private var delete: String = "${address}:4000/delete"
     private var urlUserOfBook: String = "${address}:4000/urlUserOfBook"
+    private var urlReceivedBooks: String = "${address}:4000/urlReceivedBooks"
+
+
 
 
     private val client = OkHttpClient()
@@ -230,6 +233,25 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
 
     fun getUserBooks(id:Int):String{
         val request = Request.Builder().url("${urlBooks}/${id}").build()
+        var res: String? = ""
+        try {
+
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                res = response.body?.string() ?: "Empty response body"
+            } else {
+                res = "Unexpected code ${response.code}"
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            res = null
+        }
+
+        return res.toString()
+    }
+
+    fun getUserReceivedBooks(id:Int):String{
+        val request = Request.Builder().url("${urlReceivedBooks}/${id}").build()
         var res: String? = ""
         try {
 
