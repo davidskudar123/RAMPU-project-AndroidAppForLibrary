@@ -10,7 +10,6 @@ let con = mysql.createConnection({
   port: 3306
 });
 
-
 app.get('/', (req, res) => {
 
 
@@ -234,6 +233,23 @@ app.get('/myBooks/:id', (req, res) => {
   });
 });
 
+app.get('/urlReceivedBooks/:id', (req, res) => {
+  const userId = req.params.id;
+  const sql = `SELECT * FROM received_books WHERE id_user = ${userId};`;
+
+  con.query(sql, (error, results, fields) => {
+    if (error) {
+      console.error('Error retrieving data: ' + error.stack);
+      res.status(500).json({ error: 'Error retrieving data' });
+      return;
+    }
+    // Sending a success response
+    res.json(results);
+
+    // Don't forget to end the connection after the query is executed
+  });
+});
+
 app.get('/BooksOfLibrary/:id', (req, res) => {
   const libraryId = req.params.id;
 
@@ -350,8 +366,8 @@ app.post('/UpdateConnectBookToBook',(req,res)=>{
 app.post('/makeBook',(req,res)=>{
     const bookData = req.body
     console.log('Book has been made')
-    const sql = "INSERT INTO KNJIGE (idKnjige, naziv_knjige, autor, Description,cijena_knjige) values (?,?,?,?,?);"
-    con.query(sql,[bookData.idKnjige,bookData.naziv_knjige,bookData.autor,bookData.Description,bookData.cijena_knjige],(err,results,fields)=> {
+    const sql = "INSERT INTO KNJIGE (idKnjige, naziv_knjige, autor, Description) values (?,?,?,?);"
+    con.query(sql,[bookData.idKnjige,bookData.naziv_knjige,bookData.autor,bookData.Description],(err,results,fields)=> {
       if(err){
         console.log(err)
         res.status(500).json({error:"Book adding error"})
@@ -375,6 +391,20 @@ app.post('/buyBook',(req,res)=>{
     })
 })
 
+app.post('/receiveBook',(req,res)=>{
+    const bookData = req.body
+    console.log('Book has been purchase')
+    const sql = "INSERT INTO received_books (id_user, idKnjige, naziv_knjige, autor, Description, cijena_knjige, status) values (?,?,?,?,?,?,?);"
+    con.query(sql,[bookData.id_user, bookData.idKnjige, bookData.naziv_knjige,bookData.autor,bookData.Description, bookData.cijena_knjige, bookData.status],(err,results,fields)=> {
+      if(err){
+        console.log(err)
+        res.status(500).json({error:"Error when buying a book."})
+        return
+      }
+      res.json({message:"Book has been purchased!"})
+    })
+})
+
 // Update book details route
 app.post('/updateBook/:id', (req, res) => {
    const userId = req.params.id;
@@ -384,9 +414,9 @@ app.post('/updateBook/:id', (req, res) => {
 
   // Izvrši SQL UPDATE upit
   const sql = `UPDATE Knjige
-  SET naziv_knjige = ?, Description = ?, autor = ?, cijena_knjige = ?
+  SET naziv_knjige = ?, Description = ?, autor = ?
   WHERE idKnjige = ?;`;
-  con.query(sql, [userData.naziv_knjige, userData.Description, userData.autor,userData.cijena_knjige, userId], (error, results, fields) => {
+  con.query(sql, [userData.naziv_knjige, userData.Description, userData.autor, userId], (error, results, fields) => {
     if (error) {
       console.error('Error updating data: ' + error.stack);
       res.status(500).json({ error: 'Error updating data' });
