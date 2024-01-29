@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c65c92a0-25d1-4c6b-9969-bdbadea86082" name="Changes" comment="Kreiranj fragment za narucene knjige.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
+    <list default="true" id="c65c92a0-25d1-4c6b-9969-bdbadea86082" name="Changes" comment="Implementiran prikaz narucenih knjiga.">
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyReceivedBookRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyReceivedBookRecyclerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/my_received_book_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/my_received_book_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1706515936962</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Implementiran prikaz narucenih knjiga.">
+      <created>1706517940636</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1706517940636</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +180,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Kreiran blueprint ReceivedBook." />
     <MESSAGE value="Kreiranj fragment za narucene knjige." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kreiranj fragment za narucene knjige." />
+    <MESSAGE value="Implementiran prikaz narucenih knjiga." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementiran prikaz narucenih knjiga." />
   </component>
 </project>
