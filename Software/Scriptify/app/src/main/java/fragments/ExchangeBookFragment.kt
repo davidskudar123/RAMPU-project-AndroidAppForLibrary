@@ -93,6 +93,7 @@ class ExchangeBookFragment(idUser: Int, ID:Int, private val updateCallback: () -
         var jsonConverter: JsonConverter = JsonConverter()
         var httpRequestManager: HttpRequestManager = HttpRequestManager()
 
+
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
 
 

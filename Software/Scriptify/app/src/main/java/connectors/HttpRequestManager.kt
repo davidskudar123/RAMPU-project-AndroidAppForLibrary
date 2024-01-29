@@ -48,8 +48,7 @@ class HttpRequestManager {
     private var delete: String = "${address}:4000/delete"
     private var urlUserOfBook: String = "${address}:4000/urlUserOfBook"
     private var urlReceivedBooks: String = "${address}:4000/urlReceivedBooks"
-
-
+    private var receiveBook: String = "${address}:4000/receiveBook"
 
 
     private val client = OkHttpClient()
@@ -367,6 +366,20 @@ fun getLibraryBooks(libraryId: Int, userId: Int): List<Books>? {
         return response.isSuccessful
 
     }
+
+    fun receiveBook(jsonBook:String):Boolean{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("${receiveBook}")
+            .post(jsonBook.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+
+
+        val response = client.newCall(request).execute()
+        return response.isSuccessful
+
+    }
+
     fun connectBookUser(jsonBody: String):Boolean{
         val client = OkHttpClient()
         val request = Request.Builder()

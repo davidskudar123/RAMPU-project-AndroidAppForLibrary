@@ -160,6 +160,8 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int, Naziv:String, Desc:String,
                 val successBuy:Boolean = httpRequestManager.buyBook(purchasedBookInJson)
                 val successConnection: Boolean = httpRequestManager.UpdateConnectBookUser(connection)
 
+                val receiveBook: Boolean = httpRequestManager.receiveBook(receivedBookInJson)
+
                 notifyBookUpdated()
 
                 launch(Dispatchers.Main){
@@ -190,12 +192,14 @@ class BooksOfUsersDialogFragment(idUser: Int, ID:Int, Naziv:String, Desc:String,
                 if(value >= Cijena){
                     val successBuy:Boolean = httpRequestManager.buyBook(purchasedBookInJson)
                     val successConnection: Boolean = httpRequestManager.UpdateConnectBookUser(connection)
+
                     value -= Cijena
                     val jsonBody = jsonConverter.UserMoneyToJsonConverter(UserID, value)
                     val success = httpRequestManager.updateUserMoney(jsonBody, UserID)
                     notifyBookUpdated()
 
                     if (successBuy && successConnection && success) {
+                        val receiveBook: Boolean = httpRequestManager.receiveBook(receivedBookInJson)
                         launch(Dispatchers.Main){
                             Toast.makeText(requireContext(),"The book has been purchased.",Toast.LENGTH_SHORT).show()
                         }

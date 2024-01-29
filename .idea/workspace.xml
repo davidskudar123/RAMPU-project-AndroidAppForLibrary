@@ -9,17 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c65c92a0-25d1-4c6b-9969-bdbadea86082" name="Changes" comment="Kreiran blueprint ReceivedBook.">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/rampu23-scriptifyFinal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyReceivedBookRecyclerAdapter.kt" afterDir="false" />
+    <list default="true" id="c65c92a0-25d1-4c6b-9969-bdbadea86082" name="Changes" comment="Kreiranj fragment za narucene knjige.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/ReceivedBook.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/ReceivedBook.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/BooksOfUsersDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyReceivedBooksFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyReceivedBooksFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/my_received_book_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/my_received_book_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ExchangeBookFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +35,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Development-f" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -55,17 +54,17 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Scriptify.app.main" />
@@ -142,7 +141,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1706514397219</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Kreiranj fragment za narucene knjige.">
+      <created>1706515936962</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1706515936962</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +155,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Development" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -158,6 +175,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Kreiran blueprint ReceivedBook." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kreiran blueprint ReceivedBook." />
+    <MESSAGE value="Kreiranj fragment za narucene knjige." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kreiranj fragment za narucene knjige." />
   </component>
 </project>
