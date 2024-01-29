@@ -16,7 +16,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
+import blueprints.Books
 import blueprints.User
 import com.example.scriptify.hr.MainActivity
 import com.example.scriptify.hr.R
@@ -46,6 +49,7 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
     lateinit var Close: Button
     lateinit var input_money_amount: EditText
     lateinit var profile_rv: ConstraintLayout
+    lateinit var OpenReceivedBooks: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,13 +72,17 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         add_money = view.findViewById(R.id.btn_add_money)
         Close = view.findViewById(R.id.btn_Close)
         input_money_amount = view.findViewById(R.id.input_money_amount)
-
+        OpenReceivedBooks = view.findViewById(R.id.receivedBook)
         loadData(first_name, last_name, address, mail,username,password, money)
         profile_button.setOnClickListener{
             saveUserData(first_name, last_name, address, username, password, mail);
         }
         openMoneyDialog.setOnClickListener{
             showDialogAddMoney()
+        }
+
+        OpenReceivedBooks.setOnClickListener{
+            showReceivedBooks(Id)
         }
         return view
     }
@@ -197,6 +205,17 @@ class ProfileFragment(id:Int) : Fragment(R.layout.profile_activity) {
         Close.setOnClickListener {
             dialog_add_money?.visibility = View.GONE
         }
+    }
+
+    private fun showReceivedBooks(id:Int) {
+
+            val myReceivedBooksFragment = MyReceivedBooksFragment(id)
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.flLayout, myReceivedBooksFragment)
+                .addToBackStack(null)  // Dodajte transakciju na back stack ako želite omogućiti povratak
+                .commit()
+
     }
 
 }

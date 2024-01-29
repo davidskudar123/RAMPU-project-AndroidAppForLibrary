@@ -10,23 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c65c92a0-25d1-4c6b-9969-bdbadea86082" name="Changes" comment="Implementirana 9 funkcionalnost">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyBookRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/adapters/MyBookRecyclerAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/blueprints/ReceivedBook.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyReceivedBooksFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/my_received_book_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/my_received_books_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/connectors/HttpRequestManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/convertor/JsonConverter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/MyBookDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_my_books.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/dialog_my_books.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/java/fragments/ProfileFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/profile_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Software/Scriptify/app/src/main/res/layout/profile_activity.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\mustr\.android\avd\Pixel_7_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\David\.android\avd\Pixel_4_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/Software/Scriptify">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +53,16 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Scriptify.app.main" />

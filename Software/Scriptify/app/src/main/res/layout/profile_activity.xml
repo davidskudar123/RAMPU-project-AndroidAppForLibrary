@@ -139,6 +139,19 @@
                 android:backgroundTint="@color/dark_theme"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/receivedBook" />
+
+            <Button
+                android:id="@+id/receivedBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:cornerRadius="10dp"
+                android:text="Overview of orders"
+                android:backgroundTint="@color/dark_theme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/money" />
 
             <TextView
